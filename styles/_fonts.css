@@ -6,3 +6,35 @@
   font-style: normal;
   font-display: swap;
 } */
+
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: local('Neue Haas Unica Medium'), local('NeueHaasUnica Medium'),
+      url('../public/fonts/NeueHaasUnica-Medium.woff2') format('woff2'),
+      url('../public/fonts/NeueHaasUnica-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueHaasGroteskDisp Pro';
+  src: local('Neue Haas Grotesk Display Pro 75 Bold'), local('NHaasGroteskDSPro-75Bd'),
+      url('../public/fonts/NHaasGroteskDSPro-75Bd.woff2') format('woff2'),
+      url('../public/fonts/NHaasGroteskDSPro-75Bd.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roslindale';
+  src: local('Roslindale Display Condensed Regular'), local('Roslindale-DisplayCondensedRegular'),
+      url('../public/fonts/Roslindale-DisplayCondensedRegular.woff2') format('woff2'),
+      url('../public/fonts/Roslindale-DisplayCondensedRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

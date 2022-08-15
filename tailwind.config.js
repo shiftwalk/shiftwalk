@@ -5,8 +5,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Arial', 'sans-serif'],
-      'mono': ['Lucida Console', 'Courier', 'monospace'],
+      'sans': ['Neue Haas Unica', 'Arial', 'sans-serif'],
+      'serif': ['Roslindale', 'Georgia', 'serif'],
+      'display': ['NeueHaasGroteskDisp Pro', 'Arial', 'sans-serif']
     },
     screens: {
       sm: "640px",
@@ -18,13 +19,10 @@ module.exports = {
     },
     extend: {
       colors: {
-        'black': '#000',
+        'black': '#242B2D',
         'white': '#FFF',
-        'example-color': {
-          light: '#ffb288',
-          DEFAULT: '#d18d67',
-          dark: '#ce8860',
-        },
+        'grey': '#ABAEA8',
+        'blue': '#242B2D'
       }
     },
   },
