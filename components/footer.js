@@ -1,9 +1,9 @@
-export default function Footer() {
+export default function Footer({ noRightPad }) {
   return (
-    <footer className="pl-3">
-      <div className="flex flex-wrap items-center border-t border-black pr-3 py-3">
+    <footer className={`pl-3 ${noRightPad ? 'pr-3' : '' }`}>
+      <div className={`flex flex-wrap items-center border-t border-black pt-3 pb-2 ${noRightPad ? '' : 'pr-3' }`}>
         <div className="mr-auto">
-          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="text-lg md:text-xl xl:text-2xl leading-none">Instagram</a>
+          <a href="https://www.instagram.com/_shiftwalk.studio/" rel="noreferrer noopener" target="_blank" className="text-lg md:text-xl xl:text-2xl leading-none a11y-focus">Instagram</a>
         </div>
 
         <div className="md:mx-auto w-auto">
@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
 
         <div className="w-auto ml-auto">
-          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="text-lg md:text-xl xl:text-2xl leading-none">Email</a>
+          <a href="mailto:hello@shiftwalk.studio" className="text-lg md:text-xl xl:text-2xl leading-none a11y-focus">Email</a>
         </div>
       </div>
     </footer>

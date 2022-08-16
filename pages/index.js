@@ -6,11 +6,15 @@ import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
+import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
+  const [current, setCurrent] = useState(null);
+
   return (
     <Layout>
-      <NextSeo title="Home" />
+      <NextSeo title="Design + Build Studio" />
 
       <Header />
       
@@ -20,12 +24,42 @@ export default function Home() {
           animate="enter"
           exit="exit"
         >
-          <m.article variants={fade}>
+          <m.article>
             {/* Fixed Sidebar */}
-            <div className="fixed top-0 right-0 bottom-0 w-[30vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
+            <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-3">
-                <span className="font-serif mb-2 block text-lg">( Design + Build Studio )</span>
-                <img src="https://placedog.net/700/915" alt="CHANGE ME" />
+                { current == 'sam' && (
+                  <>
+                    <span className="font-serif mb-2 block text-lg">( Sam Goddard — Creative Development)</span>
+                    <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
+                      <img className="w-full h-full object-cover object-center absolute inset-0" src="/images/sam.jpg" alt="CHANGE ME" />
+                    </div>
+                  </>
+                )}
+                { current == 'isaac' && (
+                  <>
+                    <span className="font-serif mb-2 block text-lg">( Isaac Powell — Interaction, Brand, Art Direction )</span>
+                    <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
+                      <img className="w-full h-full object-cover object-center absolute inset-0" src="/images/isaac.jpg" alt="CHANGE ME" />
+                    </div>
+                  </>
+                )}
+                { current == 'projects' && (
+                  <>
+                    <span className="font-serif mb-2 block text-lg">( Selected Projects )</span>
+                    <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
+                      <img className="w-full h-full object-cover object-center absolute inset-0" src="https://placedog.net/600/960" alt="CHANGE ME" />
+                    </div>
+                  </>
+                )}
+                { current == null && (
+                  <>
+                    <span className="font-serif mb-2 block text-lg">( Design + Build Studio )</span>
+                    <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
+                      <img className="w-full h-full object-cover object-center absolute inset-0" src="https://placedog.net/600/983" alt="CHANGE ME" />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
@@ -33,13 +67,15 @@ export default function Home() {
             <Grid>
               <div className="col-span-10 md:col-span-7 pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap px-3 mb-5 md:mb-8 xl:mb-12">
                 <div className="w-full mb-8 md:mb-0">
-                  <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4.25vw] leading-none indent-[12vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
+                  <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4.25vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
                   
-                  <FancyLink className="underline text-lg md:text-xl xl:text-2xl leading-none" destination="/about" a11yText="Navigate to Selected Projects" label="Selected Projects" />
+                  <Link href="/projects">
+                    <a className="inline-block underline text-lg md:text-xl xl:text-2xl leading-none a11y-focus" onMouseEnter={()=> setCurrent('projects')} onMouseLeave={()=> setCurrent(null)}>Selected Projects</a>
+                  </Link>
                 </div>
 
                 <div className="w-full mt-auto">
-                  <div className="mb-20 md:mb-32">
+                  <div className="mt-[4vw] mb-[13vw] md:mb-[8.5vw]">
                     <div className="w-full h-[1px] bg-black -skew-y-12"></div>
                   </div>
 
@@ -92,7 +128,7 @@ export default function Home() {
                   <span className="block font-serif mb-3 text-lg">( People )</span>
 
                   <div className="content w-[85%] md:w-[60%] max-w-[550px] mb-12 md:mb-20 text-lg">
-                    <p>ShiftWalk is led by founders <a href="#">Sam Goddard</a> + <a href="#">Isaac Powell</a>, who have over a decade of experience in design + web technology. Whilst awards don’t affect our judgement during a project, we are proud to have been recognised for our work in numerous sites + publications, including Awwwards, SiteInspire, Klikkentheke, The Brand Identity, and Typewolf.</p>
+                    <p>ShiftWalk is led by founders <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('sam')} onMouseLeave={()=> setCurrent(null)}>Sam Goddard</button> + <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('isaac')} onMouseLeave={()=> setCurrent(null)}>Isaac Powell</button>, who have over a decade of experience in design + web technology. Whilst awards don’t affect our judgement during a project, we are proud to have been recognised for our work in numerous sites + publications, including Awwwards, SiteInspire, Klikkentheke, The Brand Identity, and Typewolf.</p>
                   </div>
 
                   <span className="block font-serif mb-3 text-lg">( Services )</span>
@@ -110,7 +146,7 @@ export default function Home() {
                 </div>
               
                 <div className="col-span-10 md:col-span-7">
-                  <div className="mb-20 md:mb-32 px-3">
+                  <div className="mb-[13vw] md:mb-[8.5vw] px-3">
                     <div className="w-full h-[1px] bg-black -skew-y-12"></div>
                   </div>
                 </div>
