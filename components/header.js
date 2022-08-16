@@ -25,10 +25,12 @@ export default function Header({ bgColor, textColor}) {
               </a>
             </Link>
           </div>
-          <button className="block md:hidden w-10 ml-auto mt-[2px] py-1 a11y-focus">
-            <span className="block w-full h-[3px] mb-1 bg-black"></span>
-            <span className="block w-full h-[3px] bg-black"></span>
-          </button>
+          <Link href="/menu">
+            <a className="block md:hidden w-8 ml-auto mt-[2px] py-1 a11y-focus">
+              <span className={`block w-full h-[2px] mb-1 ${textColor ? `bg-${textColor}` : 'bg-black'}`}></span>
+              <span className={`block w-full h-[2px] ${textColor ? `bg-${textColor}` : 'bg-black'}`}></span>
+            </a>
+          </Link>
         </nav>
       </Grid>
     </header>
