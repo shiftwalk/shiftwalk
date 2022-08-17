@@ -7,6 +7,7 @@ import Grid from '@/components/grid'
 import { useState } from 'react'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
+import Link from 'next/link'
 
 const query = `{
   "journals": *[_type == "journal"] | order(date) {
@@ -69,26 +70,18 @@ export default function Journal(initialData) {
             <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-3">
                 { current !== null && (
-                  <>
-                    <span className="font-serif mb-3 block text-lg">( Info )</span>
+                  <div className="w-full h-[25vw] relative overflow-hidden">
 
-                    <div className="content text-lg indent-[10%] w-[95%] mb-3">
-                      <p>{journals[current].content}</p>
-                    </div>
-
-                    <div className="w-full h-[25vw] relative overflow-hidden">
-
-                      <Image
-                        image={journals[current].image}
-                        focalPoint={journals[current].image.asset.hotspot}
-                        layout="responsive"
-                        priority
-                        sizes="(min-width: 768px) 40vw, 40vw"
-                        className="w-full"
-                        noCaption
-                      />
-                    </div>
-                  </>
+                    <Image
+                      image={journals[current].image}
+                      focalPoint={journals[current].image.asset.hotspot}
+                      layout="responsive"
+                      priority
+                      sizes="(min-width: 768px) 40vw, 40vw"
+                      className="w-full"
+                      noCaption
+                    />
+                  </div>
                 )}
               </div>
             </div>
@@ -100,15 +93,17 @@ export default function Journal(initialData) {
                 
                 {journals.map((e, i) => {
                   return (
-                    <a href="#" onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-3 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`} key={i}>
-                      <div className="flex pb-1">
-                        <span className="font-serif mb-2 block text-base leading-none">( SW.0{i + 1} )</span>
-                        <span className="font-serif mb-2 block text-base leading-none ml-auto text-right">( {e.date} )</span>
-                      </div>
-                      <div className="border-t border-black pt-4">
-                        <h2 className="font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none mb-6 md:mb-8 max-w-[70%] md:max-w-[65%]">{e.title}</h2>
-                      </div>
-                    </a>
+                    <Link href={`/journal/${e.slug.current}`}>
+                      <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-3 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`} key={i}>
+                        <div className="flex pb-1">
+                          <span className="font-serif mb-2 block text-base leading-none">( SW.0{i + 1} )</span>
+                          <span className="font-serif mb-2 block text-base leading-none ml-auto text-right">( {e.date} )</span>
+                        </div>
+                        <div className="border-t border-black pt-4">
+                          <h2 className="font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none mb-6 md:mb-8 max-w-[70%] md:max-w-[65%]">{e.title}</h2>
+                        </div>
+                      </a>
+                    </Link>
                   )
                 })}
               
