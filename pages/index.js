@@ -8,8 +8,24 @@ import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import { useState } from 'react'
 import Link from 'next/link'
+import SanityPageService from '@/services/sanityPageService'
 
-export default function Home() {
+const query = `{
+  "home": *[_type == "home"][0]{
+    title,
+    seo {
+      ...,
+      shareGraphic {
+        asset->
+      }
+    }
+  }
+}`
+
+const pageService = new SanityPageService(query)
+
+export default function Home(initialData) {
+  const { data: { home } } = pageService.getPreviewHook(initialData)()
   const [current, setCurrent] = useState(null);
 
   return (
@@ -158,4 +174,12 @@ export default function Home() {
       </LazyMotion>
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const cms = await pageService.fetchQuery(context)
+
+  return {
+    props: { ...cms }
+  }
 }
