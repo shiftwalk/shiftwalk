@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import { useState } from 'react'
 import SanityPageService from '@/services/sanityPageService'
+import Image from '@/components/image'
 
 const query = `{
   "journals": *[_type == "journal"] | order(date) {
@@ -76,7 +77,16 @@ export default function Journal(initialData) {
                     </div>
 
                     <div className="w-full h-[25vw] relative overflow-hidden">
-                      <img className="w-full h-full object-cover object-center absolute inset-0" src="https://placedog.net/600/983" alt="CHANGE ME" />
+
+                      <Image
+                        image={journals[current].image}
+                        focalPoint={journals[current].image.asset.hotspot}
+                        layout="responsive"
+                        priority
+                        sizes="(min-width: 768px) 40vw, 40vw"
+                        className="w-full"
+                        noCaption
+                      />
                     </div>
                   </>
                 )}
