@@ -8,7 +8,7 @@ import { useState } from 'react'
 import SanityPageService from '@/services/sanityPageService'
 
 const query = `{
-  "journals": *[_type == "journal"] | order(dat) {
+  "journals": *[_type == "journal"] | order(date) {
     title,
     date,
     content,
