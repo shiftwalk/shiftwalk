@@ -7,13 +7,14 @@ import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
 import Link from 'next/link'
+import Teaser from '@/components/teaser'
 
 const query = `{
   "projects": *[_type == "projects"] | order(orderRank) {
     title,
     services[],
     projectCode,
-    teaserImage {
+    teaserImages[] {
       asset-> {
         ...
       },
@@ -61,8 +62,8 @@ export default function Projects(initialData) {
                     <a className="w-full group flex flex-col h-full">
                       <div className="overflow-hidden relative mb-4 w-full flex-1">
                         <Image
-                          image={projects[0].teaserImage}
-                          focalPoint={projects[0].teaserImage.asset.hotspot}
+                          image={projects[0].teaserImages[0]}
+                          focalPoint={projects[0].teaserImages[0].asset.hotspot}
                           layout="fill"
                           priority
                           sizes="(min-width: 768px) 90vw, 90vw"
@@ -101,37 +102,19 @@ export default function Projects(initialData) {
             <Grid>
               <div className="col-span-10 md:col-span-5 md:mt-[8vw]">
                 <div className="px-3">
-                  <Link href={`/projects/${projects[1].slug.current}`}>
-                    <a className="block w-full group overflow-hidden relative mb-4">
-                      <Image
-                        image={projects[1].teaserImage}
-                        focalPoint={projects[1].teaserImage.asset.hotspot}
-                        layout="responsive"
-                        priority
-                        sizes="(min-width: 768px) 50vw, 50vw"
-                        className="w-full"
-                        noCaption
-                      />
-                    </a>
-                  </Link>
+                  <Teaser
+                    slug={projects[1].slug.current}
+                    images={projects[1].teaserImages}
+                  />
                 </div>
               </div>
 
               <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw]">
                 <div className="px-3">
-                  <Link href={`/projects/${projects[2].slug.current}`}>
-                    <a className="block w-full group overflow-hidden relative mb-4">
-                      <Image
-                        image={projects[2].teaserImage}
-                        focalPoint={projects[2].teaserImage.asset.hotspot}
-                        layout="responsive"
-                        priority
-                        sizes="(min-width: 768px) 50vw, 50vw"
-                        className="w-full"
-                        noCaption
-                      />
-                    </a>
-                  </Link>
+                  <Teaser
+                    slug={projects[2].slug.current}
+                    images={projects[2].teaserImages}
+                  />
                 </div>
               </div>
             </Grid>
@@ -139,19 +122,10 @@ export default function Projects(initialData) {
             <Grid>
               <div className="col-span-10 md:col-span-8 md:col-start-2 md:mt-[8vw]">
                 <div className="px-3">
-                  <Link href={`/projects/${projects[3].slug.current}`}>
-                    <a className="block w-full group overflow-hidden relative mb-4">
-                      <Image
-                        image={projects[3].teaserImage}
-                        focalPoint={projects[3].teaserImage.asset.hotspot}
-                        layout="responsive"
-                        priority
-                        sizes="(min-width: 768px) 80vw, 80vw"
-                        className="w-full"
-                        noCaption
-                      />
-                    </a>
-                  </Link>
+                  <Teaser
+                    slug={projects[3].slug.current}
+                    images={projects[3].teaserImages}
+                  />
                 </div>
               </div>
             </Grid>
@@ -159,37 +133,19 @@ export default function Projects(initialData) {
             <Grid className="items-end">
               <div className="col-span-10 md:col-span-4 md:mb-[-20vw]">
                 <div className="px-3">
-                  <Link href={`/projects/${projects[4].slug.current}`}>
-                    <a className="block w-full group overflow-hidden relative mb-4">
-                      <Image
-                        image={projects[4].teaserImage}
-                        focalPoint={projects[4].teaserImage.asset.hotspot}
-                        layout="responsive"
-                        priority
-                        sizes="(min-width: 768px) 50vw, 50vw"
-                        className="w-full"
-                        noCaption
-                      />
-                    </a>
-                  </Link>
+                  <Teaser
+                    slug={projects[4].slug.current}
+                    images={projects[4].teaserImages}
+                  />
                 </div>
               </div>
 
               <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[8vw]">
                 <div className="px-3">
-                  <Link href={`/projects/${projects[5].slug.current}`}>
-                    <a className="block w-full group overflow-hidden relative mb-4">
-                      <Image
-                        image={projects[5].teaserImage}
-                        focalPoint={projects[5].teaserImage.asset.hotspot}
-                        layout="responsive"
-                        priority
-                        sizes="(min-width: 768px) 50vw, 50vw"
-                        className="w-full"
-                        noCaption
-                      />
-                    </a>
-                  </Link>
+                  <Teaser
+                    slug={projects[5].slug.current}
+                    images={projects[5].teaserImages}
+                  />
                 </div>
               </div>
             </Grid>
