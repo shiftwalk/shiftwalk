@@ -8,6 +8,7 @@ import { useState } from 'react'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
 import Link from 'next/link'
+import Gif from '@/components/gif'
 
 const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
@@ -70,16 +71,17 @@ export default function Journal(initialData) {
               <div className="w-full mt-auto py-3">
                 { current !== null && (
                   <div className="w-full relative overflow-hidden">
-
-                    <Image
-                      image={journals[current].images[0]}
-                      focalPoint={journals[current].images[0].asset.hotspot}
-                      layout="responsive"
-                      priority
-                      sizes="(min-width: 768px) 40vw, 40vw"
-                      className="w-full"
-                      noCaption
-                    />
+                    { journals[current].images.length == 1 ? (
+                      <Image
+                        image={journals[current].images[0]}
+                        focalPoint={journals[current].images[0].asset.hotspot}
+                        layout="responsive"
+                        sizes="(min-width: 768px) 80vw, 100vw"
+                        className="w-full"
+                      />
+                    ) : (
+                      <Gif images={journals[current].images} />
+                    )}
                   </div>
                 )}
               </div>

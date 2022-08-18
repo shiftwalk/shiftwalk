@@ -7,6 +7,7 @@ import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
 import Image from '@/components/image'
+import Gif from '@/components/gif'
 
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
@@ -59,16 +60,17 @@ export default function JournalSlug(initialData) {
             <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-3">
                 <div className="w-full relative overflow-hidden">
-
-                  <Image
-                    image={journal.images[0]}
-                    focalPoint={journal.images[0].asset.hotspot}
-                    layout="responsive"
-                    priority
-                    sizes="(min-width: 768px) 40vw, 40vw"
-                    className="w-full"
-                    noCaption
-                  />
+                  { journal.images.length == 1 ? (
+                    <Image
+                      image={journal.images[0]}
+                      focalPoint={journal.images[0].asset.hotspot}
+                      layout="responsive"
+                      sizes="(min-width: 768px) 80vw, 100vw"
+                      className="w-full"
+                    />
+                  ) : (
+                    <Gif images={journal.images} />
+                  )}
                 </div>
               </div>
             </div>
