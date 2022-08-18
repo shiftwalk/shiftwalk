@@ -11,7 +11,6 @@ import Image from '@/components/image'
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
     title,
-    date,
     content,
     images[] {
       asset-> {
@@ -85,7 +84,7 @@ export default function JournalSlug(initialData) {
 
                 <div className="px-3">
                   <div className="w-full mb-8 md:mb-0">
-                    <span className="font-serif mb-2 block text-lg">( {journal.date } )</span>
+                    {/* <span className="font-serif mb-2 block text-lg">( {journal.date } )</span> */}
                     <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4.25vw] leading-none  mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">{journal.title}</h1>
                   </div>
                 </div>

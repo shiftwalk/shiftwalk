@@ -12,7 +12,6 @@ import Link from 'next/link'
 const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
     title,
-    date,
     content,
     images[] {
       asset-> {
@@ -97,7 +96,7 @@ export default function Journal(initialData) {
                       <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-3 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`} key={i}>
                         <div className="flex pb-1">
                           <span className="font-serif mb-2 block text-base leading-none">( SW.0{i + 1} )</span>
-                          <span className="font-serif mb-2 block text-base leading-none ml-auto text-right">( {e.date} )</span>
+                          {/* <span className="font-serif mb-2 block text-base leading-none ml-auto text-right">( {e.date} )</span> */}
                         </div>
                         <div className="border-t border-black pt-4">
                           <h2 className="font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none mb-6 md:mb-8 max-w-[70%] md:max-w-[65%]">{e.title}</h2>
