@@ -6,11 +6,54 @@ import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
+import BodyRenderer from '@/components/body-renderer'
 
 const query = `{
   "project": *[_type == "projects" && slug.current == $slug][0]{
     title,
     projectCode,
+    overview,
+    services[],
+    liveUrl,
+    additionalLinks[] {
+      linkText,
+      linkUrl,
+    },
+    imageBlocks[] {
+      ...,
+      image {
+        asset-> {
+          ...
+        },
+        overrideVideo {
+          asset-> {
+            ...
+          }
+        },
+        caption,
+        alt,
+        hotspot {
+          x,
+          y
+        },
+      },
+      images[] {
+        asset-> {
+          ...
+        },
+        overrideVideo {
+          asset-> {
+            ...
+          }
+        },
+        caption,
+        alt,
+        hotspot {
+          x,
+          y
+        },
+      }
+    },
     seo {
       ...,
       shareGraphic {
@@ -41,10 +84,42 @@ export default function ProjectSlug(initialData) {
             {/* Fixed Sidebar */}
             <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-3">
-                <span className="font-serif mb-2 block text-lg">( Design + Build Studio )</span>
-                <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
-                  <img className="w-full h-full object-cover object-center absolute inset-0" src="https://placedog.net/600/983" alt="CHANGE ME" />
+                <span className="font-serif block text-lg mb-2">( Info )</span>
+                <div className="content text-lg indent-[8%] mb-6">
+                  <p>{project.overview}</p>
                 </div>
+
+                <span className="font-serif block text-lg mb-2">( Services )</span>
+                <div className="content text-lg">
+                  <ul>
+                    {project.services.map((e, i) => {
+                      return (
+                        <li key={i}>{e}</li>
+                      )
+                    })}
+                  </ul>
+                </div>
+                
+                {project.additionalLinks?.length > 0 || project.liveUrl && (
+                  <>
+                    <span className="font-serif mt-6 block text-lg mb-2">( Links )</span>
+                    <div className="content text-lg">
+                      {project.liveUrl && (<div><a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">Visit Live Site</a></div>)}
+                      
+                      {project.additionalLinks && (
+                        <>
+                          {project.additionalLinks.map((e, i) => {
+                            return (
+                              <div key={i}>
+                              <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">{e.linkText}</a>
+                              </div>
+                            )
+                          })}
+                        </>
+                      )}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
@@ -58,16 +133,16 @@ export default function ProjectSlug(initialData) {
                 </Link>
 
                 <div className="px-3">
-                  <div className="w-full mb-8 md:mb-0">
+                  <div className="w-full border-b border-black">
                     <span className="font-serif mb-2 block text-lg">( {project.projectCode } )</span>
-                    <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4.25vw] leading-none  mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">{project.title}</h1>
+                    <h1 className="font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none md:leading-none xl:leading-none mb-3 max-w-[70%] md:max-w-[75%]">{project.title}</h1>
                   </div>
                 </div>
               </div>
 
               <div className="col-span-10 md:col-span-7">
                 <div className="p-3">
-                  Content
+                  <BodyRenderer body={project.imageBlocks} />
                 </div>
                 <Footer />
               </div>
