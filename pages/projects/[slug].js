@@ -100,7 +100,7 @@ export default function ProjectSlug(initialData) {
                   </ul>
                 </div>
                 
-                {project.additionalLinks?.length > 0 || project.liveUrl && (
+                {(project.additionalLinks?.length > 0 || project.liveUrl) && (
                   <>
                     <span className="font-serif mt-6 block text-lg mb-2">( Links )</span>
                     <div className="content text-lg">
@@ -133,9 +133,13 @@ export default function ProjectSlug(initialData) {
                 </Link>
 
                 <div className="px-3">
-                  <div className="w-full border-b border-black">
+                  <div className="w-full border-b border-black relative">
                     <span className="font-serif mb-2 block text-lg">( {project.projectCode } )</span>
                     <h1 className="font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none md:leading-none xl:leading-none mb-3 max-w-[70%] md:max-w-[75%]">{project.title}</h1>
+
+                    <span className="w-5 xl:w-6 inline-block absolute bottom-0 right-0 mb-6 mr-1">
+                      <svg className="w-full" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 5.36c-1.893.907-3.653 2.347-5.28 4.32h-1.4c.4-.853.8-1.6 1.2-2.24.373-.64.747-1.173 1.12-1.6H.32V4.16h23.32c-.373-.453-.747-1-1.12-1.64-.4-.64-.8-1.373-1.2-2.2h1.4c1.627 1.947 3.387 3.387 5.28 4.32v.72Z" fill="#242B2D"/></svg>
+                    </span>
                   </div>
                 </div>
               </div>
