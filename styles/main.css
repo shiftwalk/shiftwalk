@@ -34,3 +34,9 @@ body {
     @apply focus-visible:ring-grey focus-visible:ring-offset-blue;
   }
 }
+
+.cover-image {
+  img {
+    @apply object-cover object-center;
+  }
+}

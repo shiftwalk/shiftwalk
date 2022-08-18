@@ -9,7 +9,7 @@ import Image from '@/components/image'
 import Link from 'next/link'
 
 const query = `{
-  "projects": *[_type == "projects"] {
+  "projects": *[_type == "projects"] | order(orderRank) {
     title,
     services[],
     projectCode,
@@ -55,22 +55,23 @@ export default function Projects(initialData) {
           <m.article>
             {/* Main Section */}
             <Grid>
-              <div className="col-span-10 md:col-span-10 pt-[60px] md:pt-[70px] xl:pt-[75px]">
-                <div className="px-3">
+              <div className="col-span-10 md:col-span-10 pt-[60px] md:pt-[70px] xl:pt-[75px] min-h-screen">
+                <div className="px-3 h-full w-full">
                   <Link href={`/projects/${projects[0].slug.current}`}>
-                    <a className="block w-full group">
-                      <div className="overflow-hidden relative mb-4">
+                    <a className="w-full group flex flex-col h-full">
+                      <div className="overflow-hidden relative mb-4 w-full flex-1">
                         <Image
                           image={projects[0].teaserImage}
                           focalPoint={projects[0].teaserImage.asset.hotspot}
-                          layout="responsive"
+                          layout="fill"
                           priority
-                          sizes="(min-width: 768px) 90vw, 100vw"
-                          className="w-full group-hover:scale-105 transition ease-in-out duration-300"
+                          sizes="(min-width: 768px) 90vw, 90vw"
+                          className="w-full h-full absolute inset-0 object-cover object-center"
                           noCaption
                         />
                       </div>
-                      <Grid className="border-b border-black pb-1 hidden md:grid">
+                      
+                      <Grid className="border-b border-black pb-1 hidden md:grid w-full mt-auto mb-3">
                         <div className="col-span-2"><span className="font-serif block text-base leading-none">( {projects[0].projectCode} )</span></div>
 
                         <div className="md:col-span-6 lg:col-span-3"><span className="block text-base uppercase leading-none">{projects[0].title}</span></div>
@@ -95,16 +96,106 @@ export default function Projects(initialData) {
                   </Link>
                 </div>
               </div>
-
-              <div className="px-3 col-span-10 md:col-span-10 mt-12">
-                {projects.map((e, i) => {
-                  return (
-                    <Link href={`/projects/${e.slug.current}`} key={i}><a className="block font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none mb-2">{e.title}</a></Link>
-                  )
-                })}
+            </Grid>
+            
+            <Grid>
+              <div className="col-span-10 md:col-span-5 md:mt-[8vw]">
+                <div className="px-3">
+                  <Link href={`/projects/${projects[1].slug.current}`}>
+                    <a className="block w-full group overflow-hidden relative mb-4">
+                      <Image
+                        image={projects[1].teaserImage}
+                        focalPoint={projects[1].teaserImage.asset.hotspot}
+                        layout="responsive"
+                        priority
+                        sizes="(min-width: 768px) 50vw, 50vw"
+                        className="w-full"
+                        noCaption
+                      />
+                    </a>
+                  </Link>
+                </div>
               </div>
 
-              <div className="col-span-10 md:col-span-10 mt-[20.5vw]">
+              <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw]">
+                <div className="px-3">
+                  <Link href={`/projects/${projects[2].slug.current}`}>
+                    <a className="block w-full group overflow-hidden relative mb-4">
+                      <Image
+                        image={projects[2].teaserImage}
+                        focalPoint={projects[2].teaserImage.asset.hotspot}
+                        layout="responsive"
+                        priority
+                        sizes="(min-width: 768px) 50vw, 50vw"
+                        className="w-full"
+                        noCaption
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </Grid>
+            
+            <Grid>
+              <div className="col-span-10 md:col-span-8 md:col-start-2 md:mt-[8vw]">
+                <div className="px-3">
+                  <Link href={`/projects/${projects[3].slug.current}`}>
+                    <a className="block w-full group overflow-hidden relative mb-4">
+                      <Image
+                        image={projects[3].teaserImage}
+                        focalPoint={projects[3].teaserImage.asset.hotspot}
+                        layout="responsive"
+                        priority
+                        sizes="(min-width: 768px) 80vw, 80vw"
+                        className="w-full"
+                        noCaption
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </Grid>
+            
+            <Grid className="items-end">
+              <div className="col-span-10 md:col-span-4 md:mb-[-20vw]">
+                <div className="px-3">
+                  <Link href={`/projects/${projects[4].slug.current}`}>
+                    <a className="block w-full group overflow-hidden relative mb-4">
+                      <Image
+                        image={projects[4].teaserImage}
+                        focalPoint={projects[4].teaserImage.asset.hotspot}
+                        layout="responsive"
+                        priority
+                        sizes="(min-width: 768px) 50vw, 50vw"
+                        className="w-full"
+                        noCaption
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[8vw]">
+                <div className="px-3">
+                  <Link href={`/projects/${projects[5].slug.current}`}>
+                    <a className="block w-full group overflow-hidden relative mb-4">
+                      <Image
+                        image={projects[5].teaserImage}
+                        focalPoint={projects[5].teaserImage.asset.hotspot}
+                        layout="responsive"
+                        priority
+                        sizes="(min-width: 768px) 50vw, 50vw"
+                        className="w-full"
+                        noCaption
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </Grid>
+            
+            <Grid>
+              <div className="col-span-10 md:col-span-10 mt-[25vw]">
                 <div className="col-span-10 md:col-span-7">
                   <div className="mb-[13vw] md:mb-[11.5vw] px-3">
                     <div className="w-full h-[1px] bg-black -skew-y-12"></div>
