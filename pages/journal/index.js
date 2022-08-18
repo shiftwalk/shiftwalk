@@ -10,11 +10,11 @@ import Image from '@/components/image'
 import Link from 'next/link'
 
 const query = `{
-  "journals": *[_type == "journal"] | order(date) {
+  "journals": *[_type == "journal"] | order(orderRank) {
     title,
     date,
     content,
-    image {
+    images[] {
       asset-> {
         ...
       },
@@ -70,11 +70,11 @@ export default function Journal(initialData) {
             <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-3">
                 { current !== null && (
-                  <div className="w-full h-[25vw] relative overflow-hidden">
+                  <div className="w-full relative overflow-hidden">
 
                     <Image
-                      image={journals[current].image}
-                      focalPoint={journals[current].image.asset.hotspot}
+                      image={journals[current].images[0]}
+                      focalPoint={journals[current].images[0].asset.hotspot}
                       layout="responsive"
                       priority
                       sizes="(min-width: 768px) 40vw, 40vw"
