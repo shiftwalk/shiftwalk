@@ -56,7 +56,7 @@ export default function Projects(initialData) {
           <m.article>
             {/* Main Section */}
             <Grid>
-              <div className="col-span-10 md:col-span-10 pt-[60px] md:pt-[70px] xl:pt-[75px] min-h-screen">
+              <div className="col-span-10 md:col-span-10 pt-[63px] md:pt-[78px] xl:pt-[80px] min-h-screen">
                 <div className="px-5 h-full w-full">
                   <Link href={`/projects/${projects[0].slug.current}`}>
                     <a className="w-full group flex flex-col h-full">

@@ -85,7 +85,7 @@ export default function Home(initialData) {
 
             {/* Main Section */}
             <Grid>
-              <div className="col-span-10 md:col-span-7 pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap px-5">
+              <div className="col-span-10 md:col-span-7 pt-[63px] md:pt-[78px] xl:pt-[80px] min-h-screen flex flex-wrap px-5">
                 <div className="w-full mb-8 md:mb-0">
                   <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
                   

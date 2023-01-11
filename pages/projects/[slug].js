@@ -7,6 +7,7 @@ import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
 import BodyRenderer from '@/components/body-renderer'
+import { useState } from 'react'
 
 const query = `{
   "project": *[_type == "projects" && slug.current == $slug][0]{
@@ -67,6 +68,12 @@ const pageService = new SanityPageService(query)
 
 export default function ProjectSlug(initialData) {
   const { data: { project } } = pageService.getPreviewHook(initialData)()
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
+
+  function updateIsInfoOpen() {
+    setIsInfoOpen(prevIsInfoOpen => !prevIsInfoOpen)
+  }
+
 
   return (
     <Layout>
@@ -82,75 +89,90 @@ export default function ProjectSlug(initialData) {
         >
           <m.article>
             {/* Fixed Sidebar */}
-            <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
-              <div className="w-full mt-auto py-3">
-                <span className="font-serif block text-lg mb-2">( Info )</span>
-                <div className="content text-lg indent-[8%] mb-6">
-                  <p>{project.overview}</p>
-                </div>
+            <div className={`fixed top-0 right-0 bottom-0 h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black px-5 hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-[30%] 2xl:w-[500px]' : 'w-[95px] xl:w-[105px]' }`}>
+              <div className="w-full py-5 pt-8 relative">
+                <button className="text-lg md:text-xl xl:text-2xl leading-none absolute bottom-0 mb-[18px] right-0" onClick={()=> updateIsInfoOpen() }>
+                  + {isInfoOpen ? 'Close' : 'Info' }
+                </button>
 
-                <span className="font-serif block text-lg mb-2">( Services )</span>
-                <div className="content text-lg">
-                  <ul>
-                    {project.services.map((e, i) => {
-                      return (
-                        <li key={i}>{e}</li>
-                      )
-                    })}
-                  </ul>
+                <div className={`${isInfoOpen ? '' : 'hidden' }`}>
+                  <span className="flex items-center mb-6 text-sm">
+                    <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
+                    <span className="block leading-none">People</span>
+                  </span>
+
+                  <div className="text-sm leading-snug w-[85%] mb-6 lg:mb-12 content tracking-tight">
+                    <p>{project.overview}</p>
+                  </div>
+
+                  <span className="flex items-center mb-6 text-sm">
+                    <span className="font-serif leading-none text-xs block mr-[6px]">( B )</span>
+                    <span className="block leading-none">Services</span>
+                  </span>
+
+                  <div className={`text-sm leading-snug w-[85%] content tracking-tight ${(project.additionalLinks?.length > 0 || project.liveUrl) ? ' mb-6 lg:mb-12' : '' }`}>
+                    <ul>
+                      {project.services.map((e, i) => {
+                        return (
+                          <li key={i}>{e}</li>
+                        )
+                      })}
+                    </ul>
+                  </div>
+                  
+                    
+                  {(project.additionalLinks?.length > 0 || project.liveUrl) && (
+                    <>
+                      <span className="flex items-center mb-6 text-sm">
+                        <span className="font-serif leading-none text-xs block mr-[6px]">( C )</span>
+                        <span className="block leading-none">Links</span>
+                      </span>
+
+                      <div className="text-sm leading-snug w-[85%] content tracking-tight">
+                        {project.liveUrl && (<div><a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">Visit Live Site</a></div>)}
+                        
+                        {project.additionalLinks && (
+                          <>
+                            {project.additionalLinks.map((e, i) => {
+                              return (
+                                <div key={i}>
+                                <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">{e.linkText}</a>
+                                </div>
+                              )
+                            })}
+                          </>
+                        )}
+                      </div>
+                    </>
+                  )}
                 </div>
-                
-                {(project.additionalLinks?.length > 0 || project.liveUrl) && (
-                  <>
-                    <span className="font-serif mt-6 block text-lg mb-2">( Links )</span>
-                    <div className="content text-lg">
-                      {project.liveUrl && (<div><a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">Visit Live Site</a></div>)}
-                      
-                      {project.additionalLinks && (
-                        <>
-                          {project.additionalLinks.map((e, i) => {
-                            return (
-                              <div key={i}>
-                              <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">{e.linkText}</a>
-                              </div>
-                            )
-                          })}
-                        </>
-                      )}
-                    </div>
-                  </>
-                )}
               </div>
             </div>
 
             {/* Main Section */}
-            <Grid>
-              <div className="col-span-10 md:col-span-7 pt-32 md:pt-[20vh] xl:pt-[30vh] relative">
+            <div>
+              <div className={`pt-32 md:pt-[20vh] xl:pt-[30vh] relative ${ isInfoOpen ? 'w-full lg:w-[70%] 2xl:w-[calc(100%-500px)]' : 'w-full lg:w-[calc(100%-95px)] xl:w-[calc(100%-105px)]' }`}>
                 <Link href="/projects">
                   <a>
-                    <svg className="mx-3 w-6 absolute top-0 left-0 mb-3 pt-[60px] md:pt-[74px] xl:pt-[80px]" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4.64C1.893 3.733 3.653 2.293 5.28.32h1.4c-.4.853-.8 1.6-1.2 2.24a10.37 10.37 0 0 1-1.12 1.6h23.32v1.68H4.36c.373.453.747 1 1.12 1.64.4.64.8 1.373 1.2 2.2h-1.4C3.653 7.733 1.893 6.293 0 5.36v-.72Z" fill="#242B2D"/></svg>
+                    <svg className="mx-5 w-6 absolute top-0 left-0 mb-3 pt-[60px] md:pt-[74px] xl:pt-[80px]" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4.64C1.893 3.733 3.653 2.293 5.28.32h1.4c-.4.853-.8 1.6-1.2 2.24a10.37 10.37 0 0 1-1.12 1.6h23.32v1.68H4.36c.373.453.747 1 1.12 1.64.4.64.8 1.373 1.2 2.2h-1.4C3.653 7.733 1.893 6.293 0 5.36v-.72Z" fill="#242B2D"/></svg>
                   </a>
                 </Link>
 
-                <div className="px-3">
+                <div className="px-5">
                   <div className="w-full border-b border-black relative">
                     <span className="font-serif mb-2 block text-lg">( {project.projectCode } )</span>
                     <h1 className="font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none md:leading-none xl:leading-none mb-3 max-w-[70%] md:max-w-[75%]">{project.title}</h1>
-
-                    <span className="w-5 xl:w-6 inline-block absolute bottom-0 right-0 mb-6 mr-1">
-                      <svg className="w-full" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 5.36c-1.893.907-3.653 2.347-5.28 4.32h-1.4c.4-.853.8-1.6 1.2-2.24.373-.64.747-1.173 1.12-1.6H.32V4.16h23.32c-.373-.453-.747-1-1.12-1.64-.4-.64-.8-1.373-1.2-2.2h1.4c1.627 1.947 3.387 3.387 5.28 4.32v.72Z" fill="#242B2D"/></svg>
-                    </span>
                   </div>
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-7">
-                <div className="p-3">
+              <div className={`${ isInfoOpen ? 'w-full lg:w-[70%] 2xl:w-[calc(100%-500px)]' : 'w-full lg:w-[calc(100%-95px)] xl:w-[calc(100%-105px)]' }`}>
+                <div className="p-5 pb-0">
                   <BodyRenderer body={project.imageBlocks} />
                 </div>
                 <Footer />
               </div>
-            </Grid>
+            </div>
           </m.article>
         </m.main>
       </LazyMotion>
