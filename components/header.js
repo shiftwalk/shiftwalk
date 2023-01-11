@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Header({ bgColor, textColor}) {
   return (
-    <header className={`px-3 fixed top-0 left-0 right-0 z-20 ${bgColor ? `bg-${bgColor}` : 'bg-white'} ${textColor ? `text-${textColor}` : 'text-black'}`}>
+    <header className={`px-5 fixed top-0 left-0 right-0 z-20 ${bgColor ? `bg-${bgColor}` : 'bg-white'} ${textColor ? `text-${textColor}` : 'text-black'}`}>
       <Grid className={`items-center border-b ${textColor ? `border-${textColor}` : 'border-black'} py-3`}>
         <div className="col-span-3">
           <Link href="/">
@@ -19,7 +19,7 @@ export default function Header({ bgColor, textColor}) {
             <Link href="/menu">
               <a className="a11y-focus w-auto flex space-x-3 justify-end items-center">
                 <span className="w-5 xl:w-6 inline-block">
-                  <svg className="w-full mt-[-3px]" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 5.36c-1.893.907-3.653 2.347-5.28 4.32h-1.4c.4-.853.8-1.6 1.2-2.24.373-.64.747-1.173 1.12-1.6H.32V4.16h23.32c-.373-.453-.747-1-1.12-1.64-.4-.64-.8-1.373-1.2-2.2h1.4c1.627 1.947 3.387 3.387 5.28 4.32v.72Z" fill="#242B2D"/></svg>
+                  <svg className="w-full fill-current" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 5.36c-1.893.907-3.653 2.347-5.28 4.32h-1.4c.4-.853.8-1.6 1.2-2.24.373-.64.747-1.173 1.12-1.6H.32V4.16h23.32c-.373-.453-.747-1-1.12-1.64-.4-.64-.8-1.373-1.2-2.2h1.4c1.627 1.947 3.387 3.387 5.28 4.32v.72Z" /></svg>
                 </span>
                 <span className="block">Menu</span>
               </a>
@@ -27,8 +27,8 @@ export default function Header({ bgColor, textColor}) {
           </div>
           <Link href="/menu">
             <a className="block md:hidden w-8 ml-auto mt-[2px] py-1 a11y-focus">
-              <span className={`block w-full h-[2px] mb-1 ${textColor ? `bg-${textColor}` : 'bg-black'}`}></span>
-              <span className={`block w-full h-[2px] ${textColor ? `bg-${textColor}` : 'bg-black'}`}></span>
+              <span className={`block w-full h-[2px] mb-1 ${textColor ? `bg-current` : 'bg-black'}`}></span>
+              <span className={`block w-full h-[2px] ${textColor ? `bg-current` : 'bg-black'}`}></span>
             </a>
           </Link>
         </nav>

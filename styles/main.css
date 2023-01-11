@@ -22,7 +22,11 @@ body {
 }
 
 .font-sans {
-  @apply tracking-tight;
+  @apply tracking-tighter;
+}
+
+.font-display {
+  @apply font-extrabold;
 }
 
 .a11y-focus {

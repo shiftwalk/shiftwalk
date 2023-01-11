@@ -1,7 +1,7 @@
 /* Content Stylings */
 .content {
   & > p {
-    @apply mb-5 last-of-type:mb-0 leading-tight;
+    @apply mb-5 last-of-type:mb-0;
   }
 
   &> ul {
@@ -23,5 +23,5 @@
 
 /* Heading Defaults */
 h1, .h1, h2, .h2, h3, .h3 {
-  @apply p-0 mb-6 font-bold;
+  @apply p-0 mb-6 font-extrabold tracking-[-0.02em];
 }

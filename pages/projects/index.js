@@ -57,10 +57,10 @@ export default function Projects(initialData) {
             {/* Main Section */}
             <Grid>
               <div className="col-span-10 md:col-span-10 pt-[60px] md:pt-[70px] xl:pt-[75px] min-h-screen">
-                <div className="px-3 h-full w-full">
+                <div className="px-5 h-full w-full">
                   <Link href={`/projects/${projects[0].slug.current}`}>
                     <a className="w-full group flex flex-col h-full">
-                      <div className="overflow-hidden relative mb-4 w-full flex-1">
+                      <div className="overflow-hidden relative mb-5 w-full flex-1">
                         <Image
                           image={projects[0].teaserImages[0]}
                           focalPoint={projects[0].teaserImages[0].asset.hotspot}
@@ -100,8 +100,8 @@ export default function Projects(initialData) {
             </Grid>
             
             <Grid>
-              <div className="col-span-10 md:col-span-5 md:mt-[8vw]">
-                <div className="px-3">
+              <div className="col-span-10 md:col-span-5 md:mt-[8vw] mb-5 lg:mb-0">
+                <div className="px-5">
                   <Teaser
                     slug={projects[1].slug.current}
                     images={projects[1].teaserImages}
@@ -109,8 +109,8 @@ export default function Projects(initialData) {
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw]">
-                <div className="px-3">
+              <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw] mb-5 lg:mb-0">
+                <div className="px-5">
                   <Teaser
                     slug={projects[2].slug.current}
                     images={projects[2].teaserImages}
@@ -120,8 +120,8 @@ export default function Projects(initialData) {
             </Grid>
             
             <Grid>
-              <div className="col-span-10 md:col-span-8 md:col-start-2 md:mt-[8vw]">
-                <div className="px-3">
+              <div className="col-span-10 md:col-span-8 md:col-start-2 md:mt-[8vw] mb-5 lg:mb-0">
+                <div className="px-5">
                   <Teaser
                     slug={projects[3].slug.current}
                     images={projects[3].teaserImages}
@@ -131,8 +131,8 @@ export default function Projects(initialData) {
             </Grid>
             
             <Grid className="items-end">
-              <div className="col-span-10 md:col-span-4 md:mb-[-20vw]">
-                <div className="px-3">
+              <div className="col-span-10 md:col-span-4 md:mb-[-20vw] mb-5 lg:mb-0">
+                <div className="px-5">
                   <Teaser
                     slug={projects[4].slug.current}
                     images={projects[4].teaserImages}
@@ -140,8 +140,8 @@ export default function Projects(initialData) {
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[8vw]">
-                <div className="px-3">
+              <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[8vw] mb-5 lg:mb-0">
+                <div className="px-5">
                   <Teaser
                     slug={projects[5].slug.current}
                     images={projects[5].teaserImages}
@@ -153,7 +153,7 @@ export default function Projects(initialData) {
             <Grid>
               <div className="col-span-10 md:col-span-10 mt-[25vw]">
                 <div className="col-span-10 md:col-span-7">
-                  <div className="mb-[13vw] md:mb-[11.5vw] px-3">
+                  <div className="mb-[13vw] md:mb-[11.5vw] px-5">
                     <div className="w-full h-[1px] bg-black -skew-y-12"></div>
                   </div>
                 </div>

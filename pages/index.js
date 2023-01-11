@@ -42,11 +42,11 @@ export default function Home(initialData) {
         >
           <m.article>
             {/* Fixed Sidebar */}
-            <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-3 hidden md:flex flex-wrap">
-              <div className="w-full mt-auto py-3">
+            <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-5 hidden md:flex flex-wrap">
+              <div className="w-full mt-auto py-5">
                 { current == 'sam' && (
                   <>
-                    <span className="font-serif mb-2 block text-lg">( Sam Goddard — Creative Development)</span>
+                    <span className="mb-2 block text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none">Creative Development</span>
                     <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
                       <img className="w-full h-full object-cover object-center absolute inset-0" src="/images/sam.jpg" alt="CHANGE ME" />
                     </div>
@@ -54,7 +54,7 @@ export default function Home(initialData) {
                 )}
                 { current == 'isaac' && (
                   <>
-                    <span className="font-serif mb-2 block text-lg">( Isaac Powell — Interaction, Brand, Art Direction )</span>
+                    <span className="mb-2 block text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none">Interaction, Brand, Art Direction</span>
                     <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
                       <img className="w-full h-full object-cover object-center absolute inset-0" src="/images/isaac.jpg" alt="CHANGE ME" />
                     </div>
@@ -62,7 +62,7 @@ export default function Home(initialData) {
                 )}
                 { current == 'projects' && (
                   <>
-                    <span className="font-serif mb-2 block text-lg">( Selected Projects )</span>
+                    <span className="mb-2 block text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none">Selected Projects</span>
                     <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
                       <img className="w-full h-full object-cover object-center absolute inset-0" src="https://placedog.net/600/960" alt="CHANGE ME" />
                     </div>
@@ -70,9 +70,13 @@ export default function Home(initialData) {
                 )}
                 { current == null && (
                   <>
-                    <span className="font-serif mb-2 block text-lg">( Design + Build Studio )</span>
+                    <span className="block mb-2 lg:flex items-center text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none">
+                      <svg className="w-[28px] mb-1 lg:mb-0 lg:mr-2 block" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M22.72 14.428c2.273-1.495 3.5-3.436 3.5-5.428s-1.227-3.933-3.5-5.428c-2.263-1.49-5.456-2.447-9.04-2.447-3.584 0-6.777.958-9.04 2.447C2.366 5.067 1.14 7.008 1.14 9s1.227 3.933 3.5 5.428c2.263 1.49 5.456 2.447 9.04 2.447 3.584 0 6.777-.958 9.04-2.447ZM13.68 18c7.555 0 13.68-4.03 13.68-9s-6.125-9-13.68-9S0 4.03 0 9s6.125 9 13.68 9Z" fill="#202020"/><path fillRule="evenodd" clipRule="evenodd" d="M13.68 16.875c3.161 0 6.093-3.296 6.093-7.875 0-4.579-2.932-7.875-6.092-7.875-3.161 0-6.093 3.296-6.093 7.875 0 4.579 2.932 7.875 6.093 7.875Zm0 1.125c3.977 0 7.2-4.03 7.2-9s-3.223-9-7.2-9c-3.976 0-7.2 4.03-7.2 9s3.224 9 7.2 9Z" fill="#202020"/><path fillRule="evenodd" clipRule="evenodd" d="M26.64 9.362H.72v-1.44h25.92v1.44Z" fill="#242B2D"/><path fillRule="evenodd" clipRule="evenodd" d="M12.96 17.999V.719h1.44v17.28h-1.44Z" fill="#242B2D"/></svg>
+
+                      <span className="block">Nottingham, Worldwide</span>
+                    </span>
                     <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
-                      <img className="w-full h-full object-cover object-center absolute inset-0" src="https://placedog.net/600/983" alt="CHANGE ME" />
+                      <img className="w-full h-full object-cover object-center absolute inset-0" src="images/studio.jpg" alt="CHANGE ME" />
                     </div>
                   </>
                 )}
@@ -81,92 +85,107 @@ export default function Home(initialData) {
 
             {/* Main Section */}
             <Grid>
-              <div className="col-span-10 md:col-span-7 pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap px-3 mb-5 md:mb-8 xl:mb-12">
+              <div className="col-span-10 md:col-span-7 pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap px-5">
                 <div className="w-full mb-8 md:mb-0">
-                  <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4.25vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
+                  <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
                   
                   <Link href="/projects">
                     <a className="inline-block underline text-lg md:text-xl xl:text-2xl leading-none a11y-focus" onMouseEnter={()=> setCurrent('projects')} onMouseLeave={()=> setCurrent(null)}>Selected Projects</a>
                   </Link>
                 </div>
 
-                <div className="w-full mt-auto">
+                <div className="w-full mt-auto pb-5">
                   <div className="mt-[4vw] mb-[13vw] md:mb-[8.5vw]">
                     <div className="w-full h-[1px] bg-black -skew-y-12"></div>
                   </div>
 
-                  <Grid className="pb-3 mb-3 border-b border-black relative">
-                    <svg className="w-2 absolute bottom-0 left-0 mb-3" viewBox="0 0 10 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.64 28c-.907-1.893-2.347-3.653-4.32-5.28v-1.4c.853.4 1.6.8 2.24 1.2.64.373 1.173.747 1.6 1.12V.32h1.68v23.32c.453-.373 1-.747 1.64-1.12.64-.4 1.373-.8 2.2-1.2v1.4C7.733 24.347 6.293 26.107 5.36 28h-.72Z" fill="#242B2D"/></svg>
-
-                    <div className="col-span-9 md:col-span-5 xl:col-span-4 col-start-2 md:col-start-6 xl:col-start-7 text-right">
-                      <span className="block font-serif mb-5 text-lg leading-none">( Clients )</span>
-                      <p className="leading-tight text-lg">Palmar, Jason Bailey Studio, Player Roberts Bell, Reform, Mat Hayward, Fat Free, West of West, Britt Rose, STUDY Architects, Paul Smith, Pitch, Jason O’Rear, BHLD, Ragged Edge, Outpost, CUSP, ThoughtLab, Jess Bright.</p>
-                    </div>
+                  <Grid className="pb-12 md:pb-16 xl:pb-[7vw] border-b border-black relative">
+                    <svg className="w-2 md:w-3 absolute bottom-0 left-0 mb-3 xl:mb-6" viewBox="0 0 10 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.64 28c-.907-1.893-2.347-3.653-4.32-5.28v-1.4c.853.4 1.6.8 2.24 1.2.64.373 1.173.747 1.6 1.12V.32h1.68v23.32c.453-.373 1-.747 1.64-1.12.64-.4 1.373-.8 2.2-1.2v1.4C7.733 24.347 6.293 26.107 5.36 28h-.72Z" fill="#242B2D"/></svg>
                   </Grid>
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-7">
-                <div className="p-3">
-                  <h2 className="font-display text-[7vw] md:text-[4.8vw] xl:text-[4.25vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[90%] md:max-w-[95%]">Info</h2>
+              <div className="col-span-10 md:col-span-7 -mt-5">
+                <div className="flex flex-wrap">
+                  <div className="w-full lg:w-[70%] p-5 flex flex-wrap">
+                    <div className="w-full">
+                      <h2 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%]">Information</h2>
+                    </div>
 
-                  <span className="block font-serif mb-3 text-lg">( Values )</span>
-
-                  <ul className="border-t border-black mb-12 md:mb-20">
-                    <li className="border-b border-black flex items-center space-x-4 py-2">
-                      <span className="w-12 h-8 bg-black rounded-full flex items-center justify-center text-white leading-none text-xs">
-                        <span className="block pt-[2px]">A</span>
+                    <div className="mt-auto">
+                      <span className="flex items-center mb-6 text-sm">
+                        <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
+                        <span className="block leading-none">Background</span>
                       </span>
-                      <span className="block text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none pt-1">Collaborate with trust + mutual respect</span>
-                    </li>
 
-                    <li className="border-b border-black flex items-center space-x-4 py-2">
-                      <span className="w-12 h-8 bg-black rounded-full flex items-center justify-center text-white leading-none text-xs">
-                        <span className="block pt-[2px]">B</span>
-                      </span>
-                      <span className="block text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none pt-1">Create bold, interesting design with meaning + intent</span>
-                    </li>
-
-                    <li className="border-b border-black flex items-center space-x-4 py-2">
-                      <span className="w-12 h-8 bg-black rounded-full flex items-center justify-center text-white leading-none text-xs">
-                        <span className="block pt-[2px]">C</span>
-                      </span>
-                      <span className="block text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none pt-1">Build sites with performance + accessibility in mind</span>
-                    </li>
-                  </ul>
-
-                  <span className="block font-serif mb-3 text-lg">( About )</span>
-
-                  <div className="content w-[85%] md:w-[60%] max-w-[550px] mb-12 md:mb-20 text-lg">
-                    <p>We’re a multidisciplinary creative studio who believe that great design is rooted in concept, and honed by understanding. To that end, we see ourselves as curious collaborators for foward-thinking and brave brands, always looking to find novel ways to meet each brief and challenge the expected.</p>
+                      <div className="content w-[85%] md:w-[85%] max-w-[1000px] text-lg md:text-xl 2xl:text-2xl leading-tight md:leading-tight 2xl:leading-tight">
+                        <p>We're a multidisciplinary creative studio who believe that great design is rooted in concept, and honed by understanding. To that end, we see ourselves as curious collaborators for foward-thinking and brave brands, always looking to find novel ways to meet each brief and challenge the expected.</p>
+                        
+                        <p>Whilst our design work is often known for its attention to detail, and interesting moments of surprise, we also pride ourselves on the build quality of our output. Our websites always aim to be fast, performant, and accessible. Our brand collateral should be meaningful, and crafted for real world use. To us these traits are non-negotiable and ingrained in our approach.</p>
+                      </div>
+                    </div>
                   </div>
+                  
+                  <div className="w-full lg:w-[30%] lg:border-l lg:border-black p-5 pt-12 lg:pt-32 xl:pt-40">
+                    <span className="flex items-center mb-6 text-sm">
+                      <span className="font-serif leading-none text-xs block mr-[6px]">( B )</span>
+                      <span className="block leading-none">People</span>
+                    </span>
 
-                  <span className="block font-serif mb-3 text-lg">( People )</span>
+                    <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                      <p>ShiftWalk is led by founders <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('sam')} onMouseLeave={()=> setCurrent(null)}>Sam Goddard</button> + <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('isaac')} onMouseLeave={()=> setCurrent(null)}>Isaac Powell</button>, who have over a decade of experience in design + web technology. Whilst awards don’t affect our judgement during a project, we are proud to have been recognised for our work in numerous sites + publications, including Awwwards, SiteInspire, Klikkentheke, The Brand Identity, and Typewolf.</p>
+                    </div>
 
-                  <div className="content w-[85%] md:w-[60%] max-w-[550px] mb-12 md:mb-20 text-lg">
-                    <p>ShiftWalk is led by founders <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('sam')} onMouseLeave={()=> setCurrent(null)}>Sam Goddard</button> + <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('isaac')} onMouseLeave={()=> setCurrent(null)}>Isaac Powell</button>, who have over a decade of experience in design + web technology. Whilst awards don’t affect our judgement during a project, we are proud to have been recognised for our work in numerous sites + publications, including Awwwards, SiteInspire, Klikkentheke, The Brand Identity, and Typewolf.</p>
+                    <span className="flex items-center mb-6 text-sm">
+                      <span className="font-serif leading-none text-xs block mr-[6px]">( C )</span>
+                      <span className="block leading-none">Expertise</span>
+                    </span>
+
+                    <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                      <ul>
+                        <li>Creative Direction</li>
+                        <li>Brand Identity</li>
+                        <li>Interaction Design</li>
+                        <li>Backend Architecture</li>
+                        <li>Web Development</li>
+                        <li>E-commerce</li>
+                        <li>Accessibility</li>
+                      </ul>
+                    </div>
+
+                    <span className="flex items-center mb-6 text-sm">
+                      <span className="font-serif leading-none text-xs block mr-[6px]">( D )</span>
+                      <span className="block leading-none">Partners</span>
+                    </span>
+
+                    <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                      <ul>
+                        <li>Ragged Edge</li>
+                        <li>Paul Smith</li>
+                        <li>Pitch</li>
+                        <li>Alpacka</li>
+                        <li>Jason Bailey Studio</li>
+                        <li>CUSP</li>
+                        <li>Ingamana</li>
+                      </ul>
+                    </div>
+                    
+                    <span className="flex items-center mb-6 text-sm">
+                      <span className="font-serif leading-none text-xs block mr-[6px]">( E )</span>
+                      <span className="block leading-none">Contact</span>
+                    </span>
+
+                    <div className="text-sm leading-snug w-[85%]">
+                      <ul>
+                        <li>hello@shiftwalk.studio</li>
+                        <li>@_shiftwalk.studio</li>
+                      </ul>
+                    </div>
                   </div>
-
-                  <span className="block font-serif mb-3 text-lg">( Services )</span>
-
-                  <div className="content w-[85%] md:w-[60%] max-w-[550px] mb-12 md:mb-20 text-lg">
-                    <ul>
-                      <li>Strategy</li>
-                      <li>Brand Identity</li>
-                      <li>Visual Direction</li>
-                      <li>Digital Design</li>
-                      <li>Interaction</li>
-                      <li>Web Development</li>
-                    </ul>
-                  </div>
+                  
                 </div>
               
-                <div className="col-span-10 md:col-span-7">
-                  <div className="mb-[13vw] md:mb-[8.5vw] px-3">
-                    <div className="w-full h-[1px] bg-black -skew-y-12"></div>
-                  </div>
-                </div>
-                <Footer />
+                <Footer noRightPad />
               </div>
             </Grid>
           </m.article>

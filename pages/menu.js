@@ -22,36 +22,61 @@ export default function Menu() {
         >
           <m.article>
             {/* Fixed Sidebar */}
-            <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-grey px-3 hidden md:flex flex-wrap bg-blue text-grey">
-              <div className="w-full mt-auto py-3">
-                <span className="font-serif mb-2 block text-lg text-right">( Note )</span>
-                <div className="content w-[85%] md:w-[90%]0 max-w-[360px] text-right text-lg ml-auto">
-                  <p>If you’d like to collaborate with us on a project, please reach out on any of the methods opposite and we will be in touch.</p>
+            <div className="fixed lg:top-0 right-0 bottom-0 w-full lg:w-[28vw] xl:w-[22vw] lg:max-w-[360px] lg:h-screen col-span-3 col-start-8 lg:border-l border-grey flex flex-wrap lg:items-end text-grey">
+              <div className="flex flex-wrap items-end w-full lg:pb-16">
+                
+                <div className="w-full px-5 pt-5">
+                  <span className="flex items-center mb-3 lg:mb-6 text-sm">
+                    <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
+                    <span className="block leading-none">New Business</span>
+                  </span>
+
+                  <div className="text-sm leading-snug w-[85%] mb-6 lg:mb-12 content tracking-tight">
+                    <p className="hidden lg:block">If you'd like to work with us on your next project, please feel free to drop us a line at the address below — we will typically respond within 48 hours. Since we're a small studio with limited availability, our usual lead time to start is 4-6 weeks.</p>
+
+                    <p className="leading-none underline">hello@shiftwalk.studio</p>
+                  </div>
+
+                  <span className="flex items-center mb-3 lg:mb-6 text-sm">
+                    <span className="font-serif leading-none text-xs block mr-[6px]">( B )</span>
+                    <span className="block leading-none">Social</span>
+                  </span>
+
+                  <div className="text-sm leading-snug w-[85%] mb-6 lg:mb-12 content tracking-tight">
+                    <p className="hidden lg:block">We're not the most active at social media, but we do occasionally post updates over at Instagram. Drop by.</p>
+
+                    <p className="leading-none underline">@_shiftwalk.studio</p>
+                  </div>
+
+                  <span className="hidden lg:flex items-center mb-6 text-sm">
+                    <span className="font-serif leading-none text-xs block mr-[6px]">( C )</span>
+                    <span className="block leading-none">Jobs</span>
+                  </span>
+
+                  <div className="text-sm leading-snug w-[85%] content tracking-tight hidden lg:block">
+                    <p>Whilst we're not actively hiring right now, we're always on the look out for talented freelance photographers, motion designers, 3D designers, and creative developers to help with work in the studio. Please reach out if this describes you — we'd love to chat.</p>
+                  </div>
+                </div>
+
+                <div className="p-5 py-4 border-t border-grey w-full ml-5 lg:ml-0 mr-5 lg:hidden">
                 </div>
               </div>
             </div>
 
             {/* Main Section */}
             <Grid>
-              <div className="col-span-10 md:col-span-7 pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap items-center px-3 pb-3 bg-blue text-grey">
-                <div className="w-full mb-8 md:mb-0 mt-auto">
-
-                  <span className="font-display text-[12vw] md:text-[8.2vw] xl:text-[8.25vw] leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] block">
-                    <Link href="/"><a className="inline-block">Studio,&nbsp;</a></Link>
-                    <Link href="/projects"><a className="inline-block">Projects,&nbsp;</a></Link>
-                    <Link href="/journal"><a className="inline-block">Journal,&nbsp;</a></Link>
-                    <a href="mailto:hello@shiftwalk.studio" className="inline-block">Email</a>
+              <div className="col-span-10 md:col-span-10 pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap lg:items-center bg-blue text-grey">
+                <div className="w-full px-5 lg:mt-auto mb-[5vw] md:w-[80%]">
+                  <span className="font-display text-[16.5vw] md:text-[8vw] xl:text-[8vw] leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] block">
+                    <Link href="/"><a className="inline-block hover:text-white focus:text-white">Studio,&nbsp;</a></Link>
+                    <Link href="/projects"><a className="inline-block hover:text-white focus:text-white">Projects,&nbsp;</a></Link>
+                    <Link href="/journal"><a className="inline-block hover:text-white focus:text-white">Journal,&nbsp;</a></Link>
+                    <a href="mailto:hello@shiftwalk.studio" className="inline-block hover:text-white focus:text-white">Email</a>
                   </span>
                 </div>
-                
-                <div className="flex items-center space-x-3 mt-auto">
-                  <a href="mailto:hello@shiftwalk.studio" className="inline-block underline text-xl md:text-2xl xl:text-3xl leading-none md:leading-none xl:leading-none a11y-focus">hello@shiftwalk.studio</a>
 
-                  <span className="block text-base md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none">&bull;</span>
-                  
-                  <a href="https://www.instagram.com/_shiftwalk.studio/" rel="noreferrer noopener" target="_blank" className="inline-block underline text-xl md:text-2xl xl:text-3xl leading-none md:leading-none xl:leading-none a11y-focus">Instagram</a>
+                <div className="p-5 bg-blue border-t border-grey w-full mt-auto ml-5 mr-5 lg:mr-0 hidden lg:block">
                 </div>
-
               </div>
             </Grid>
           </m.article>

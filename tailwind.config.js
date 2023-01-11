@@ -5,9 +5,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Neue Haas Unica', 'Arial', 'sans-serif'],
+      'sans': ['Studio Pro', 'Arial', 'sans-serif'],
       'serif': ['Roslindale', 'Georgia', 'serif'],
-      'display': ['NeueHaasGroteskDisp Pro', 'Arial', 'sans-serif']
+      'display': ['Studio Pro', 'Arial', 'sans-serif']
     },
     screens: {
       sm: "640px",
