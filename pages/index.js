@@ -1,8 +1,7 @@
 import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
-import FancyLink from '@/components/fancyLink'
-import { fade } from '@/helpers/transitions'
+import { fade, reveal } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
@@ -42,7 +41,14 @@ export default function Home(initialData) {
         >
           <m.article>
             {/* Fixed Sidebar */}
-            <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-5 hidden md:flex flex-wrap">
+            <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 px-5 hidden md:flex flex-wrap">
+              <div
+                initial={{ height: '0' }}
+                animate={{ height: '100%' }}
+                exit={{ height: '0' }}
+                transition={{ duration: 0.75, ease: [0.83, 0, 0.17, 1] }}
+                className="absolute top-0 left-0 bottom-0 w-[1px] bg-black"
+              ></div>
               <div className="w-full mt-auto py-5">
                 { current == 'sam' && (
                   <>

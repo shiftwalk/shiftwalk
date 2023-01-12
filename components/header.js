@@ -1,8 +1,11 @@
 import FancyLink from '@/components/fancyLink'
 import Grid from '@/components/grid'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Header({ bgColor, textColor}) {
+  const router = useRouter()
+
   return (
     <header className={`px-5 fixed top-0 left-0 right-0 z-20 ${bgColor ? `bg-${bgColor}` : 'bg-white'} ${textColor ? `text-${textColor}` : 'text-black'}`}>
       <Grid className={`items-center border-b ${textColor ? `border-${textColor}` : 'border-black'} py-3`}>
@@ -15,13 +18,28 @@ export default function Header({ bgColor, textColor}) {
         </div>
 
         <nav className="col-span-2 col-start-9 text-right text-lg md:text-xl xl:text-2xl leading-none">
-          <div className="hidden md:inline-block">
-            <Link href="/menu">
-              <a className="a11y-focus w-auto flex space-x-3 justify-end items-center">
-                <span className="w-5 xl:w-6 inline-block">
-                  <svg className="w-full fill-current" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 5.36c-1.893.907-3.653 2.347-5.28 4.32h-1.4c.4-.853.8-1.6 1.2-2.24.373-.64.747-1.173 1.12-1.6H.32V4.16h23.32c-.373-.453-.747-1-1.12-1.64-.4-.64-.8-1.373-1.2-2.2h1.4c1.627 1.947 3.387 3.387 5.28 4.32v.72Z" /></svg>
-                </span>
-                <span className="block">Menu</span>
+          <div className="hidden md:flex space-x-[5px] justify-end items-center">
+            <Link href="/">
+              <a className={`a11y-focus w-auto ${router.asPath == '/' ? 'text-black' : 'text-[#CBCBCB]' }`}>
+                <span className="block">Studio,</span>
+              </a>
+            </Link>
+
+            <Link href="/projects">
+              <a className={`a11y-focus w-auto ${router.asPath.includes('/projects') ? 'text-black' : 'text-[#CBCBCB]' }`}>
+                <span className="block">Projects,</span>
+              </a>
+            </Link>
+
+            <Link href="/journal">
+              <a className={`a11y-focus w-auto ${router.asPath.includes('/journal') ? 'text-black' : 'text-[#CBCBCB]' }`}>
+                <span className="block">Journal,</span>
+              </a>
+            </Link>
+
+            <Link href="/journal">
+              <a className={`a11y-focus w-auto ${router.asPath == '/contact' ? 'text-black' : 'text-[#CBCBCB]' }`}>
+                <span className="block">Contact</span>
               </a>
             </Link>
           </div>
