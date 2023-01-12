@@ -17,7 +17,7 @@ export default function Footer({ noRightPad }) {
         </div>
 
         <div className="w-auto ml-auto">
-          <a href="mailto:hello@shiftwalk.studio" className="text-sm leading-none a11y-focus">Top</a>
+          <a href="#" className="text-sm leading-none a11y-focus">Top</a>
         </div>
       </div>
     </footer>

@@ -13,6 +13,10 @@
 
 
 /* Simple defaults */
+html {
+  @apply scroll-smooth;
+}
+
 body {
   @apply font-sans antialiased text-black bg-white selection:bg-black selection:text-white;
 }
