@@ -27,6 +27,10 @@ export default function Home(initialData) {
   const { data: { home } } = pageService.getPreviewHook(initialData)()
   const [current, setCurrent] = useState(null);
 
+  let d = new Date()
+
+  let time = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: false }).format(d);
+
   return (
     <Layout>
       <NextSeo title="Design + Build Studio" />
@@ -76,10 +80,13 @@ export default function Home(initialData) {
                 )}
                 { current == null && (
                   <>
-                    <span className="block mb-2 lg:flex items-center text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none">
+                    <span className="block mb-2 lg:flex items-center text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none group">
                       <svg className="w-[28px] mb-1 lg:mb-0 lg:mr-2 block" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M22.72 14.428c2.273-1.495 3.5-3.436 3.5-5.428s-1.227-3.933-3.5-5.428c-2.263-1.49-5.456-2.447-9.04-2.447-3.584 0-6.777.958-9.04 2.447C2.366 5.067 1.14 7.008 1.14 9s1.227 3.933 3.5 5.428c2.263 1.49 5.456 2.447 9.04 2.447 3.584 0 6.777-.958 9.04-2.447ZM13.68 18c7.555 0 13.68-4.03 13.68-9s-6.125-9-13.68-9S0 4.03 0 9s6.125 9 13.68 9Z" fill="#202020"/><path fillRule="evenodd" clipRule="evenodd" d="M13.68 16.875c3.161 0 6.093-3.296 6.093-7.875 0-4.579-2.932-7.875-6.092-7.875-3.161 0-6.093 3.296-6.093 7.875 0 4.579 2.932 7.875 6.093 7.875Zm0 1.125c3.977 0 7.2-4.03 7.2-9s-3.223-9-7.2-9c-3.976 0-7.2 4.03-7.2 9s3.224 9 7.2 9Z" fill="#202020"/><path fillRule="evenodd" clipRule="evenodd" d="M26.64 9.362H.72v-1.44h25.92v1.44Z" fill="#242B2D"/><path fillRule="evenodd" clipRule="evenodd" d="M12.96 17.999V.719h1.44v17.28h-1.44Z" fill="#242B2D"/></svg>
 
-                      <span className="block">Nottingham, Worldwide</span>
+                      <span className="block relative">
+                        <span className="block group-hover:opacity-0">Nottingham, Worldwide</span>
+                        <span className="block opacity-0 group-hover:opacity-100 absolute top-0 left-0">{time.replace(' ', '')} GMT</span>
+                      </span>
                     </span>
                     <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
                       <img className="w-full h-full object-cover object-center absolute inset-0" src="images/studio.jpg" alt="CHANGE ME" />
@@ -96,7 +103,10 @@ export default function Home(initialData) {
                   <h1 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%]">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
                   
                   <Link href="/projects">
-                    <a className="inline-block underline text-lg md:text-xl xl:text-2xl leading-none a11y-focus" onMouseEnter={()=> setCurrent('projects')} onMouseLeave={()=> setCurrent(null)}>Selected Projects</a>
+                    <a className="inline-block text-lg md:text-xl xl:text-2xl leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative" onMouseEnter={()=> setCurrent('projects')} onMouseLeave={()=> setCurrent(null)}>
+                      Selected Projects
+                      <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
+                    </a>
                   </Link>
                 </div>
 
@@ -183,8 +193,8 @@ export default function Home(initialData) {
 
                     <div className="text-sm leading-snug w-[85%]">
                       <ul>
-                        <li>hello@shiftwalk.studio</li>
-                        <li>@_shiftwalk.studio</li>
+                        <li><a href="mailto:hello@shiftwalk.studio" className="underline">hello@shiftwalk.studio</a></li>
+                        <li><a href="https://www.instagram.com/_shiftwalk.studio/" className="underline">@_shiftwalk.studio</a></li>
                       </ul>
                     </div>
                   </div>

@@ -20,25 +20,25 @@ export default function Header({ bgColor, textColor}) {
         <nav className="col-span-2 col-start-9 text-right text-lg md:text-xl xl:text-2xl leading-none">
           <div className="hidden md:flex space-x-[5px] justify-end items-center">
             <Link href="/">
-              <a className={`a11y-focus w-auto ${router.asPath == '/' ? 'text-black' : 'text-[#CBCBCB]' }`}>
+              <a className={`a11y-focus w-auto ${router.asPath == '/' ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
                 <span className="block">Studio,</span>
               </a>
             </Link>
 
             <Link href="/projects">
-              <a className={`a11y-focus w-auto ${router.asPath.includes('/projects') ? 'text-black' : 'text-[#CBCBCB]' }`}>
+              <a className={`a11y-focus w-auto ${router.asPath.includes('/projects') ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
                 <span className="block">Projects,</span>
               </a>
             </Link>
 
             <Link href="/journal">
-              <a className={`a11y-focus w-auto ${router.asPath.includes('/journal') ? 'text-black' : 'text-[#CBCBCB]' }`}>
+              <a className={`a11y-focus w-auto ${router.asPath.includes('/journal') ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
                 <span className="block">Journal,</span>
               </a>
             </Link>
 
             <Link href="/journal">
-              <a className={`a11y-focus w-auto ${router.asPath == '/contact' ? 'text-black' : 'text-[#CBCBCB]' }`}>
+              <a className={`a11y-focus w-auto ${router.asPath == '/contact' ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
                 <span className="block">Contact</span>
               </a>
             </Link>
