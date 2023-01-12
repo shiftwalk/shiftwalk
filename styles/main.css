@@ -48,3 +48,7 @@ body {
     @apply object-cover object-center;
   }
 }
+
+circle {
+  fill: transparent;
+}

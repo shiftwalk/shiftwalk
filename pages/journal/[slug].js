@@ -8,7 +8,8 @@ import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
 import Image from '@/components/image'
 import Gif from '@/components/gif'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
@@ -68,6 +69,11 @@ export default function JournalSlug(initialData) {
   const { data: { journal } } = pageService.getPreviewHook(initialData)()
   const [current, setCurrent] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   function updateCurrent(e) {
     setCurrent(e)

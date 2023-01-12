@@ -4,8 +4,15 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import Link from 'next/link'
+import { IntroContext } from '@/context/intro'
+import { useContext, useEffect } from 'react'
 
 export default function Menu() {
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>

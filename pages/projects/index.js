@@ -6,6 +6,8 @@ import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Teaser from '@/components/teaser'
+import { useContext, useEffect } from 'react'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "projects": *[_type == "projects"] | order(orderRank) {
@@ -38,6 +40,11 @@ const pageService = new SanityPageService(query)
 
 export default function Projects(initialData) {
   const { data: { projects } } = pageService.getPreviewHook(initialData)()
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>

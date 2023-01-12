@@ -7,7 +7,8 @@ import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
 import BodyRenderer from '@/components/body-renderer'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "project": *[_type == "projects" && slug.current == $slug][0]{
@@ -69,11 +70,15 @@ const pageService = new SanityPageService(query)
 export default function ProjectSlug(initialData) {
   const { data: { project } } = pageService.getPreviewHook(initialData)()
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   function updateIsInfoOpen() {
     setIsInfoOpen(prevIsInfoOpen => !prevIsInfoOpen)
   }
-
 
   return (
     <Layout>

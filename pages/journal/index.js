@@ -4,11 +4,12 @@ import Footer from '@/components/footer'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
 import Link from 'next/link'
 import Gif from '@/components/gif'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
@@ -42,6 +43,11 @@ export default function Journal(initialData) {
   const { data: { journals } } = pageService.getPreviewHook(initialData)()
   const [current, setCurrent] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   function updateCurrent(e) {
     setCurrent(e)
