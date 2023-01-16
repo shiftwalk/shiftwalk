@@ -90,9 +90,11 @@ export default function App({ Component, pageProps }) {
             </Div100vh>
           )}
         </LazyMotion>
-          
+        
         <AnimatePresence exitBeforeEnter>
-          <Component {...pageProps} key={router.asPath} />
+          <div className={`${router.asPath == '/contact' ? 'bg-grey' : 'bg-white'}`}>
+            <Component {...pageProps} key={router.asPath} />
+          </div>
         </AnimatePresence>
       </IntroContext.Provider>
     </>

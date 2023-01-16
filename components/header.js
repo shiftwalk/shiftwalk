@@ -7,7 +7,7 @@ export default function Header({ bgColor, textColor}) {
   const router = useRouter()
 
   return (
-    <header className={`px-5 fixed top-0 left-0 right-0 z-20 ${bgColor ? `bg-${bgColor}` : 'bg-white'} ${textColor ? `text-${textColor}` : 'text-black'}`}>
+    <header className={`px-5 fixed top-0 left-0 right-0 z-20 ${bgColor ? `bg-grey` : 'bg-white'}`}>
       <Grid className={`items-center border-b ${textColor ? `border-${textColor}` : 'border-black'} py-3`}>
         <div className="col-span-3">
           <Link href="/">
@@ -20,25 +20,25 @@ export default function Header({ bgColor, textColor}) {
         <nav className="col-span-2 col-start-9 text-right text-lg md:text-xl xl:text-2xl leading-none">
           <div className="hidden md:flex space-x-[5px] justify-end items-center">
             <Link href="/">
-              <a className={`a11y-focus w-auto ${router.asPath == '/' ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
+              <a className={`a11y-focus w-auto ${router.asPath == '/' ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                 <span className="block">Studio,</span>
               </a>
             </Link>
 
             <Link href="/projects">
-              <a className={`a11y-focus w-auto ${router.asPath.includes('/projects') ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
+              <a className={`a11y-focus w-auto ${router.asPath.includes('/projects') ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                 <span className="block">Projects,</span>
               </a>
             </Link>
 
             <Link href="/journal">
-              <a className={`a11y-focus w-auto ${router.asPath.includes('/journal') ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
+              <a className={`a11y-focus w-auto ${router.asPath.includes('/journal') ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                 <span className="block">Journal,</span>
               </a>
             </Link>
 
-            <Link href="/journal">
-              <a className={`a11y-focus w-auto ${router.asPath == '/contact' ? 'text-black' : 'text-[#CBCBCB] hover:text-black focus:text-black' }`}>
+            <Link href="/contact">
+              <a className={`a11y-focus w-auto ${router.asPath == '/contact' ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                 <span className="block">Contact</span>
               </a>
             </Link>
