@@ -52,3 +52,9 @@ body {
 circle {
   fill: transparent;
 }
+
+.pixelated-image {
+  canvas {
+    @apply absolute inset-0 w-full object-cover object-center;
+  }
+}
