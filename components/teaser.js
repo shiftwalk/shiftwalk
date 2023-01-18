@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "@/components/image";
 import Gif from "@/components/gif";
 
-export default function Teaser({ images, slug, title, projectCode }) {
+export default function Teaser({ images, slug, title, projectCode, noCaption }) {
   return images.length == 1 ? (
     <Link href={`/projects/${slug}`}>
       <a className="block w-full group overflow-hidden relative">
@@ -13,15 +13,17 @@ export default function Teaser({ images, slug, title, projectCode }) {
           sizes="(min-width: 768px) 80vw, 100vw"
           className="w-full"
         />
-        <span className="mt-[6px] block text-base md:text-lg xl:text-2xl leading-none md:leading-none xl:leading-none">{title}</span>
-        <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</span>
+        <div className={noCaption ? 'block md:hidden' : '' }>
+          <span className="mt-[6px] block text-base md:text-lg xl:text-2xl leading-none md:leading-none xl:leading-none">{title}</span>
+          <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</span>
+        </div>
       </a>
     </Link>
   ) : (
     <Link href={`/projects/${slug}`}>
       <a className="block">
         <Gif images={images} />
-        
+               
         <span className="mt-[6px] block text-base md:text-lg xl:text-2xl leading-none md:leading-none xl:leading-none">{title}</span>
         <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</span>
       </a>

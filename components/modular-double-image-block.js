@@ -12,7 +12,7 @@ export default function ModularDoubleImageBlock({ images }) {
               image={e}
               focalPoint={e.asset.hotspot}
               layout="responsive"
-              sizes="(min-width: 768px) 90vw, 90vw"
+              sizes="(min-width: 768px) 99vw, 99vw"
               className="w-full"
               noCaption
             />

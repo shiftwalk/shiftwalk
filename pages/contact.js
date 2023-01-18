@@ -19,7 +19,7 @@ export default function Contact() {
     <Layout>
       <NextSeo title="Contact" />
 
-      <Header bgColor="grey" />
+      <Header />
       
       <LazyMotion features={domAnimation}>
         <m.main
@@ -30,7 +30,7 @@ export default function Contact() {
           <m.article>
             {/* Fixed Sidebar */}
             <div className="fixed md:top-0 right-0 bottom-0 w-full md:w-[35%] lg:w-[25%] md:h-screen col-span-3 col-start-8 md:border-l border-black flex flex-wrap pt-[45px] md:pt-[53px] xl:pt-[57px] z-10">
-              <div className="flex flex-wrap w-full pb-[35px] md:pb-16 bg-grey">
+              <div className="flex flex-wrap w-full pb-[35px] md:pb-16">
                 
                 <div className="w-full px-5 pt-5 max-w-[480px]">
                   <span className="flex items-center mb-3 md:mb-6 text-sm">
@@ -71,7 +71,7 @@ export default function Contact() {
             </div>
 
             {/* Main Section */}
-            <div className="w-full md:w-[65%] lg:w-[75%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap md:items-center fixed top-0 left-0 bottom-0 bg-grey">
+            <div className="w-full md:w-[65%] lg:w-[75%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap md:items-center fixed top-0 left-0 bottom-0">
               <div className="w-full px-5 md:mt-auto pb-[45px] md:pb-[56px] xl:pb-[63px]">
                 <div className="mt-[4vw] mb-[13vw] md:mb-[8.5vw] hidden md:block">
                   <div className="w-full h-[1px] bg-black -skew-y-12"></div>
@@ -81,7 +81,7 @@ export default function Contact() {
             </div>
 
             <div className="w-full fixed bottom-0 left-0 right-0 z-20">
-              <Footer noRightPad bgColor noTop />
+              <Footer noRightPad noTop />
             </div>
           </m.article>
         </m.main>

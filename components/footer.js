@@ -12,7 +12,7 @@ export default function Footer({ noRightPad, bgColor, noTop }) {
               </svg>
             </span>
 
-            <span className="text-sm leading-none">ShiftWalk Studio Ltd<span className="hidden md:inline">, Copyright 2022</span></span>
+            <span className="text-sm leading-none">ShiftWalk Studio Ltd<span className="hidden md:inline">, Copyright 2023</span></span>
           </div>
         </div>
 

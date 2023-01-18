@@ -14,6 +14,7 @@ const query = `{
     title,
     services[],
     projectCode,
+    overview,
     teaserImages[] {
       asset-> {
         ...
@@ -61,26 +62,27 @@ export default function Projects(initialData) {
           <m.article>
             {/* Main Section */}
             <Grid>
-              <div className="col-span-10 md:col-span-7 pt-[20px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
+              <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
                 <div className="px-5 w-full">
                   <Teaser
                     projectCode={projects[0].projectCode}
                     title={projects[0].title}
                     slug={projects[0].slug.current}
                     images={projects[0].teaserImages}
+                    noCaption
                   />
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-3 p-5 md:px-0 pt-[63px] md:pt-[83px] xl:pt-[85px] order-1 md:order-2">
-                <span className="flex items-center mb-6 text-sm">
-                  <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
-                  <span className="block leading-none">Projects</span>
-                </span>
-
-                <div className="text-sm leading-snug w-[70%] max-w-[300px]">
-                  <p>Scroll to explore a number of projects that we have had the pleasure of working on over the past few years. It is not an exhaustive list, but should good a good flavour of what we’re all about, and the projects we enjoy taking on.</p>
+              <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center pt-[5vw] hidden md:flex">
+                <div className="w-full">
+                  <span className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</span>
+                  <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block mb-12">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</span>
                 </div>
+              </div>
+
+              <div className="px-6 col-span-10 order-3 mt-6">
+                <div className="h-[1px] bg-black"></div>
               </div>
             </Grid>
             
@@ -88,10 +90,10 @@ export default function Projects(initialData) {
               <div className="col-span-10 md:col-span-5 md:mt-[20vw] mb-3 lg:mb-0">
                 <div className="px-5">
                   <Teaser
-                    projectCode={projects[1].projectCode}
-                    title={projects[1].title}
-                    slug={projects[1].slug.current}
-                    images={projects[1].teaserImages}
+                    projectCode={projects[2].projectCode}
+                    title={projects[2].title}
+                    slug={projects[2].slug.current}
+                    images={projects[2].teaserImages}
                   />
                 </div>
               </div>
@@ -99,10 +101,10 @@ export default function Projects(initialData) {
               <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw] mb-3 lg:mb-0">
                 <div className="px-5">
                   <Teaser
-                    projectCode={projects[2].projectCode}
-                    title={projects[2].title}
-                    slug={projects[2].slug.current}
-                    images={projects[2].teaserImages}
+                    projectCode={projects[1].projectCode}
+                    title={projects[1].title}
+                    slug={projects[1].slug.current}
+                    images={projects[1].teaserImages}
                   />
                 </div>
               </div>
@@ -125,10 +127,10 @@ export default function Projects(initialData) {
               <div className="col-span-10 md:col-span-4 md:mt-[35vw] mb-3 lg:mb-0">
                 <div className="px-5">
                   <Teaser
-                    projectCode={projects[4].projectCode}
-                    title={projects[4].title}
-                    slug={projects[4].slug.current}
-                    images={projects[4].teaserImages}
+                    projectCode={projects[5].projectCode}
+                    title={projects[5].title}
+                    slug={projects[5].slug.current}
+                    images={projects[5].teaserImages}
                   />
                 </div>
               </div>
@@ -136,10 +138,10 @@ export default function Projects(initialData) {
               <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[12vw] mb-3 lg:mb-0">
                 <div className="px-5">
                   <Teaser
-                    projectCode={projects[5].projectCode}
-                    title={projects[5].title}
-                    slug={projects[5].slug.current}
-                    images={projects[5].teaserImages}
+                    projectCode={projects[4].projectCode}
+                    title={projects[4].title}
+                    slug={projects[4].slug.current}
+                    images={projects[4].teaserImages}
                   />
                 </div>
               </div>
@@ -162,10 +164,10 @@ export default function Projects(initialData) {
               <div className="col-span-10 md:col-span-5 md:mt-[35vw] mb-3 lg:mb-0">
                 <div className="px-5">
                   <Teaser
-                    projectCode={projects[7].projectCode}
-                    title={projects[7].title}
-                    slug={projects[7].slug.current}
-                    images={projects[7].teaserImages}
+                    projectCode={projects[8].projectCode}
+                    title={projects[8].title}
+                    slug={projects[8].slug.current}
+                    images={projects[8].teaserImages}
                   />
                 </div>
               </div>
@@ -173,10 +175,10 @@ export default function Projects(initialData) {
               <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[12vw] mb-3 lg:mb-0">
                 <div className="px-5">
                   <Teaser
-                    projectCode={projects[8].projectCode}
-                    title={projects[8].title}
-                    slug={projects[8].slug.current}
-                    images={projects[8].teaserImages}
+                    projectCode={projects[7].projectCode}
+                    title={projects[7].title}
+                    slug={projects[7].slug.current}
+                    images={projects[7].teaserImages}
                   />
                 </div>
               </div>
