@@ -18,7 +18,7 @@ export default function Menu() {
     <Layout>
       <NextSeo title="Menu" />
 
-      <Header textColor="grey" bgColor="blue" />
+    <Header textColor bgColor />
       
       <LazyMotion features={domAnimation}>
         <m.main
@@ -78,7 +78,7 @@ export default function Menu() {
                     <Link href="/"><a className="inline-block hover:text-white focus:text-white">Studio,&nbsp;</a></Link>
                     <Link href="/projects"><a className="inline-block hover:text-white focus:text-white">Projects,&nbsp;</a></Link>
                     <Link href="/journal"><a className="inline-block hover:text-white focus:text-white">Journal,&nbsp;</a></Link>
-                    <a href="mailto:hello@shiftwalk.studio" className="inline-block hover:text-white focus:text-white">Email</a>
+                    <Link href="/contact"><a className="inline-block hover:text-white focus:text-white">Contact</a></Link>
                   </span>
                 </div>
 

@@ -29,54 +29,37 @@ export default function Contact() {
         >
           <m.article>
             {/* Fixed Sidebar */}
-            <div className="fixed md:top-0 right-0 bottom-0 w-full md:w-[35%] lg:w-[25%] md:h-screen col-span-3 col-start-8 md:border-l border-black flex flex-wrap pt-[45px] md:pt-[53px] xl:pt-[57px] z-10">
-              <div className="flex flex-wrap w-full pb-[35px] md:pb-16">
-                
-                <div className="w-full px-5 pt-5 max-w-[480px]">
-                  <span className="flex items-center mb-3 md:mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
-                    <span className="block leading-none">New Business</span>
-                  </span>
-
-                  <div className="text-sm leading-snug w-[85%] mb-6 md:mb-12 content tracking-tight">
-                    <p className="hidden md:block">If you'd like to work with us on your next project, please feel free to drop us a line at the address below — we will typically respond within 48 hours. Since we're a small studio with limited availability, our usual lead time to start is 4-6 weeks.</p>
-
-                    <p className="leading-none underline">hello@shiftwalk.studio</p>
-                  </div>
-
-                  <span className="flex items-center mb-3 md:mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px]">( B )</span>
-                    <span className="block leading-none">Social</span>
-                  </span>
-
-                  <div className="text-sm leading-snug w-[85%] mb-6 md:mb-12 content tracking-tight">
-                    <p className="hidden md:block">We're not the most active at social media, but we do occasionally post updates over at Instagram. Drop by.</p>
-
-                    <p className="leading-none underline">@_shiftwalk.studio</p>
-                  </div>
-
-                  <span className="hidden md:flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px]">( C )</span>
-                    <span className="block leading-none">Jobs</span>
-                  </span>
-
-                  <div className="text-sm leading-snug w-[85%] content tracking-tight hidden md:block">
-                    <p>Whilst we're not actively hiring right now, we're always on the look out for talented freelance photographers, motion designers, 3D designers, and creative developers to help with work in the studio. Please reach out if this describes you — we'd love to chat.</p>
-                  </div>
-                </div>
-
-                <div className="p-5 py-4 border-t border-grey w-full ml-5 md:ml-0 mr-5 md:hidden">
-                </div>
-              </div>
+            <div className="fixed md:top-0 left-0 bottom-0 w-full md:w-[25%] lg:w-[20%] md:h-screen col-span-3 col-start-8 md:border-r border-black flex flex-wrap pt-[45px] md:pt-[53px] xl:pt-[57px] z-10">
             </div>
 
             {/* Main Section */}
-            <div className="w-full md:w-[65%] lg:w-[75%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap md:items-center fixed top-0 left-0 bottom-0">
-              <div className="w-full px-5 md:mt-auto pb-[45px] md:pb-[56px] xl:pb-[63px]">
-                <div className="mt-[4vw] mb-[13vw] md:mb-[8.5vw] hidden md:block">
-                  <div className="w-full h-[1px] bg-black -skew-y-12"></div>
+            <div className="w-full md:w-[75%] lg:w-[80%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap fixed top-0 right-0 bottom-0">
+              <div className="w-full px-5 pb-[45px] md:pb-[56px] xl:pb-[63px]">
+                <h1 className="font-display text-[9vw] md:text-[5.5vw] lg:text-[5vw] xl:text-[4.4vw] leading-none mb-6 md:mb-8 max-w-[85%] md:max-w-[85%] lg:max-w-[75%]">Please reach out to talk to us about an upcoming project.</h1>                
+              </div>
+
+              <div className="pb-[45px] md:pb-[53px] xl:pb-[57px] mt-auto w-full px-5">
+                <div className="w-full border-t border-black">
+                  <div className="w-full py-5 pb-8 max-w-[600px]">
+                    <div className="text-sm leading-snug w-[85%] mb-6 md:mb-12 content tracking-tight">
+                      <p className="block">If you'd like to work with us on your next project, please feel free to drop us a line at the address below — we will typically respond within 48 hours. Since we're a small studio with limited availability, our usual lead time to start is 4-6 weeks.</p>
+
+                      <a className="inline-block text-lg md:text-xl xl:text-xl leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative font-display mt-3">
+                        hello@shiftwalk.studio
+                        <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
+                      </a>
+                    </div>
+
+                    <div className="text-sm leading-snug w-[85%] content tracking-tight">
+                      <p className="block">We're not the most active at social media, but we do occasionally post updates over at Instagram. Drop by.</p>
+
+                      <a className="inline-block text-lg md:text-xl xl:text-xl leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative font-display mt-3">
+                        Instagram
+                        <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <h1 className="font-display text-[9vw] md:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[85%] md:max-w-[90%] lg:max-w-[80%]">Please reach out if you would like to talk to us about an upcoming project.</h1>
               </div>
             </div>
 
