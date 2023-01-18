@@ -4,45 +4,36 @@ import { useInView } from "framer-motion"
 import Image from "./image";
 
 export default function PixelatedImage({ image, sanityImage, width, height }) {
-  const [currentIndex, setCurrentIndex] = useState(80);
+  const [pixelated, setPixelated] = useState(true);
   const ref = useRef(null)
   const isInView = useInView(ref)
 
   useEffect(() => {
-    let speed = 50
-
-    const i_id = setInterval(() => {
-      if (currentIndex == 0) {
-      } else {
-        if (isInView) {
-          setCurrentIndex(currentIndex => currentIndex-10)
-        }
-      }
-    }, speed);
-
-    return () => {
-      clearInterval(i_id);
-      
-      if (!isInView) {
-        setCurrentIndex(80)
-      }
-    }
-  },[currentIndex, isInView]);
+    if (isInView) {
+      setTimeout(() => {
+        setPixelated(false)
+      }, 500);
+    } else (
+      setPixelated(true)
+    )
+  },[pixelated, isInView]);
 
   return (
-    <div ref={ref} className="pixelated-image relative">
+    <div className="pixelated-image relative" ref={ref}>
       {sanityImage && (
-        <Image
-          image={sanityImage}
-          layout="responsive"
-          sizes="(min-width: 768px) 80vw, 100vw"
-          className={`w-full ${currentIndex == 0 ? '' : '' }`}
-        />
+        <div className="w-full relative z-0">
+          <Image
+            image={sanityImage}
+            layout="responsive"
+            sizes="(min-width: 768px) 80vw, 100vw"
+            className={`w-full ${pixelated ? 'opacity-0' : '' }`}
+          />
+        </div>
       )}
       
-      <div className={`absolute inset-0 z-10 ${(currentIndex == 0 && sanityImage) ? 'opacity-0' : 'opacity-100' }`}>
+      <div className={`absolute inset-0 scale-[1.005] z-20 ${(pixelated && sanityImage) ? 'opacity-100' : 'opacity-0' }`}>
         <ImagePixelated
-          pixelSize={currentIndex}
+          pixelSize={45}
           src={image}
           width={width}
           height={height}

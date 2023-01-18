@@ -15,6 +15,22 @@ import PixelatedImage from '@/components/pixelated-image'
 const query = `{
   "home": *[_type == "home"][0]{
     title,
+    heroImage[] {
+      asset-> {
+        ...
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      alt,
+      hotspot {
+        x,
+        y
+      },
+    },
     seo {
       ...,
       shareGraphic {
@@ -97,7 +113,12 @@ export default function Home(initialData) {
                       </span>
                     </span>
                     <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
-                      <PixelatedImage image={'images/studio.jpg'} />
+                      <PixelatedImage
+                        image={`${home.heroImage[0].asset.url}?q=1&w=${home.heroImage[0].asset.metadata.dimensions.width/2}&fit=clip&auto=format`}
+                        sanityImage={home.heroImage[0]}
+                        width={home.heroImage[0].asset.metadata.dimensions.width/4}
+                        height={home.heroImage[0].asset.metadata.dimensions.height/4}
+                      />
                     </div>
                   </>
                 )}

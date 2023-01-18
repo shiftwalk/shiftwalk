@@ -55,6 +55,10 @@ circle {
 
 .pixelated-image {
   canvas {
-    @apply absolute inset-0 w-full object-cover object-center;
+    @apply absolute inset-0 w-full object-contain object-top z-20;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
   }
 }

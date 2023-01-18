@@ -14,8 +14,13 @@ export default function Teaser({ images, slug, title, projectCode, noCaption }) 
           sizes="(min-width: 768px) 80vw, 100vw"
           className="w-full"
         /> */}
-
-        <PixelatedImage image={`${images[0].asset.url}?q=10&w=${images[0].asset.metadata.dimensions.width/2}&fit=clip&auto=format`} sanityImage={images[0]} />
+        
+        <PixelatedImage
+          image={`${images[0].asset.url}?q=1&w=${images[0].asset.metadata.dimensions.width/2}&fit=clip&auto=format`}
+          sanityImage={images[0]}
+          width={images[0].asset.metadata.dimensions.width/4}
+          height={images[0].asset.metadata.dimensions.height/4}
+        />
 
         <div className={noCaption ? 'block md:hidden' : '' }>
           <span className="mt-[6px] block text-base md:text-lg xl:text-2xl leading-none md:leading-none xl:leading-none">{title}</span>
