@@ -27,7 +27,7 @@ const query = `{
         asset-> {
           ...
         },
-        overrideVideo {
+        videoOverride {
           asset-> {
             ...
           }
@@ -43,7 +43,7 @@ const query = `{
         asset-> {
           ...
         },
-        overrideVideo {
+        videoOverride {
           asset-> {
             ...
           }
@@ -69,7 +69,7 @@ const pageService = new SanityPageService(query)
 
 export default function ProjectSlug(initialData) {
   const { data: { project } } = pageService.getPreviewHook(initialData)()
-  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(true);
   const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
@@ -94,13 +94,13 @@ export default function ProjectSlug(initialData) {
         >
           <m.article>
             {/* Fixed Sidebar */}
-            <div className={`fixed top-0 right-0 bottom-0 h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black px-5 hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-[30%] 2xl:w-[500px]' : 'w-[95px] xl:w-[105px]' }`}>
+            <div className={`fixed top-0 right-0 bottom-0 h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-[30%] 2xl:w-[500px]' : 'w-[95px] xl:w-[105px]' }`}>
               <div className="w-full py-5 pt-8 relative">
-                <button className="text-lg md:text-xl xl:text-2xl leading-none absolute bottom-0 mb-[18px] right-0" onClick={()=> updateIsInfoOpen() }>
-                  + {isInfoOpen ? 'Close' : 'Info' }
+                <button className="text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 pt-5 px-5 right-0 border-t border-black w-full text-right" onClick={()=> updateIsInfoOpen() }>
+                  + {isInfoOpen ? 'Hide Info' : 'Info' }
                 </button>
 
-                <div className={`${isInfoOpen ? '' : 'hidden' }`}>
+                <div className={`px-5 ${isInfoOpen ? '' : 'hidden' }`}>
                   <span className="flex items-center mb-6 text-sm">
                     <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
                     <span className="block leading-none">People</span>

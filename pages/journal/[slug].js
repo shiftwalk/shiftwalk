@@ -19,7 +19,7 @@ const query = `{
       asset-> {
         ...
       },
-      overrideVideo {
+      videoOverride {
         asset-> {
           ...
         }
@@ -44,7 +44,7 @@ const query = `{
         asset-> {
           ...
         },
-        overrideVideo {
+        videoOverride {
           asset-> {
             ...
           }

@@ -7,7 +7,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
       // .width((widthOverride ? widthOverride : options.width) || Math.min(( widthOverride ? widthOverride : options.originalImageDimensions.width), 800))
-      .quality(90)
+      // .quality(90)
       .fit('clip')
   };
   
@@ -27,17 +27,15 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   if (priority) { attributes.priority = true } else { attributes.priority = false }
   if (sizes) { attributes.sizes = sizes }
 
-	return (image.overrideVideo || image.overrideVimeoVideo) ? (
-    <div className={`image ${className} w-full aspect-video h-full overflow-hidden ${nonRelative ? '' : 'relative'} ${layout == 'fill' && 'cover-image' }`}>
-    <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0`}>
-        <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.overrideVideo.asset.url } type="video/mp4" />
+	return (image.videoOverride || image.overrideVimeoVideo) ? (
+    <div className={`image ${className} w-full overflow-hidden ${nonRelative ? '' : 'relative'} ${layout == 'fill' && 'cover-image' }`}>
+      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-10`}>
+        <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.videoOverride.asset.url } type="video/mp4" />
 
         Sorry. Your browser does not support the video tag.
       </video>
 
-      {(image.caption && !noCaption) && (
-        <span className={`text-base md:text-lg xl:text-xl leading-tight xl:leading-tight md:leading-tight ${layout == 'fill' && 'mt-2 -mb-1 py-2 bg-white absolute bottom-0 left-0 w-full z-[10] '}`}>{image.caption}{image.captionSubHeading && (<span className="block text-gray">{image.captionSubHeading}</span>)}</span>
-      )}
+      <Img {...imageProps} {...attributes} />
     </div>
 	) : (
     <figure className={`image ${noBg ? '' : 'bg-white'} bg-opacity-20 ${className} ${layout == 'fill' && 'cover-image' }`}>

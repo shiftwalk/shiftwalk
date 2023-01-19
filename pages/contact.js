@@ -44,7 +44,7 @@ export default function Contact() {
                     <div className="text-sm leading-snug w-[85%] mb-6 md:mb-12 content tracking-tight">
                       <p className="block">If you'd like to work with us on your next project, please feel free to drop us a line at the address below — we will typically respond within 48 hours. Since we're a small studio with limited availability, our usual lead time to start is 4-6 weeks.</p>
 
-                      <a className="inline-block text-lg md:text-xl xl:text-xl leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative font-display mt-3">
+                      <a className="inline-block text-lg md:text-xl xl:text-xl leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative mt-3">
                         hello@shiftwalk.studio
                         <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
                       </a>
@@ -53,7 +53,7 @@ export default function Contact() {
                     <div className="text-sm leading-snug w-[85%] content tracking-tight">
                       <p className="block">We're not the most active at social media, but we do occasionally post updates over at Instagram. Drop by.</p>
 
-                      <a className="inline-block text-lg md:text-xl xl:text-xl leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative font-display mt-3">
+                      <a className="inline-block text-lg md:text-xl xl:text-xl leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative mt-3">
                         Instagram
                         <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
                       </a>

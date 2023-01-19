@@ -8,6 +8,8 @@ import SanityPageService from '@/services/sanityPageService'
 import Teaser from '@/components/teaser'
 import { useContext, useEffect } from 'react'
 import { IntroContext } from '@/context/intro'
+import Pill from '@/components/pill'
+import Link from 'next/link'
 
 const query = `{
   "projects": *[_type == "projects"] | order(orderRank) {
@@ -19,7 +21,7 @@ const query = `{
       asset-> {
         ...
       },
-      overrideVideo {
+      videoOverride {
         asset-> {
           ...
         }
@@ -63,7 +65,7 @@ export default function Projects(initialData) {
             {/* Main Section */}
             <Grid>
               <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
-                <div className="px-5 w-full">
+                <div className="px-5 w-full md:pb-5">
                   <Teaser
                     projectCode={projects[0].projectCode}
                     title={projects[0].title}
@@ -74,14 +76,20 @@ export default function Projects(initialData) {
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center pt-[5vw] hidden md:flex">
+              <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center hidden md:flex border-l border-black relative">
                 <div className="w-full">
                   <span className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</span>
-                  <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block mb-12">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</span>
+                  <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</span>
+
+                  <Link href={`/projects/${projects[0].slug.current}`}>
+                    <a className="absolute bottom-0 left-0 right-0 m-5 group">
+                      <Pill label="Explore Project" />
+                    </a>
+                  </Link>
                 </div>
               </div>
 
-              <div className="px-6 col-span-10 order-3 mt-6">
+              <div className="px-6 col-span-10 order-3 hidden md:block">
                 <div className="h-[1px] bg-black"></div>
               </div>
             </Grid>

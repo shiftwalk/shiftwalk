@@ -10,6 +10,7 @@ import Image from '@/components/image'
 import Link from 'next/link'
 import Gif from '@/components/gif'
 import { IntroContext } from '@/context/intro'
+import Pill from '@/components/pill'
 
 const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
@@ -94,7 +95,7 @@ export default function Journal(initialData) {
               {journals.slice(1).map((e, i) => {
                 return (
                   <Link href={`/journal/${e.slug.current}`} key={i}>
-                    <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-5 border-b border-black w-full block ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`}>
+                    <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-5 border-b border-black w-full block group ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`}>
                       <div className="mb-3 w-full">
                       { e.images.length == 1 ? (
                         <Image
@@ -113,10 +114,7 @@ export default function Journal(initialData) {
                         <span className="font-serif mb-2 block text-lg leading-none">( SW.0{i + 1} )</span>
                       </div>
 
-                      <span className="inline-block text-base md:text-base xl:text-base leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative mx-auto">
-                        Read
-                        <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
-                      </span>
+                      <Pill label="Read More" />
                     </a>
                   </Link>
                 )
@@ -124,16 +122,13 @@ export default function Journal(initialData) {
             </div>
 
             <Grid>
-              <div className="col-span-12 w-full pt-12 lg:pt-0 lg:w-[75%] lg:fixed top-0 left-0 right-0 lg:h-screen flex flex-wrap lg:border-r lg:border-black">
+              <div className="col-span-12 w-full pt-12 lg:pt-0 lg:w-[75%] lg:fixed top-0 left-0 right-0 lg:h-screen flex flex-wrap lg:border-r lg:border-black relative">
 
                 <div className="lg:my-auto w-full lg:flex lg:items-center lg:justify-center">
                   <div className="lg:w-[55vh] lg:mt-[-6vh]">
                     <Link href={`/journal/${journals[0].slug.current}`}>
-                      <a className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] hidden lg:block`}>
+                      <a className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] hidden lg:block group`}>
                         <div className="w-full mt-auto py-5">
-                          <div className="pb-1">
-                            <span className="font-serif mb-2 block text-lg leading-none text-center">( SW.01 )</span>
-                          </div>
                           <div className="w-full relative overflow-hidden">
                             { journals[0].images.length == 1 ? (
                               <Image
@@ -148,15 +143,18 @@ export default function Journal(initialData) {
                             )}
                           </div>
                         </div>
-                        <div className="flex justify-center">
-                          <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%]">{journals[0].title}</h2>
+                        <div className="flex flex-wrap justify-center">
+                          <div className="mx-auto text-center">
+                            <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto">{journals[0].title}</h2>
+
+                            <div className="pb-1">
+                              <span className="font-serif mb-2 block text-lg leading-none text-center">( SW.01 )</span>
+                            </div>
+                          </div>
                         </div>
                         
-                        <div className="flex justify-center">
-                          <span className="inline-block text-lg md:text-lg xl:text-lg leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative mx-auto pt-[3vh]">
-                            Read Article
-                            <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
-                          </span>
+                        <div className="absolute bottom-0 left-0 right-0 mb-[90px] mx-5 md:block">
+                          <Pill label="Read More" />
                         </div>
                       </a>
                     </Link>
