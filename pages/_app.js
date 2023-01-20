@@ -96,7 +96,12 @@ export default function App({ Component, pageProps }) {
                     <div className="absolute top-0 right-0 bottom-0 w-[30%] px-5 hidden md:flex flex-wrap">
                       <m.div initial="hidden" animate="visible" variants={drawHide} transition={{ delay: 1, duration: 0 }} className="w-full mt-auto py-5">
                         <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
-                          <div className="absolute inset-0 border-black border"></div>
+                          <div className="absolute inset-0 border-black border">
+                            <div className="inset-0 z-[1]">
+                              <div className={`image-x`}>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </m.div>
                     </div>
@@ -123,6 +128,11 @@ export default function App({ Component, pageProps }) {
                       <div className="w-full mt-auto py-5">
                         <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
                           <div className="absolute inset-0 border-black border"></div>
+
+                          <div className="inset-0 z-[1]">
+                            <div className={`image-x`}>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
