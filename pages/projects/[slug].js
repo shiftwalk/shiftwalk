@@ -9,6 +9,7 @@ import Link from 'next/link'
 import BodyRenderer from '@/components/body-renderer'
 import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
+import Pill from '@/components/pill'
 
 const query = `{
   "project": *[_type == "projects" && slug.current == $slug][0]{
@@ -103,7 +104,7 @@ export default function ProjectSlug(initialData) {
                 <div className={`px-5 ${isInfoOpen ? '' : 'hidden' }`}>
                   <span className="flex items-center mb-6 text-sm">
                     <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
-                    <span className="block leading-none">People</span>
+                    <span className="block leading-none">Overview</span>
                   </span>
 
                   <div className="text-sm leading-snug w-[85%] mb-6 lg:mb-12 content tracking-tight">
@@ -133,15 +134,21 @@ export default function ProjectSlug(initialData) {
                         <span className="block leading-none">Links</span>
                       </span>
 
-                      <div className="text-sm leading-snug w-[85%] content tracking-tight">
-                        {project.liveUrl && (<div><a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">Visit Live Site</a></div>)}
+                      <div className="text-sm leading-snug w-full content tracking-tight">
+                        {project.liveUrl && (<div>
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
+                            <Pill label="Visit Live Site" />
+                          </a>
+                        </div>)}
                         
                         {project.additionalLinks && (
                           <>
                             {project.additionalLinks.map((e, i) => {
                               return (
                                 <div key={i}>
-                                <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-block underline leading-none">{e.linkText}</a>
+                                  <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
+                                    <Pill label={e.linkText} />
+                                  </a>
                                 </div>
                               )
                             })}

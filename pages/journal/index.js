@@ -42,23 +42,11 @@ const pageService = new SanityPageService(query)
 
 export default function Journal(initialData) {
   const { data: { journals } } = pageService.getPreviewHook(initialData)()
-  const [current, setCurrent] = useState(null);
-  const [isHovering, setIsHovering] = useState(false);
   const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)
   },[]);
-
-  function updateCurrent(e) {
-    setCurrent(e)
-    setIsHovering(true)
-  }
-
-  function removeCurrent() {
-    setCurrent(null)
-    setIsHovering(false)
-  }
 
   return (
     <Layout>
@@ -95,7 +83,7 @@ export default function Journal(initialData) {
               {journals.slice(1).map((e, i) => {
                 return (
                   <Link href={`/journal/${e.slug.current}`} key={i}>
-                    <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-5 border-b border-black w-full block group ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`}>
+                    <a className={`p-5 border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`}>
                       <div className="mb-3 w-full">
                       { e.images.length == 1 ? (
                         <Image
@@ -163,7 +151,7 @@ export default function Journal(initialData) {
                       {journals.map((e, i) => {
                         return (
                           <Link href={`/journal/${e.slug.current}`} key={i}>
-                            <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`}>
+                            <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block`}>
                               <div className="mb-3">
                               { e.images.length == 1 ? (
                                 <Image

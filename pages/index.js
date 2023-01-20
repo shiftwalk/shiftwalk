@@ -34,7 +34,7 @@ export default function Home(initialData) {
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, 2000);
+    }, 1600);
   },[]);
 
   return (
@@ -105,7 +105,7 @@ export default function Home(initialData) {
             </div>
 
             {/* Main Section */}
-            <div className="w-[100%] md:w-[70%] pt-[63px] md:pt-[78px] xl:pt-[80px] h-screen flex flex-wrap px-5 relative">
+            <div className="w-[100%] md:w-[70%] pt-[63px] md:pt-[78px] xl:pt-[80px] md:h-screen flex flex-wrap px-5 relative">
               <div className="w-full mb-8 md:mb-0">
                 <h1 className="font-display text-[7.2vw] md:text-[4.8vw] xl:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] ">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
               </div>
@@ -125,7 +125,6 @@ export default function Home(initialData) {
 
                 <Grid className="pb-3 md:pb-16 xl:pb-[7vw] relative">
                   {/* <svg className="hidden md:block w-2 md:w-3 absolute bottom-0 left-0 mb-3 xl:mb-6" viewBox="0 0 10 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.64 28c-.907-1.893-2.347-3.653-4.32-5.28v-1.4c.853.4 1.6.8 2.24 1.2.64.373 1.173.747 1.6 1.12V.32h1.68v23.32c.453-.373 1-.747 1.64-1.12.64-.4 1.373-.8 2.2-1.2v1.4C7.733 24.347 6.293 26.107 5.36 28h-.72Z" fill="#242B2D"/></svg> */}
-                  
                   <img className="col-span-12 md:hidden" src="images/studio.jpg" alt="CHANGE ME" />
                 </Grid>
               </div>
@@ -135,10 +134,10 @@ export default function Home(initialData) {
               <div className="flex flex-wrap">
                 <div className="w-full lg:w-[70%] p-5 flex flex-wrap">
                   <div className="w-full">
-                    <h2 className="font-display text-[9vw] md:text-[4.8vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%]">Information</h2>
+                    <h2 className="font-display text-[7.2vw] md:text-[4.8vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%]">Information</h2>
                   </div>
 
-                  <div className="mt-auto bg-red-400 w-full">
+                  <div className="mt-auto w-full">
                     <span className="flex items-center mb-6 text-sm">
                       <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
                       <span className="block leading-none">Background</span>
@@ -150,7 +149,7 @@ export default function Home(initialData) {
                       <p>Whilst our design work is often known for its attention to detail, and interesting moments of surprise, we also pride ourselves on the build quality of our output. Our websites always aim to be fast, performant, and accessible. Our brand collateral should be meaningful, and crafted for real world use. To us these traits are non-negotiable and ingrained in our approach.</p>
                     </div>
 
-                    <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block w-full bg-red-500">
+                    <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block w-full mt-5">
                       <Pill label="Latest News" />
                     </a>
                   </div>
@@ -163,7 +162,7 @@ export default function Home(initialData) {
                   </span>
 
                   <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
-                    <p>ShiftWalk is led by founders <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('sam')} onMouseLeave={()=> setCurrent(null)}>Sam Goddard</button> + <button className="underline a11y-focus" onMouseEnter={()=> setCurrent('isaac')} onMouseLeave={()=> setCurrent(null)}>Isaac Powell</button>, who have over a decade of experience in design + web technology. Whilst awards don’t affect our judgement during a project, we are proud to have been recognised for our work in numerous sites + publications, including Awwwards, SiteInspire, Klikkentheke, The Brand Identity, and Typewolf.</p>
+                    <p>ShiftWalk is led by founders Sam Goddard + Isaac Powell, who have over a decade of experience in design + web technology. Whilst awards don’t affect our judgement during a project, we are proud to have been recognised for our work in numerous sites + publications, including Awwwards, SiteInspire, Klikkentheke, The Brand Identity, and Typewolf.</p>
                   </div>
 
                   <span className="flex items-center mb-6 text-sm">
@@ -212,7 +211,7 @@ export default function Home(initialData) {
                           <Pill label="Email" />
                         </a>
                       </li>
-                      <li className="w-full mb-2">
+                      <li className="w-full">
                         <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block">
                           <Pill label="Instagram" />
                         </a>
