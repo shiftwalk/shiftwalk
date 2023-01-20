@@ -43,7 +43,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
 	return (image.videoOverride || image.overrideVimeoVideo) ? (
     <div className={`image relative border-black border ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
 
-      <div className="inset-0 z-[100]">
+      <div className="inset-0 z-[1]">
         <div className={`image-x ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-100' }`}>
         </div>
       </div>
@@ -54,7 +54,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
         Sorry. Your browser does not support the video tag.
       </video>
       
-      <div className={`z-0 ${psuedoImageIsLoaded ? 'opacity-0' : 'opacity-0' }`}>
+      <div className={`z-[10] ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <Img
           {...imageProps}
           {...attributes}
@@ -70,7 +70,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
 	) : (
     <figure className={`image relative border-black border  ${className} ${layout == 'fill' && 'cover-image' }`}>
       <div className="inset-0 z-[1]">
-        <div className={`image-x ${psuedoImageIsLoaded ? 'opacity-0' : 'opacity-100' }`}>
+        <div className={`image-x ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-100' }`}>
         </div>
       </div>
       
