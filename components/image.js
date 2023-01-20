@@ -11,7 +11,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
     if (imageIsLoaded) {
       setTimeout(() => {
         setPsuedoImageIsLoaded(true)
-      }, 350);
+      }, 1000);
     }
   },[imageIsLoaded, psuedoImageIsLoaded]);
 
