@@ -11,10 +11,27 @@ import SanityPageService from '@/services/sanityPageService'
 import { IntroContext } from '@/context/intro'
 import Clock from 'react-live-clock'
 import Pill from '@/components/pill'
+import Image from '@/components/image'
 
 const query = `{
   "home": *[_type == "home"][0]{
     title,
+    heroImage[] {
+      asset-> {
+        ...
+      },
+      videoOverride {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      alt,
+      hotspot {
+        x,
+        y
+      },
+    },
     seo {
       ...,
       shareGraphic {
@@ -97,7 +114,12 @@ export default function Home(initialData) {
                       </span>
                     </span>
                     <div className="w-full h-[38vw] max-h-[70vh] relative overflow-hidden">
-                      <img className="w-full h-full object-cover object-center absolute inset-0" src="images/studio.jpg" alt="CHANGE ME" />
+                      <Image
+                        image={home.heroImage[0]}
+                        focalPoint={home.heroImage[0].asset.hotspot}
+                        layout="fill"
+                        className="w-full h-full object-cover object-center absolute inset-0"
+                      />
                     </div>
                   </>
                 )}

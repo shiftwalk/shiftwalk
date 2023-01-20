@@ -1,8 +1,21 @@
 import Img from 'next/image'
 import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
+import { useEffect, useState } from 'react';
 
 export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative }) {
+  const [imageIsLoaded, setImageIsLoaded] = useState(false)
+  const [psuedoImageIsLoaded, setPsuedoImageIsLoaded] = useState(false)
+  
+  useEffect(() => {
+    if (imageIsLoaded) {
+      setTimeout(() => {
+        setPsuedoImageIsLoaded(true)
+      }, 350);
+    }
+  },[imageIsLoaded, psuedoImageIsLoaded]);
+
+
   // Pass in custom URL builder props
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
@@ -28,22 +41,52 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   if (sizes) { attributes.sizes = sizes }
 
 	return (image.videoOverride || image.overrideVimeoVideo) ? (
-    <div className={`image ${className} w-full overflow-hidden ${nonRelative ? '' : 'relative'} ${layout == 'fill' && 'cover-image' }`}>
-      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-10`}>
+    <div className={`image relative border-black border ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
+
+      <div className="inset-0 z-[100]">
+        <div className={`image-x ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-100' }`}>
+        </div>
+      </div>
+
+      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] opacity-0 ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.videoOverride.asset.url } type="video/mp4" />
 
         Sorry. Your browser does not support the video tag.
       </video>
-
-      <Img {...imageProps} {...attributes} />
+      
+      <div className={`z-0 ${psuedoImageIsLoaded ? 'opacity-0' : 'opacity-0' }`}>
+        <Img
+          {...imageProps}
+          {...attributes}
+          onLoad={event => {
+            const target = event.target;
+            if (target.src.indexOf('data:image/gif;base64') < 0) {
+              setImageIsLoaded(true)
+            }
+          }}
+        />
+      </div>
     </div>
 	) : (
-    <figure className={`image ${noBg ? '' : 'bg-white'} bg-opacity-20 ${className} ${layout == 'fill' && 'cover-image' }`}>
-		  <Img {...imageProps} {...attributes} />
+    <figure className={`image relative border-black border  ${className} ${layout == 'fill' && 'cover-image' }`}>
+      <div className="inset-0 z-[1]">
+        <div className={`image-x ${psuedoImageIsLoaded ? 'opacity-0' : 'opacity-100' }`}>
+        </div>
+      </div>
       
-      {(image.caption && !noCaption) && (
-        <figcaption className={`block text-lg leading-none xl:leading-[1.15] px-2 md:px-0 xl:text-xl pt-3 pb-8 md:pb-2 md:pt-2 ${layout == 'fill' && 'mt-2 -mb-1 py-2 bg-white absolute bottom-0 left-0 w-full z-[10]'}`}>{image.caption}{image.captionSubHeading && (<span className="block text-gray">{image.captionSubHeading}</span>)}</figcaption>
-      )}
+      <div className={`z-[10] ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+		    <Img
+          {...imageProps}
+          {...attributes}
+          
+          onLoad={event => {
+            const target = event.target;
+            if (target.src.indexOf('data:image/gif;base64') < 0) {
+              setImageIsLoaded(true)
+            }
+          }}
+        />
+      </div>
     </figure>
   )
 }

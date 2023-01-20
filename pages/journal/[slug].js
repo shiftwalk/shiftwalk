@@ -10,6 +10,7 @@ import Image from '@/components/image'
 import Gif from '@/components/gif'
 import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
+import Pill from '@/components/pill'
 
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
@@ -67,23 +68,11 @@ const pageService = new SanityPageService(query)
 
 export default function JournalSlug(initialData) {
   const { data: { journal } } = pageService.getPreviewHook(initialData)()
-  const [current, setCurrent] = useState(null);
-  const [isHovering, setIsHovering] = useState(false);
   const [introContext, setIntroContext] = useContext(IntroContext);
 
   useEffect(() => {
     setIntroContext(true)
   },[]);
-
-  function updateCurrent(e) {
-    setCurrent(e)
-    setIsHovering(true)
-  }
-
-  function removeCurrent() {
-    setCurrent(null)
-    setIsHovering(false)
-  }
 
   return (
     <Layout>
@@ -102,35 +91,19 @@ export default function JournalSlug(initialData) {
             <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-5 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-5">
                 <div className="w-full relative overflow-hidden">
-                  { current !== null ? (
-                    <div className="w-full relative overflow-hidden">
-                      { journal.journals[current].images.length == 1 ? (
-                        <Image
-                          image={journal.journals[current].images[0]}
-                          focalPoint={journal.journals[current].images[0].asset.hotspot}
-                          layout="responsive"
-                          sizes="(min-width: 768px) 80vw, 100vw"
-                          className="w-full"
-                        />
-                      ) : (
-                        <Gif images={journal.journals[current].images} />
-                      )}
-                    </div>
-                  ) : (
-                    <div>
-                      { journal.images.length == 1 ? (
-                        <Image
-                          image={journal.images[0]}
-                          focalPoint={journal.images[0].asset.hotspot}
-                          layout="responsive"
-                          sizes="(min-width: 768px) 80vw, 100vw"
-                          className="w-full"
-                        />
-                      ) : (
-                        <Gif images={journal.images} />
-                      )}
-                    </div>
-                  )}
+                  <div>
+                    { journal.images.length == 1 ? (
+                      <Image
+                        image={journal.images[0]}
+                        focalPoint={journal.images[0].asset.hotspot}
+                        layout="responsive"
+                        sizes="(min-width: 768px) 80vw, 100vw"
+                        className="w-full"
+                      />
+                    ) : (
+                      <Gif images={journal.images} />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -163,7 +136,7 @@ export default function JournalSlug(initialData) {
               
               <div className="px-5 pb-6">
                 <div className="border-b border-black">
-                  <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] w-full ">Related</h1>
+                  <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] w-full ">Related</h1>
                 </div>
               </div>
 
@@ -171,7 +144,7 @@ export default function JournalSlug(initialData) {
                 {journal.journals.map((e, i) => {
                   return (
                     <Link href={`/journal/${e.slug.current}`} key={i}>
-                      <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`w-full md:w-1/2 block px-3 mb-6 md:mb-0 ${current == i || !isHovering ? 'opacity-100' : 'opacity-30' }`}>
+                      <a className={`w-full md:w-1/2 block px-3 mb-6 md:mb-0 group`}>
                         <div className="mb-3 w-full">
                         { e.images.length == 1 ? (
                           <Image
@@ -190,10 +163,7 @@ export default function JournalSlug(initialData) {
                           <span className="font-serif mb-2 block text-lg leading-none">( SW.0{i + 1} )</span>
                         </div>
 
-                        <span className="inline-block text-base md:text-base xl:text-base leading-[1.5] md:leading-[1.5] xl:leading-[1.5] a11y-focus relative mx-auto">
-                          Read
-                          <span className="absolute bottom-0 left-0 right-0 w-full h-[1px] bg-black"></span>
-                        </span>
+                        <Pill label="Read More" />
                       </a>
                     </Link>
                   )
