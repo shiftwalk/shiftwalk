@@ -33,7 +33,7 @@ export default function Menu() {
             {/* Main Section */}
             <div className="flex flex-wrap h-screen items-center">
               <svg className="w-6 rotate-[-90deg] absolute top-0 left-0 mt-[70px] md:mt-[80px] xl:mt-[90px] mx-3" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4.64C1.893 3.733 3.653 2.293 5.28.32h1.4c-.4.853-.8 1.6-1.2 2.24a10.37 10.37 0 0 1-1.12 1.6h23.32v1.68H4.36c.373.453.747 1 1.12 1.64.4.64.8 1.373 1.2 2.2h-1.4C3.653 7.733 1.893 6.293 0 5.36v-.72Z" fill="#242B2D"/></svg>
-              <div className="w-full px-5 mt-[-40vw] md:mt-0">
+              <div className="w-full px-5 mt-[-50vw] md:mt-0">
                 <span className="font-display text-[38px] md:text-[55px] xl:text-[65px] leading-none block">
                   <Link href="/"><a className="block pt-[7px] pb-[10px] border-t border-black">
                     <span className="font-serif leading-none text-sm inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;A&nbsp;&nbsp;)</span>
