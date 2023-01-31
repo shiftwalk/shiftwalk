@@ -2,6 +2,7 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { fade, reveal } from '@/helpers/transitions'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
@@ -86,7 +87,7 @@ export default function JournalSlug(initialData) {
           animate="enter"
           exit="exit"
         >
-          <m.article>
+          <m.article variants={fade}>
             {/* Fixed Sidebar */}
             <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-5 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-5">

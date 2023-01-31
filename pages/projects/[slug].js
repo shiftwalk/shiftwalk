@@ -2,6 +2,7 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { fade, reveal } from '@/helpers/transitions'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
@@ -93,7 +94,7 @@ export default function ProjectSlug(initialData) {
           animate="enter"
           exit="exit"
         >
-          <m.article>
+          <m.article variants={fade}>
             {/* Fixed Sidebar */}
             <div className={`fixed top-0 right-0 bottom-0 h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-[30%] 2xl:w-[500px]' : 'w-[95px] xl:w-[105px]' }`}>
               <div className="w-full py-5 pt-8 relative">

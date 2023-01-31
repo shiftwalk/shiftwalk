@@ -51,7 +51,7 @@ export default function Home(initialData) {
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, 1600);
+    }, 2500);
   },[]);
 
   return (
@@ -66,7 +66,7 @@ export default function Home(initialData) {
           animate="enter"
           exit="exit"
         >
-          <m.article>
+          <m.article variants={fade}>
             {/* Fixed Sidebar */}
             <div className="fixed top-0 right-0 bottom-0 w-[30%] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 px-5 hidden md:flex flex-wrap">
               <div

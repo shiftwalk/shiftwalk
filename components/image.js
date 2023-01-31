@@ -5,15 +5,6 @@ import { useEffect, useState } from 'react';
 
 export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false)
-  const [psuedoImageIsLoaded, setPsuedoImageIsLoaded] = useState(false)
-  
-  useEffect(() => {
-    if (imageIsLoaded) {
-      setTimeout(() => {
-        setPsuedoImageIsLoaded(true)
-      }, 500);
-    }
-  },[imageIsLoaded, psuedoImageIsLoaded]);
 
 
   // Pass in custom URL builder props
@@ -41,20 +32,14 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   if (sizes) { attributes.sizes = sizes }
 
 	return (image.videoOverride || image.overrideVimeoVideo) ? (
-    <div className={`image relative border-black border ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
-
-      <div className="inset-0 z-[1]">
-        <div className={`image-x`}>
-        </div>
-      </div>
-
-      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] opacity-0 ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+    <div className={`image bg-grey bg-opacity-30 relative ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
+      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] transition ease-in-out duration-500 ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.videoOverride.asset.url } type="video/mp4" />
 
         Sorry. Your browser does not support the video tag.
       </video>
       
-      <div className={`z-[10] ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+      <div className={`z-[10] transition-opacity ease-in-out duration-500 ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <Img
           {...imageProps}
           {...attributes}
@@ -68,13 +53,8 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
       </div>
     </div>
 	) : (
-    <figure className={`image relative border-black border  ${className} ${layout == 'fill' && 'cover-image' }`}>
-      <div className="inset-0 z-[1]">
-        <div className={`image-x`}>
-        </div>
-      </div>
-      
-      <div className={`z-[10] ${psuedoImageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+    <figure className={`image relative bg-grey bg-opacity-30 ${className} ${layout == 'fill' && 'cover-image' }`}>
+      <div className={`z-[10] transition-opacity ease-in-out duration-500 ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
 		    <Img
           {...imageProps}
           {...attributes}

@@ -2,6 +2,7 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { fade, reveal } from '@/helpers/transitions'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
@@ -61,7 +62,7 @@ export default function Projects(initialData) {
           animate="enter"
           exit="exit"
         >
-          <m.article>
+          <m.article variants={fade}>
             {/* Main Section */}
             <Grid>
               <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">

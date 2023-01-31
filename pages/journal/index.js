@@ -3,6 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
+import { fade, reveal } from '@/helpers/transitions'
 import Grid from '@/components/grid'
 import { useContext, useEffect, useState } from 'react'
 import SanityPageService from '@/services/sanityPageService'
@@ -60,7 +61,7 @@ export default function Journal(initialData) {
           animate="enter"
           exit="exit"
         >
-          <m.article>
+          <m.article variants={fade}>
             <div className="absolute top-0 right-0 bottom-0 w-[25%] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 hidden lg:flex flex-wrap">
               {/* <div className="w-full mt-auto py-5">
                 { current !== null && (
