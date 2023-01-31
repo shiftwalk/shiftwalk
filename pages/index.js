@@ -129,7 +129,7 @@ export default function Home(initialData) {
             {/* Main Section */}
             <div className="w-[100%] md:w-[70%] pt-[63px] md:pt-[78px] xl:pt-[80px] md:h-screen flex flex-wrap px-5 relative">
               <div className="w-full mb-8 md:mb-0">
-                <h1 className="font-display text-[7.2vw] md:text-[4.8vw] xl:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] ">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
+                <h1 className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] ">A design-led studio building thoughtful brands + websites for our partners around the world. We feel at home creating work in the architectural, sustainability, and creative arts spaces.</h1>
               </div>
 
               <div className="w-full mt-auto pb-5">
@@ -226,7 +226,7 @@ export default function Home(initialData) {
                     <span className="block leading-none">Contact</span>
                   </span>
 
-                  <div className="text-sm leading-snug mb-12 md:mb-0">
+                  <div className="text-sm leading-snug mb-4 md:mb-0">
                     <ul>
                       <li className="w-full mb-2">
                         <a href="mailto:hello@shiftwalk.studio" className="group block">
