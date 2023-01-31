@@ -6,7 +6,6 @@ import SEO from '@/helpers/seo.config';
 import { IntroContext } from '@/context/intro'
 import { useState } from 'react'
 import Div100vh from 'react-div-100vh'
-import Pill from '@/components/pill';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
