@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }) {
                 initial="visible"
                 animate="hidden"
                 variants={introFullEnd}
-                transition={{ delay: 2, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
+                transition={{ delay: 2, duration: 0.75, ease: [0.83, 0, 0.17, 1] }}
                 className="w-full h-full cursor-wait absolute inset-0"
               >
                 <m.div 

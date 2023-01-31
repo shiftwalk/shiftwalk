@@ -33,13 +33,13 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
 
 	return (image.videoOverride || image.overrideVimeoVideo) ? (
     <div className={`image bg-grey bg-opacity-30 relative ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
-      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] transition ease-in-out duration-500 ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] transition ease-in-out duration-[750ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.videoOverride.asset.url } type="video/mp4" />
 
         Sorry. Your browser does not support the video tag.
       </video>
       
-      <div className={`z-[10] transition-opacity ease-in-out duration-500 ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+      <div className={`z-[10] transition-opacity ease-in-out duration-[750ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <Img
           {...imageProps}
           {...attributes}
@@ -54,7 +54,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
     </div>
 	) : (
     <figure className={`image relative bg-grey bg-opacity-30 ${className} ${layout == 'fill' && 'cover-image' }`}>
-      <div className={`z-[10] transition-opacity ease-in-out duration-500 ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+      <div className={`z-[10] transition-opacity ease-in-out duration-[750ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
 		    <Img
           {...imageProps}
           {...attributes}
