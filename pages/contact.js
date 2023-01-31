@@ -42,7 +42,7 @@ export default function Contact() {
             {/* Main Section */}
             <div className="w-full md:w-[75%] lg:w-[80%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap fixed top-0 right-0 bottom-0">
               <div className="w-full px-5 pb-[45px] md:pb-[56px] xl:pb-[63px]">
-                <h1 className="font-display text-[9vw] md:text-[5.5vw] lg:text-[5vw] xl:text-[4.4vw] leading-none mb-6 md:mb-8 max-w-[85%] md:max-w-[85%] lg:max-w-[85%] indent-[8vw]">Please reach out via the channels below if you would like to talk to us about an upcoming project.</h1>
+                <h1 className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[4vw] leading-none indent-[8vw] mb-6 md:mb-8 max-w-[85%] md:max-w-[85%] lg:max-w-[85%]">Please reach out via the channels below if you would like to talk to us about an upcoming project.</h1>
               </div>
 
               <div className="pb-[60px] md:pb-[63px] xl:pb-[70px] mt-auto w-full px-5">
