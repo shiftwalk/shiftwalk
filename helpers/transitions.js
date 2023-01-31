@@ -6,7 +6,7 @@ export const fade = {
   },
 	exit: {
     opacity: 0,
-		transition: { duration: 0.5, ease: [0.83, 0, 0.17, 1] }
+		transition: { duration: 0.25, ease: [0.83, 0, 0.17, 1] }
 	}
 }
 
