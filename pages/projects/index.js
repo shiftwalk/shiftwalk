@@ -11,6 +11,7 @@ import { useContext, useEffect } from 'react'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
 import Link from 'next/link'
+import { HeaderContext } from '@/context/header'
 
 const query = `{
   "projects": *[_type == "projects"] | order(orderRank) {
@@ -45,9 +46,11 @@ const pageService = new SanityPageService(query)
 export default function Projects(initialData) {
   const { data: { projects } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
+  const [headerContext, setHeaderContext] = useContext(HeaderContext);
 
   useEffect(() => {
     setIntroContext(true)
+    setHeaderContext(true)
   },[]);
 
   return (
@@ -79,8 +82,13 @@ export default function Projects(initialData) {
 
               <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center hidden md:flex border-l border-black relative">
                 <div className="w-full">
-                  <span className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</span>
-                  <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</span>
+                  <div className="relative overflow-hidden">
+                    <m.span variants={reveal} className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</m.span>
+                  </div>
+                  
+                  <div className="relative overflow-hidden">
+                    <m.span variants={reveal} className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</m.span>
+                  </div>
 
                   <Link href={`/projects/${projects[0].slug.current}`}>
                     <a className="absolute bottom-0 left-0 right-0 m-5 group">

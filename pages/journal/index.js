@@ -12,6 +12,7 @@ import Link from 'next/link'
 import Gif from '@/components/gif'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
+import { HeaderContext } from '@/context/header'
 
 const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
@@ -44,9 +45,11 @@ const pageService = new SanityPageService(query)
 export default function Journal(initialData) {
   const { data: { journals } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
+  const [headerContext, setHeaderContext] = useContext(HeaderContext);
 
   useEffect(() => {
     setIntroContext(true)
+    setHeaderContext(true)
   },[]);
 
   return (

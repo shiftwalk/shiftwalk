@@ -3,7 +3,7 @@ import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
 import { useEffect, useState } from 'react';
 
-export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative }) {
+export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative, introDelay }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false)
 
 
@@ -33,13 +33,17 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
 
 	return (image.videoOverride || image.overrideVimeoVideo) ? (
     <div className={`image bg-grey bg-opacity-30 relative ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
-      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] transition ease-in-out duration-[700ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+      <div className={`absolute inset-0 z-[11] transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[1200ms] delay-[1000ms] ${imageIsLoaded ? 'opacity-0' : 'opacity-100' }`}>
+        <img src={image.asset.metadata.lqip} alt="" role="presentation" className="w-full h-full object-cover absolute inset-0" />
+      </div>
+
+      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] transition ease-[cubic-bezier(0.65,0,0.35,1)] duration-[700ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.videoOverride.asset.url } type="video/mp4" />
 
         Sorry. Your browser does not support the video tag.
       </video>
       
-      <div className={`z-[10] transition-opacity ease-in-out duration-[700ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+      <div className={`z-[10] transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[700ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <Img
           {...imageProps}
           {...attributes}
@@ -53,8 +57,12 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
       </div>
     </div>
 	) : (
-    <figure className={`image relative bg-grey bg-opacity-30 ${className} ${layout == 'fill' && 'cover-image' }`}>
-      <div className={`z-[10] transition-opacity ease-in-out duration-[700ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+    <figure className={`image relative bg-grey bg-opacity-30 overflow-hidden ${className} ${layout == 'fill' && 'cover-image' }`}>
+      <div className={`absolute inset-0 w-full h-full z-[20] transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[700ms] ${introDelay ? 'delay-[700ms]' : '' } ${imageIsLoaded ? 'opacity-0' : 'opacity-100' }`}>
+        <Img src={image.asset.metadata.lqip} alt="" layout="fill" role="presentation" className="w-full h-full object-cover absolute inset-0" />
+      </div>
+
+      <div className={`z-[10]`}>
 		    <Img
           {...imageProps}
           {...attributes}

@@ -11,6 +11,7 @@ import BodyRenderer from '@/components/body-renderer'
 import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
+import { HeaderContext } from '@/context/header'
 
 const query = `{
   "project": *[_type == "projects" && slug.current == $slug][0]{
@@ -73,9 +74,11 @@ export default function ProjectSlug(initialData) {
   const { data: { project } } = pageService.getPreviewHook(initialData)()
   const [isInfoOpen, setIsInfoOpen] = useState(true);
   const [introContext, setIntroContext] = useContext(IntroContext);
+  const [headerContext, setHeaderContext] = useContext(HeaderContext);
 
   useEffect(() => {
     setIntroContext(true)
+    setHeaderContext(true)
   },[]);
 
   function updateIsInfoOpen() {

@@ -8,12 +8,15 @@ import Link from 'next/link'
 import { IntroContext } from '@/context/intro'
 import { useContext, useEffect } from 'react'
 import Pill from '@/components/pill'
+import { HeaderContext } from '@/context/header'
 
 export default function Menu() {
   const [introContext, setIntroContext] = useContext(IntroContext);
+  const [headerContext, setHeaderContext] = useContext(HeaderContext);
 
   useEffect(() => {
     setIntroContext(true)
+    setHeaderContext(true)
   },[]);
 
   return (

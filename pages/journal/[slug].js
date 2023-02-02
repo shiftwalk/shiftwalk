@@ -12,6 +12,7 @@ import Gif from '@/components/gif'
 import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
+import { HeaderContext } from '@/context/header'
 
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
@@ -70,9 +71,11 @@ const pageService = new SanityPageService(query)
 export default function JournalSlug(initialData) {
   const { data: { journal } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
+  const [headerContext, setHeaderContext] = useContext(HeaderContext);
 
   useEffect(() => {
     setIntroContext(true)
+    setHeaderContext(true)
   },[]);
 
   return (

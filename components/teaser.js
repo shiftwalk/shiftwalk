@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "@/components/image";
 import Gif from "@/components/gif";
 import Pill from "./pill";
+import { m } from "framer-motion"
+import { reveal } from "@/helpers/transitions";
 // import PixelatedImage from "./pixelated-image";
 
 export default function Teaser({ images, slug, title, projectCode, noCaption }) {
@@ -25,7 +27,9 @@ export default function Teaser({ images, slug, title, projectCode, noCaption }) 
 
         <div className={`${noCaption ? 'block md:hidden' : '' } text-center`}>
           <div className="my-4 md:my-5">
-            <span className="block text-base md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display">{title}</span>
+            <div className="overflow-hidden relative">
+              <m.span variants={reveal} className="block text-base md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display">{title}</m.span>
+            </div>
             <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</span>
           </div>
 
@@ -39,8 +43,10 @@ export default function Teaser({ images, slug, title, projectCode, noCaption }) 
     <Link href={`/projects/${slug}`}>
       <a className="block">
         <Gif images={images} />
-               
-        <span className="mt-[6px] block text-base md:text-lg xl:text-2xl leading-none md:leading-none xl:leading-none">{title}</span>
+        
+        <div className="relative overflow-hidden">
+          <m.span variants={reveal} className="mt-[6px] block text-base md:text-lg xl:text-2xl leading-none md:leading-none xl:leading-none">{title}</m.span>
+        </div>
         <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</span>
       </a>
     </Link>
