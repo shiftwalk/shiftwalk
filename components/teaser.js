@@ -23,7 +23,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
       <a className="block w-full group overflow-hidden relative group" onMouseEnter={handleHover} 
       onMouseLeave={handleHoverOut}>
         {hoverImages && (
-          <div className={`absolute inset-0 z-10 opacity-0 ${ shouldTransition ? 'teaser-hover' : '' }`}>
+          <div className={`absolute inset-0 z-10 opacity-0 group-hover:opacity-100`}>
             <Image
               image={hoverImages[0]}
               focalPoint={hoverImages[0].asset.hotspot}
