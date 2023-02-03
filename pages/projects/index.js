@@ -35,6 +35,22 @@ const query = `{
         y
       },
     },
+    teaserImagesHover[] {
+      asset-> {
+        ...
+      },
+      videoOverride {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      alt,
+      hotspot {
+        x,
+        y
+      },
+    },
     slug {
       current
     }
@@ -75,6 +91,7 @@ export default function Projects(initialData) {
                     title={projects[0].title}
                     slug={projects[0].slug.current}
                     images={projects[0].teaserImages}
+                    hoverImages={projects[0].teaserImagesHover}
                     noCaption
                   />
                 </div>
@@ -111,6 +128,7 @@ export default function Projects(initialData) {
                     title={projects[2].title}
                     slug={projects[2].slug.current}
                     images={projects[2].teaserImages}
+                    hoverImages={projects[2].teaserImagesHover}
                   />
                 </div>
               </div>
@@ -122,6 +140,7 @@ export default function Projects(initialData) {
                     title={projects[1].title}
                     slug={projects[1].slug.current}
                     images={projects[1].teaserImages}
+                    hoverImages={projects[1].teaserImagesHover}
                   />
                 </div>
               </div>
@@ -135,6 +154,7 @@ export default function Projects(initialData) {
                     title={projects[3].title}
                     slug={projects[3].slug.current}
                     images={projects[3].teaserImages}
+                    hoverImages={projects[3].teaserImagesHover}
                   />
                 </div>
               </div>
@@ -148,6 +168,7 @@ export default function Projects(initialData) {
                     title={projects[5].title}
                     slug={projects[5].slug.current}
                     images={projects[5].teaserImages}
+                    hoverImages={projects[0].teaserImagesHover}
                   />
                 </div>
               </div>
@@ -159,6 +180,7 @@ export default function Projects(initialData) {
                     title={projects[4].title}
                     slug={projects[4].slug.current}
                     images={projects[4].teaserImages}
+                    hoverImages={projects[4].teaserImagesHover}
                   />
                 </div>
               </div>
@@ -172,6 +194,7 @@ export default function Projects(initialData) {
                     title={projects[6].title}
                     slug={projects[6].slug.current}
                     images={projects[6].teaserImages}
+                    hoverImages={projects[6].teaserImagesHover}
                   />
                 </div>
               </div>
@@ -185,6 +208,7 @@ export default function Projects(initialData) {
                     title={projects[8].title}
                     slug={projects[8].slug.current}
                     images={projects[8].teaserImages}
+                    hoverImages={projects[8].teaserImagesHover}
                   />
                 </div>
               </div>
@@ -196,6 +220,7 @@ export default function Projects(initialData) {
                     title={projects[7].title}
                     slug={projects[7].slug.current}
                     images={projects[7].teaserImages}
+                    hoverImages={projects[7].teaserImagesHover}
                   />
                 </div>
               </div>

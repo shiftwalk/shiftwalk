@@ -3,7 +3,7 @@ import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
 import { useEffect, useState } from 'react';
 
-export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative, introDelay }) {
+export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative, introDelay, deepGrain }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false)
 
 
@@ -32,9 +32,12 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   if (sizes) { attributes.sizes = sizes }
 
 	return (image.videoOverride || image.overrideVimeoVideo) ? (
-    <div className={`image bg-grey bg-opacity-30 relative ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
-      <div className={`absolute inset-0 z-[11] transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[1200ms] delay-[1000ms] ${imageIsLoaded ? 'opacity-0' : 'opacity-100' }`}>
-        <img src={image.asset.metadata.lqip} alt="" role="presentation" className="w-full h-full object-cover absolute inset-0" />
+    <div className={`image bg-grey bg-opacity-30 relative overflow-hidden ${className} w-full ${layout == 'fill' && 'cover-image' }`}>
+
+      <div className="grain absolute w-full bottom-0 left-0 right-0 top-0 z-[20]"></div>
+
+      <div className={`absolute inset-0 w-full h-full z-[20] transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[700ms] ${introDelay ? 'delay-[700ms]' : '' } ${imageIsLoaded ? 'opacity-0' : 'opacity-100' }`}>
+        <Img src={image.asset.metadata.lqip} alt="" layout="fill" role="presentation" className="w-full h-full object-cover absolute inset-0" />
       </div>
 
       <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] transition ease-[cubic-bezier(0.65,0,0.35,1)] duration-[700ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
@@ -58,6 +61,8 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
     </div>
 	) : (
     <figure className={`image relative bg-grey bg-opacity-30 overflow-hidden ${className} ${layout == 'fill' && 'cover-image' }`}>
+      <div className={`absolute w-full bottom-0 left-0 right-0 top-0 z-[20] ${deepGrain ? 'grain--home' : 'grain' }`}></div>
+
       <div className={`absolute inset-0 w-full h-full z-[20] transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[700ms] ${introDelay ? 'delay-[700ms]' : '' } ${imageIsLoaded ? 'opacity-0' : 'opacity-100' }`}>
         <Img src={image.asset.metadata.lqip} alt="" layout="fill" role="presentation" className="w-full h-full object-cover absolute inset-0" />
       </div>

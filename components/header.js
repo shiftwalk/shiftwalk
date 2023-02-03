@@ -27,25 +27,25 @@ export default function Header({ bgColor, textColor}) {
           <div className="overflow-hidden relative w-full">
             <div className={`hidden md:flex space-x-[5px] justify-end items-center transition-transform ease-[cubic-bezier(0.65,0,0.35,1)] duration-[700ms] ${!headerContext ? 'translate-y-full' : 'translate-y-0' }`}>
               <Link href="/">
-                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-300 ${router.asPath == '/' ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
+                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[150ms] ${router.asPath == '/' ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                   <span className="block">Studio,</span>
                 </a>
               </Link>
 
               <Link href="/projects">
-                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-300 ${router.asPath.includes('/projects') ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
+                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[150ms] ${router.asPath.includes('/projects') ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                   <span className="block">Projects,</span>
                 </a>
               </Link>
 
               <Link href="/journal">
-                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-300 ${router.asPath.includes('/journal') ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
+                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[150ms] ${router.asPath.includes('/journal') ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                   <span className="block">Journal,</span>
                 </a>
               </Link>
 
               <Link href="/contact">
-                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-300 ${router.asPath == '/contact' ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
+                <a className={`a11y-focus w-auto transition-opacity ease-[cubic-bezier(0.65,0,0.35,1)] duration-[150ms] ${router.asPath == '/contact' ? 'text-black' : 'opacity-30 hover:text-black focus:text-black hover:opacity-100 focus:opacity-100' }`}>
                   <span className="block">Contact</span>
                 </a>
               </Link>

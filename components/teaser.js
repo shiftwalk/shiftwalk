@@ -6,10 +6,22 @@ import { m } from "framer-motion"
 import { reveal } from "@/helpers/transitions";
 // import PixelatedImage from "./pixelated-image";
 
-export default function Teaser({ images, slug, title, projectCode, noCaption }) {
+export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption }) {
   return images.length == 1 ? (
     <Link href={`/projects/${slug}`}>
       <a className="block w-full group overflow-hidden relative group">
+      {hoverImages && (
+          <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100">
+            <Image
+              image={hoverImages[0]}
+              focalPoint={hoverImages[0].asset.hotspot}
+              layout="responsive"
+              sizes="(min-width: 768px) 80vw, 100vw"
+              className="w-full"
+            />
+          </div>
+        )}
+
         <Image
           image={images[0]}
           focalPoint={images[0].asset.hotspot}
