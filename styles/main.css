@@ -116,14 +116,41 @@ circle {
 }
 
 .pill-text-hover {
-  animation: pillText 0.3s steps(1);
+  animation: pillText 0.35s steps(1);
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }
+
+.group {
+  .teaser-hover {
+    animation-play-state: paused;
+  }
+}
+
+.group:hover {
+  .teaser-hover {
+    animation-play-state: running;
+  }
+}
+
+.teaser-hover {
+  animation: opacityDouble 0.35s steps(1);
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
 @keyframes pillText {
-  0% {@apply text-black;}
-  25% {@apply text-white;}
-  50% {@apply text-black;}
-  75% {@apply text-white;}
+  0% {@apply text-white;}
+  25% {@apply text-black;}
+  50% {@apply text-white;}
+  75% {@apply text-black;}
   100% {@apply text-white;}
+}
+
+@keyframes opacityDouble {
+  0% {@apply opacity-100;}
+  25% {@apply opacity-0;}
+  50% {@apply opacity-100;}
+  75% {@apply opacity-0;}
+  100% {@apply opacity-100;}
 }
