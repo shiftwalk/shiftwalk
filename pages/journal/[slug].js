@@ -18,6 +18,16 @@ const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
     title,
     content,
+    additionalLinks[] {
+      linkText,
+      linkUrl,
+      internalLink-> {
+        title,
+        slug {
+          current
+        }
+      }
+    },
     images[] {
       asset-> {
         ...
@@ -95,6 +105,28 @@ export default function JournalSlug(initialData) {
             <div className="fixed top-0 right-0 bottom-0 w-[29.75vw] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 border-l border-black px-5 hidden md:flex flex-wrap">
               <div className="w-full mt-auto py-5">
                 <div className="w-full relative overflow-hidden">
+                  {journal.additionalLinks && (
+                    <div className="w-full mb-4">
+                      {journal.additionalLinks.map((e, i) => {
+                        return (
+                          <div className="w-full" key={i}>
+                            {e.internalLink ? (
+                              <Link href={`/projects/${e.internalLink.slug.current}`}>
+                                <a className="block w-full group mb-2">
+                                  <Pill label={e.linkText} />
+                                </a>
+                              </Link>
+                            ) : (
+                              <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
+                                <Pill label={e.linkText} />
+                              </a>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+
                   <div>
                     { journal.images.length == 1 ? (
                       <Image
@@ -126,6 +158,7 @@ export default function JournalSlug(initialData) {
                     <span className="font-serif mb-2 block text-lg">(&nbsp;&nbsp;16.7.21&nbsp;&nbsp;)</span>
                     <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] w-full ">{journal.title}</h1>
                   </div>
+                
                 </div>
 
                 <div className="content w-full text-lg md:text-xl 2xl:text-2xl leading-tight md:leading-tight 2xl:leading-tight mt-auto">

@@ -10,7 +10,7 @@ export default function Header({ bgColor, textColor}) {
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
 
   return (
-    <header className={`px-5 fixed top-0 left-0 right-0 z-20 ${bgColor ? `bg-blue` : 'bg-white'} ${textColor && 'text-grey' }`}>
+    <header className={`px-5 fixed top-0 left-0 right-0 z-[30] ${bgColor ? `bg-blue` : 'bg-white'} ${textColor && 'text-grey' }`}>
       <Grid className={`items-center border-b ${textColor ? `border-grey` : 'border-black'} py-3`}>
         <div className="col-span-3">
           <div className="overflow-hidden relative">

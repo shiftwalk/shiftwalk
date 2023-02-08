@@ -18,11 +18,15 @@ const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
     title,
     content,
+    additionalLinks[] {
+      linkText,
+      linkUrl,
+    },
     images[] {
       asset-> {
         ...
       },
-      overrideVideo {
+      videoOverride {
         asset-> {
           ...
         }
@@ -155,7 +159,7 @@ export default function Journal(initialData) {
                       {journals.map((e, i) => {
                         return (
                           <Link href={`/journal/${e.slug.current}`} key={i}>
-                            <a onMouseEnter={()=> updateCurrent(i)} onMouseLeave={()=> removeCurrent()} className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block`}>
+                            <a className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block`}>
                               <div className="mb-3">
                               { e.images.length == 1 ? (
                                 <Image
