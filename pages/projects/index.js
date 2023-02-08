@@ -168,7 +168,7 @@ export default function Projects(initialData) {
                     title={projects[5].title}
                     slug={projects[5].slug.current}
                     images={projects[5].teaserImages}
-                    hoverImages={projects[0].teaserImagesHover}
+                    hoverImages={projects[5].teaserImagesHover}
                   />
                 </div>
               </div>
