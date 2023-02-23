@@ -7,7 +7,7 @@ import { reveal } from "@/helpers/transitions";
 import { useState } from "react";
 // import PixelatedImage from "./pixelated-image";
 
-export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight }) {
+export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign }) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
   function handleHover() {
@@ -51,10 +51,10 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
           height={images[0].asset.metadata.dimensions.height/4}
         /> */}
 
-        <div className={`${noCaption ? 'block md:hidden' : 'h-full flex flex-wrap' } md:text-center w-full`}>
+        <div className={`${noCaption ? 'block md:hidden' : 'h-full flex flex-wrap' } ${leftAlign ? 'text-left' : 'md:text-center'} w-full`}>
           <div className="py-4 md:py-5 w-full">
             <div className="overflow-hidden relative">
-              <m.span variants={reveal} className="block text-lg md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display md:px-6 mb-1 md:mb-0">{title}</m.span>
+              <m.span variants={reveal} className={`block text-lg md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display mb-1 md:mb-2 ${leftAlign ? 'max-w-[85%] md:max-w-[90%]' : 'md:px-6' }`}>{title}</m.span>
             </div>
             <div className="overflow-hidden relative">
               <m.span variants={reveal} className="font-serif text-lg leading-none block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</m.span>

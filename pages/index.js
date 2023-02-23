@@ -145,7 +145,7 @@ export default function Home(initialData) {
             <div className="w-[100%] md:w-[70%] pt-[63px] md:pt-[78px] xl:pt-[80px] md:h-screen flex flex-wrap px-5 relative">
               <div className="w-full mb-8 md:mb-0">
                 {/* Desktop H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.45vw] hidden xl:block">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[3.95vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.45vw] hidden xl:block">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">A design-led studio building</span></m.span>
                   </div>
@@ -167,7 +167,7 @@ export default function Home(initialData) {
                 </m.h1>
 
                 {/* Tablet H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.7vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.55vw] hidden md:block xl:hidden">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.6vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.55vw] hidden md:block xl:hidden">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.55vw]">A design-led studio</span></m.span>
                   </div>
@@ -290,9 +290,11 @@ export default function Home(initialData) {
                       <p>Whilst our design work is often known for its attention to detail, and interesting moments of surprise, we also pride ourselves on the build quality of our output. Our websites always aim to be fast, performant, and accessible. Our brand collateral should be meaningful, and crafted for real world use. To us these traits are non-negotiable and ingrained in our approach.</p>
                     </div>
 
-                    <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block w-full mt-5">
-                      <Pill label="Latest News" />
-                    </a>
+                    <Link href="/journal">
+                      <a className="group block w-full mt-5">
+                        <Pill label="Read The Journal" />
+                      </a>
+                    </Link>
                   </div>
                 </div>
                 

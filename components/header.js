@@ -59,13 +59,13 @@ export default function Header({ bgColor, textColor}) {
                 </a>
               </Link>
             </div>
-            <Link href="/menu">
-              <a className="block md:hidden w-8 ml-auto mt-[2px] py-1 a11y-focus">
-                <span className={`block w-full h-[2px] mb-1 ${textColor ? `bg-current` : 'bg-black'}`}></span>
-                <span className={`block w-full h-[2px] ${textColor ? `bg-current` : 'bg-black'}`}></span>
-              </a>
-            </Link>
           </div>
+          <Link href={router.asPath == '/menu' ? '/' : '/menu'}>
+            <a className="block md:hidden w-8 ml-auto mt-[2px] py-1 a11y-focus">
+              <span className={`block transition-all ease-in-out duration-[500ms] w-[90%] h-[2px] origin-center ${textColor ? `bg-current` : 'bg-black'} ${router.asPath == '/menu' ? 'rotate-45 translate-y-[2px]' : 'rotate-0 mb-1' }`}></span>
+              <span className={`block transition-all ease-in-out duration-[500ms] w-[90%] h-[2px] origin-center ${textColor ? `bg-current` : 'bg-black'} ${router.asPath == '/menu' ? '-rotate-45 translate-y-[1px] mb-1' : 'rotate-0' }`}></span>
+            </a>
+          </Link>
         </nav>
       </Grid>
     </header>

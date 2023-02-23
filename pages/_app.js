@@ -81,7 +81,7 @@ export default function App({ Component, pageProps }) {
                               animate="hidden"
                               variants={introLogoReveal}
                               transition={{ delay: 0, duration: 0.77, ease: [0.83, 0, 0.17, 1] }}
-                              className="w-full fill-current"
+                              className="w-full fill-current translate-y-full"
                               viewBox="0 0 31 13"
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"

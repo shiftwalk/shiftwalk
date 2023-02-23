@@ -26,6 +26,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@cyriacbr/react-split-text": "^1.0.0",
     "@sanity/block-content-to-react": "^3.0.0",
     "framer-motion": "^6.2.9",
     "luxon": "^3.2.1",

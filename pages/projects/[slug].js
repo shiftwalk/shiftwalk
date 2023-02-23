@@ -12,6 +12,7 @@ import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
+import ListLink from '@/components/list-link'
 
 const query = `{
   "project": *[_type == "projects" && slug.current == $slug][0]{
@@ -124,7 +125,7 @@ export default function ProjectSlug(initialData) {
             {/* Fixed Sidebar */}
             <div className={`fixed top-0 right-0 bottom-0 h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-[30%] 2xl:w-[500px]' : 'w-[95px] xl:w-[105px]' }`}>
               <div className="w-full py-5 pt-8 relative">
-                <button className="text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 pt-5 px-5 right-0 border-t border-black w-full text-right" onClick={()=> updateIsInfoOpen() }>
+                <button className={`text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 pt-5 px-5 right-0 border-t border-black w-full text-right text-black text-opacity-30 hover:text-opacity-100`} onClick={()=> updateIsInfoOpen() }>
                   + {isInfoOpen ? 'Hide Info' : 'Info' }
                 </button>
 
@@ -198,9 +199,13 @@ export default function ProjectSlug(initialData) {
                 </Link>
 
                 <div className="px-5">
-                  <div className="w-full border-b border-black relative">
-                    <span className="font-serif mb-2 block text-lg">( {project.projectCode } )</span>
-                    <h1 className="font-display text-[8vw] md:text-[3.35vw] xl:text-[3vw] leading-none md:leading-none xl:leading-none mb-3 max-w-[90%] md:max-w-[75%]">{project.title}</h1>
+                  <div className="w-full border-b border-black relative overflow-hidden pb-1 md:pb-3">
+                    <div className="">
+                      <m.h1 variants={reveal} className="font-display text-[8vw] md:text-[3.35vw] xl:text-[3vw] leading-[1] md:leading-[1] xl:leading-[1] max-w-[90%] md:max-w-[75%] mb-2 md:mb-0 pb-0">{project.title}</m.h1>
+                    </div>
+                    <div className="overflow-hidden mb-2 md:absolute md:bottom-0 md:right-0">
+                      <m.span variants={reveal} className="font-serif block text-base md:text-lg">( {project.projectCode } )</m.span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -214,16 +219,14 @@ export default function ProjectSlug(initialData) {
                   <>
                     <div className="px-5 pb-6 mt-[10vw]">
                       <div className="border-b border-black mb-[2.5vw]">
-                        <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">More Work</h1>
+                        <h2 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">More Work</h2>
                       </div>
                     </div>
                     
                     <div className="flex flex-wrap px-5 mb-[20vw] md:mb-[13vw] lg:mb-[10vw]">
                       {project.projects.map((e, i) => {
                         return (
-                          <div className={`w-full group block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-2 md:mb-5 pt-2 pb-1 border-b border-black`} key={i}>
-                            <Link href={`/projects/${e.slug.current}`}><a><span className="font-serif font-normal text-sm md:text-base xl:text-lg leading-none inline-block mr-1 translate-y-[-2px]">(&nbsp;&nbsp;{e.projectCode}&nbsp;&nbsp;)</span> {e.title}</a></Link>
-                          </div>
+                          <ListLink key={i} slug={`/projects/${e.slug.current}`} title={e.title} projectCode={e.projectCode} />
                         )
                       })}
                     </div>

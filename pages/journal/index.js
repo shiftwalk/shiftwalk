@@ -19,6 +19,7 @@ const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
     title,
     content,
+    journalCode,
     additionalLinks[] {
       linkText,
       linkUrl,
@@ -102,11 +103,12 @@ export default function Journal(initialData) {
                 return (
                   <div className={`p-5 border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`}>
                     <Teaser
-                      projectCode={`SW.0${i + 2}`}
+                      projectCode={e.journalCode}
                       title={e.title}
                       slug={`/journal/${e.slug.current}`}
                       images={e.images}
                       hoverImages={null}
+                      leftAlign
                     />
                   </div>
                 )
@@ -141,7 +143,7 @@ export default function Journal(initialData) {
                               <m.h2 variants={reveal} className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto">{journals[0].title}</m.h2>
                             </div>
                             <div className="overflow-hidden relative pb-1">
-                              <m.span variants={reveal} className="font-serif mb-2 block text-lg leading-none text-center">(&nbsp;&nbsp;SW.01&nbsp;&nbsp;)</m.span>
+                              <m.span variants={reveal} className="font-serif mb-2 block text-lg leading-none text-center">(&nbsp;&nbsp;{journals[0].journalCode}&nbsp;&nbsp;)</m.span>
                             </div>
                           </div>
                         </div>

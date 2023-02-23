@@ -19,6 +19,7 @@ const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
     title,
     content,
+    journalCode,
     additionalLinks[] {
       linkText,
       linkUrl,
@@ -54,6 +55,7 @@ const query = `{
     "journals": *[_type == "journal" && slug.current != $slug && orderRank > ^.orderRank][0..1] | order(orderRank) {
       title,
       content,
+      journalCode,
       images[] {
         asset-> {
           ...
@@ -155,9 +157,13 @@ export default function JournalSlug(initialData) {
                     </a>
                   </Link>
                   
-                  <div className="border-b border-black">
-                    <span className="font-serif mb-2 block text-lg">(&nbsp;&nbsp;16.7.21&nbsp;&nbsp;)</span>
-                    <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[80%] w-full ">{journal.title}</h1>
+                  <div className="border-b border-black relative pb-1 md:pb-4 overflow-hidden">
+                    <div className="">
+                      <m.h1 variants={reveal} className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] max-w-[95%] md:max-w-[80%] mb-2 md:mb-0 pb-0 w-full">{journal.title}</m.h1>
+                    </div>
+                    <div className="overflow-hidden md:absolute md:bottom-0 md:right-0">
+                      <m.span variants={reveal} className="font-serif block text-base md:text-lg">( {journal.journalCode } )</m.span>
+                    </div>
                   </div>
                 
                 </div>
@@ -183,12 +189,13 @@ export default function JournalSlug(initialData) {
                   return (
                     <div className={`w-full md:w-1/2 flex px-3 mb-6 md:mb-0 group `} key={i}>
                       <Teaser
-                        projectCode={`SW.0${i + 1}`}
+                        projectCode={e.journalCode}
                         title={e.title}
                         slug={`/journal/${e.slug.current}`}
                         images={e.images}
                         left
                         matchHeight
+                        leftAlign
                         hoverImages={null}
                       />
                     </div>

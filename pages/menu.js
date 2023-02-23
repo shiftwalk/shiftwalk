@@ -65,7 +65,7 @@ export default function Menu() {
             <Div100vh className="flex flex-wrap h-screen items-center">
               
               <m.div variants={container}  initial="hidden" animate="enter" exit="exit" className="w-full px-5 mt-[-40vw] md:mt-0">
-                <span className="font-display text-[38px] md:text-[55px] xl:text-[65px] leading-[1.12] block">
+                <span className="font-display text-[38px] md:text-[55px] xl:text-[65px] leading-[1.15] block">
                   <Link href="/">
                     <a className="block pt-[6px] pb-[9px] border-t border-black">
                       <div className="relative overflow-hidden">
