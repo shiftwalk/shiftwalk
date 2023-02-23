@@ -13,6 +13,7 @@ import Gif from '@/components/gif'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
+import Teaser from '@/components/teaser'
 
 const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
@@ -50,6 +51,15 @@ export default function Journal(initialData) {
   const { data: { journals } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
+  const [shouldTransition, setShouldTransition] = useState(false);
+
+  function handleHover() {
+    setShouldTransition(true);
+  }
+
+  function handleHoverOut() {
+    setShouldTransition(false);
+  }
 
   useEffect(() => {
     setIntroContext(true)
@@ -90,29 +100,15 @@ export default function Journal(initialData) {
 
               {journals.slice(1).map((e, i) => {
                 return (
-                  <Link href={`/journal/${e.slug.current}`} key={i}>
-                    <a className={`p-5 border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`}>
-                      <div className="mb-3 w-full">
-                      { e.images.length == 1 ? (
-                        <Image
-                          image={e.images[0]}
-                          focalPoint={e.images[0].asset.hotspot}
-                          layout="responsive"
-                          sizes="(min-width: 768px) 80vw, 100vw"
-                          className="w-full"
-                        />
-                      ) : (
-                        <Gif images={e.images} />
-                      )}
-                      </div>
-                      <h2 className="text-lg md:text-lg xl:text-xl uppercase leading-none md:leading-none xl:leading-none block mb-2 md:mb-2 xl:mb-2">{e.title}</h2>
-                      <div className="flex pb-1 mb-5">
-                        <span className="font-serif mb-2 block text-lg leading-none">( SW.0{i + 1} )</span>
-                      </div>
-
-                      <Pill label="Read More" />
-                    </a>
-                  </Link>
+                  <div className={`p-5 border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`}>
+                    <Teaser
+                      projectCode={`SW.0${i + 2}`}
+                      title={e.title}
+                      slug={e.slug.current}
+                      images={e.images}
+                      hoverImages={null}
+                    />
+                  </div>
                 )
               })}
             </div>
@@ -123,7 +119,7 @@ export default function Journal(initialData) {
                 <div className="lg:my-auto w-full lg:flex lg:items-center lg:justify-center">
                   <div className="lg:w-[55vh] lg:mt-[-6vh]">
                     <Link href={`/journal/${journals[0].slug.current}`}>
-                      <a className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] hidden lg:block group`}>
+                      <a className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] hidden lg:block group`} onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
                         <div className="w-full mt-auto py-5">
                           <div className="w-full relative overflow-hidden">
                             { journals[0].images.length == 1 ? (
@@ -141,16 +137,17 @@ export default function Journal(initialData) {
                         </div>
                         <div className="flex flex-wrap justify-center">
                           <div className="mx-auto text-center">
-                            <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto">{journals[0].title}</h2>
-
-                            <div className="pb-1">
-                              <span className="font-serif mb-2 block text-lg leading-none text-center">( SW.01 )</span>
+                            <div className="overflow-hidden relative">
+                              <m.h2 variants={reveal} className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto">{journals[0].title}</m.h2>
+                            </div>
+                            <div className="overflow-hidden relative pb-1">
+                              <m.span variants={reveal} className="font-serif mb-2 block text-lg leading-none text-center">(&nbsp;&nbsp;SW.01&nbsp;&nbsp;)</m.span>
                             </div>
                           </div>
                         </div>
                         
                         <div className="absolute bottom-0 left-0 right-0 mb-[90px] mx-5 md:block">
-                          <Pill label="Read More" />
+                          <Pill label="Read More" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
                         </div>
                       </a>
                     </Link>

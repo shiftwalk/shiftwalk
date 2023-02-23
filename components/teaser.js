@@ -7,7 +7,7 @@ import { reveal } from "@/helpers/transitions";
 import { useState } from "react";
 // import PixelatedImage from "./pixelated-image";
 
-export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption }) {
+export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight }) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
   function handleHover() {
@@ -19,8 +19,8 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
   }
 
   return images.length == 1 ? (
-    <Link href={`/projects/${slug}`}>
-      <a className="block w-full group overflow-hidden relative group" onMouseEnter={handleHover} 
+    <Link href={`${slug}`}>
+      <a className={`flex flex-wrap w-full group relative group ${noCaption ? '' : 'pb-12 md:pb-10'}`} onMouseEnter={handleHover} 
       onMouseLeave={handleHoverOut}>
         {hoverImages && (
           <div className={`absolute inset-0 z-10 opacity-0 group-hover:opacity-100`}>
@@ -34,13 +34,15 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
           </div>
         )}
 
-        <Image
-          image={images[0]}
-          focalPoint={images[0].asset.hotspot}
-          layout="responsive"
-          sizes="(min-width: 768px) 80vw, 100vw"
-          className="w-full"
-        />
+        <div className="w-full">
+          <Image
+            image={images[0]}
+            focalPoint={images[0].asset.hotspot}
+            layout="responsive"
+            sizes="(min-width: 768px) 80vw, 100vw"
+            className="w-full"
+          />
+        </div>
         
         {/* <PixelatedImage
           image={`${images[0].asset.url}?q=1&w=${images[0].asset.metadata.dimensions.width/2}&fit=clip&auto=format`}
@@ -49,22 +51,24 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
           height={images[0].asset.metadata.dimensions.height/4}
         /> */}
 
-        <div className={`${noCaption ? 'block md:hidden' : '' } text-center`}>
-          <div className="my-4 md:my-5">
+        <div className={`${noCaption ? 'block md:hidden' : 'h-full flex flex-wrap' } text-center w-full`}>
+          <div className="py-4 md:py-5 w-full">
             <div className="overflow-hidden relative">
-              <m.span variants={reveal} className="block text-base md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display">{title}</m.span>
+              <m.span variants={reveal} className="block text-base md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display px-6">{title}</m.span>
             </div>
-            <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</span>
+            <div className="overflow-hidden relative">
+              <m.span variants={reveal} className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</m.span>
+            </div>
           </div>
 
-          <div className="mb-2 md:mb-0">
+          <div className="mb-2 md:mb-0 w-full absolute bottom-0 left-0 right-0">
             <Pill label="Explore Project" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
           </div>
         </div>
       </a>
     </Link>
   ) : (
-    <Link href={`/projects/${slug}`}>
+    <Link href={`${slug}`}>
       <a className="block">
         <Gif images={images} />
         

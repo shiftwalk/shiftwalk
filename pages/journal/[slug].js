@@ -13,6 +13,7 @@ import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
+import Teaser from '@/components/teaser'
 
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
@@ -156,12 +157,12 @@ export default function JournalSlug(initialData) {
                   
                   <div className="border-b border-black">
                     <span className="font-serif mb-2 block text-lg">(&nbsp;&nbsp;16.7.21&nbsp;&nbsp;)</span>
-                    <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] w-full ">{journal.title}</h1>
+                    <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[80%] w-full ">{journal.title}</h1>
                   </div>
                 
                 </div>
 
-                <div className="content w-full text-lg md:text-xl 2xl:text-2xl leading-tight md:leading-tight 2xl:leading-tight mt-auto">
+                <div className="content w-full text-lg md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] mt-auto">
                   <div className="content w-[90%] md:w-[70%] max-w-[700px]">
                     <p>{journal.content}</p>
                   </div>
@@ -180,29 +181,17 @@ export default function JournalSlug(initialData) {
               <div className="flex flex-wrap px-5 -mx-3">
                 {journal.journals.map((e, i) => {
                   return (
-                    <Link href={`/journal/${e.slug.current}`} key={i}>
-                      <a className={`w-full md:w-1/2 block px-3 mb-6 md:mb-0 group`}>
-                        <div className="mb-3 w-full">
-                        { e.images.length == 1 ? (
-                          <Image
-                            image={e.images[0]}
-                            focalPoint={e.images[0].asset.hotspot}
-                            layout="responsive"
-                            sizes="(min-width: 768px) 80vw, 100vw"
-                            className="w-full"
-                          />
-                        ) : (
-                          <Gif images={e.images} />
-                        )}
-                        </div>
-                        <h2 className="text-lg md:text-lg xl:text-xl uppercase leading-none md:leading-none xl:leading-none block mb-2 md:mb-2 xl:mb-2">{e.title}</h2>
-                        <div className="flex pb-1 mb-5">
-                          <span className="font-serif mb-2 block text-lg leading-none">( SW.0{i + 1} )</span>
-                        </div>
-
-                        <Pill label="Read More" />
-                      </a>
-                    </Link>
+                    <div className={`w-full md:w-1/2 flex px-3 mb-6 md:mb-0 group `} key={i}>
+                      <Teaser
+                        projectCode={`SW.0${i + 1}`}
+                        title={e.title}
+                        slug={`/journal/${e.slug.current}`}
+                        images={e.images}
+                        left
+                        matchHeight
+                        hoverImages={null}
+                      />
+                    </div>
                   )
                 })}
               </div>

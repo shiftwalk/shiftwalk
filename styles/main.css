@@ -13,6 +13,8 @@
 
 html {
   scroll-behavior: smooth !important;
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
 }
 
 body {
@@ -63,7 +65,7 @@ circle {
   top: -100%;
   width: 300%;
 } */
-
+/* 
 .grain {
   @apply scale-[0.65];
 }
@@ -101,7 +103,7 @@ circle {
   50% {transform: translate(8%,9%);}
   70% {transform: translate(9%,4%);}
   90% {transform: translate(-1%,7%);}
-}
+} */
 
 .group {
   .pill-text-hover {
@@ -119,6 +121,16 @@ circle {
   animation: pillText 0.35s steps(1);
   animation-fill-mode: forwards;
   animation-play-state: paused;
+}
+
+.nav-item-hover {
+  animation: navText 0.35s steps(1);
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+
+  &:hover {
+    animation-play-state: running;
+  }
 }
 
 .group {
@@ -145,6 +157,14 @@ circle {
   50% {@apply text-white;}
   75% {@apply text-black;}
   100% {@apply text-white;}
+}
+
+@keyframes navText {
+  0% {@apply text-black;}
+  25% {@apply text-white;}
+  50% {@apply text-black;}
+  75% {@apply text-white;}
+  100% {@apply text-black;}
 }
 
 @keyframes opacityDouble {

@@ -7,7 +7,7 @@ import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Teaser from '@/components/teaser'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
 import Link from 'next/link'
@@ -89,7 +89,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[0].projectCode}
                     title={projects[0].title}
-                    slug={projects[0].slug.current}
+                    slug={`/projects/${projects[0].slug.current}`}
                     images={projects[0].teaserImages}
                     hoverImages={projects[0].teaserImagesHover}
                     noCaption
@@ -126,7 +126,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[2].projectCode}
                     title={projects[2].title}
-                    slug={projects[2].slug.current}
+                    slug={`/projects/${projects[2].slug.current}`}
                     images={projects[2].teaserImages}
                     hoverImages={projects[2].teaserImagesHover}
                   />
@@ -138,7 +138,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[1].projectCode}
                     title={projects[1].title}
-                    slug={projects[1].slug.current}
+                    slug={`/projects/${projects[1].slug.current}`}
                     images={projects[1].teaserImages}
                     hoverImages={projects[1].teaserImagesHover}
                   />
@@ -152,7 +152,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[3].projectCode}
                     title={projects[3].title}
-                    slug={projects[3].slug.current}
+                    slug={`/projects/${projects[3].slug.current}`}
                     images={projects[3].teaserImages}
                     hoverImages={projects[3].teaserImagesHover}
                   />
@@ -166,7 +166,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[5].projectCode}
                     title={projects[5].title}
-                    slug={projects[5].slug.current}
+                    slug={`/projects/${projects[5].slug.current}`}
                     images={projects[5].teaserImages}
                     hoverImages={projects[5].teaserImagesHover}
                   />
@@ -178,7 +178,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[4].projectCode}
                     title={projects[4].title}
-                    slug={projects[4].slug.current}
+                    slug={`/projects/${projects[4].slug.current}`}
                     images={projects[4].teaserImages}
                     hoverImages={projects[4].teaserImagesHover}
                   />
@@ -192,7 +192,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[6].projectCode}
                     title={projects[6].title}
-                    slug={projects[6].slug.current}
+                    slug={`/projects/${projects[6].slug.current}`}
                     images={projects[6].teaserImages}
                     hoverImages={projects[6].teaserImagesHover}
                   />
@@ -206,7 +206,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[8].projectCode}
                     title={projects[8].title}
-                    slug={projects[8].slug.current}
+                    slug={`/projects/${projects[8].slug.current}`}
                     images={projects[8].teaserImages}
                     hoverImages={projects[8].teaserImagesHover}
                   />
@@ -218,7 +218,7 @@ export default function Projects(initialData) {
                   <Teaser
                     projectCode={projects[7].projectCode}
                     title={projects[7].title}
-                    slug={projects[7].slug.current}
+                    slug={`/projects/${projects[7].slug.current}`}
                     images={projects[7].teaserImages}
                     hoverImages={projects[7].teaserImagesHover}
                   />

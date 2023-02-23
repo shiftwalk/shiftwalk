@@ -8,6 +8,7 @@ import { useContext, useEffect } from 'react'
 import Footer from '@/components/footer'
 import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
+import Div100vh from 'react-div-100vh'
 
 export default function Contact() {
   const [introContext, setIntroContext] = useContext(IntroContext);
@@ -51,7 +52,7 @@ export default function Contact() {
             </div>
 
             {/* Main Section */}
-            <div className="w-full md:w-[75%] lg:w-[80%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap fixed top-0 right-0 bottom-0">
+            <Div100vh className="w-full md:w-[75%] lg:w-[80%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap fixed top-0 right-0 bottom-0">
               <div className="w-full px-5 pb-[45px] md:pb-[56px] xl:pb-[63px]">
 
                 {/* Desktop H1 */}
@@ -116,7 +117,7 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Div100vh>
 
             <div className="w-full fixed bottom-0 left-0 right-0 z-20">
               <Footer noRightPad noTop />

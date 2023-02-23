@@ -64,6 +64,29 @@ const query = `{
       shareGraphic {
         asset->
       }
+    },
+    "projects": *[_type == "projects" && slug.current != $slug && orderRank > ^.orderRank][0..2] | order(orderRank) {
+      title,
+      projectCode,
+      images[] {
+        asset-> {
+          ...
+        },
+        videoOverride {
+          asset-> {
+            ...
+          }
+        },
+        caption,
+        alt,
+        hotspot {
+          x,
+          y
+        },
+      },
+      slug {
+        current
+      }
     }
   }
 }`
@@ -186,6 +209,27 @@ export default function ProjectSlug(initialData) {
                 <div className="p-5 pb-0">
                   <BodyRenderer body={project.imageBlocks} />
                 </div>
+                
+                {project.projects.length > 0 && (
+                  <>
+                    <div className="px-5 pb-6 mt-[10vw]">
+                      <div className="border-b border-black mb-[2.5vw]">
+                        <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">More Work</h1>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-wrap px-5 mb-[20vw] md:mb-[13vw] lg:mb-[10vw]">
+                      {project.projects.map((e, i) => {
+                        return (
+                          <div className={`w-full group block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-2 md:mb-5 pt-2 pb-1 border-b border-black`} key={i}>
+                            <Link href={`/projects/${e.slug.current}`}><a><span className="font-serif font-normal text-sm md:text-base xl:text-lg leading-none inline-block mr-1 translate-y-[-2px]">(&nbsp;&nbsp;{e.projectCode}&nbsp;&nbsp;)</span> {e.title}</a></Link>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </>
+                )}
+                
                 <Footer />
               </div>
             </div>

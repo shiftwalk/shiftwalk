@@ -1,4 +1,15 @@
+import { useState } from "react";
+
 export default function Footer({ noRightPad, bgColor, noTop }) {
+  const [shouldTransition, setShouldTransition] = useState(false);
+
+  function handleHover() {
+    setShouldTransition(true);
+  }
+
+  function handleHoverOut() {
+    setShouldTransition(false);
+  }
   return (
     <footer className={`pl-5 ${noRightPad ? 'pr-5' : '' } ${bgColor ? `bg-grey` : 'bg-white'}`}>
       <div className={`flex flex-wrap items-center border-t border-black pt-3 pb-2 ${noRightPad ? '' : 'pr-3' }`}>
@@ -18,7 +29,7 @@ export default function Footer({ noRightPad, bgColor, noTop }) {
 
         {!noTop && (
           <div className="w-auto ml-auto">
-            <a href="#" className="text-sm leading-none a11y-focus">Top</a>
+            <a href="#" className={`text-sm leading-none a11y-focus ${ shouldTransition && 'nav-item-hover' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>Top</a>
           </div>
         )}
       </div>
