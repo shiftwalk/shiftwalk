@@ -200,7 +200,7 @@ export default function ProjectSlug(initialData) {
                 <div className="px-5">
                   <div className="w-full border-b border-black relative">
                     <span className="font-serif mb-2 block text-lg">( {project.projectCode } )</span>
-                    <h1 className="font-display text-[6.4vw] md:text-[3.35vw] xl:text-[3vw] leading-none md:leading-none xl:leading-none mb-3 max-w-[70%] md:max-w-[75%]">{project.title}</h1>
+                    <h1 className="font-display text-[8vw] md:text-[3.35vw] xl:text-[3vw] leading-none md:leading-none xl:leading-none mb-3 max-w-[90%] md:max-w-[75%]">{project.title}</h1>
                   </div>
                 </div>
               </div>

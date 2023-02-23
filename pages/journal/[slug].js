@@ -162,7 +162,7 @@ export default function JournalSlug(initialData) {
                 
                 </div>
 
-                <div className="content w-full text-lg md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] mt-auto">
+                <div className="content w-full text-base md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] mt-auto">
                   <div className="content w-[90%] md:w-[70%] max-w-[700px]">
                     <p>{journal.content}</p>
                   </div>

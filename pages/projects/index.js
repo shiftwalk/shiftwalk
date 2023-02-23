@@ -85,7 +85,7 @@ export default function Projects(initialData) {
             {/* Main Section */}
             <Grid>
               <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
-                <div className="px-5 w-full md:pb-5">
+                <div className="px-5 w-full pb-3 md:pb-5">
                   <Teaser
                     projectCode={projects[0].projectCode}
                     title={projects[0].title}
@@ -121,7 +121,7 @@ export default function Projects(initialData) {
             </Grid>
             
             <Grid>
-              <div className="col-span-10 md:col-span-5 md:mt-[20vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-5 md:mt-[20vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[2].projectCode}
@@ -133,7 +133,7 @@ export default function Projects(initialData) {
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[1].projectCode}
@@ -147,7 +147,7 @@ export default function Projects(initialData) {
             </Grid>
             
             <Grid>
-              <div className="col-span-10 md:col-span-8 md:col-start-2 md:mt-[12vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-8 md:col-start-2 md:mt-[12vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[3].projectCode}
@@ -161,7 +161,7 @@ export default function Projects(initialData) {
             </Grid>
             
             <Grid className="">
-              <div className="col-span-10 md:col-span-4 md:mt-[35vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-4 md:mt-[35vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[5].projectCode}
@@ -173,7 +173,7 @@ export default function Projects(initialData) {
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[12vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[12vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[4].projectCode}
@@ -187,7 +187,7 @@ export default function Projects(initialData) {
             </Grid>
 
             <Grid className="">
-              <div className="col-span-10 md:col-span-7 md:col-start-4 md:mt-[15vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-7 md:col-start-4 md:mt-[15vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[6].projectCode}
@@ -201,7 +201,7 @@ export default function Projects(initialData) {
             </Grid>
 
             <Grid className="">
-              <div className="col-span-10 md:col-span-5 md:mt-[35vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-5 md:mt-[35vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[8].projectCode}
@@ -213,7 +213,7 @@ export default function Projects(initialData) {
                 </div>
               </div>
 
-              <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[12vw] mb-3 lg:mb-0">
+              <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[12vw] mb-0 lg:mb-0">
                 <div className="px-5">
                   <Teaser
                     projectCode={projects[7].projectCode}

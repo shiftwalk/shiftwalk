@@ -20,10 +20,10 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
 
   return images.length == 1 ? (
     <Link href={`${slug}`}>
-      <a className={`flex flex-wrap w-full group relative group ${noCaption ? '' : 'pb-12 md:pb-10'}`} onMouseEnter={handleHover} 
+      <a className={`flex flex-wrap w-full group relative group ${noCaption ? '' : 'pb-6 md:pb-10'}`} onMouseEnter={handleHover} 
       onMouseLeave={handleHoverOut}>
         {hoverImages && (
-          <div className={`absolute inset-0 z-10 opacity-0 group-hover:opacity-100`}>
+          <div className={`absolute inset-0 z-10 opacity-0 md:group-hover:opacity-100`}>
             <Image
               image={hoverImages[0]}
               focalPoint={hoverImages[0].asset.hotspot}
@@ -51,17 +51,17 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
           height={images[0].asset.metadata.dimensions.height/4}
         /> */}
 
-        <div className={`${noCaption ? 'block md:hidden' : 'h-full flex flex-wrap' } text-center w-full`}>
+        <div className={`${noCaption ? 'block md:hidden' : 'h-full flex flex-wrap' } md:text-center w-full`}>
           <div className="py-4 md:py-5 w-full">
             <div className="overflow-hidden relative">
-              <m.span variants={reveal} className="block text-base md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display px-6">{title}</m.span>
+              <m.span variants={reveal} className="block text-lg md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display md:px-6 mb-1 md:mb-0">{title}</m.span>
             </div>
             <div className="overflow-hidden relative">
-              <m.span variants={reveal} className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</m.span>
+              <m.span variants={reveal} className="font-serif text-lg leading-none block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</m.span>
             </div>
           </div>
 
-          <div className="mb-2 md:mb-0 w-full absolute bottom-0 left-0 right-0">
+          <div className="mb-2 md:mb-0 w-full absolute bottom-0 left-0 right-0 hidden md:block">
             <Pill label="Explore Project" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
           </div>
         </div>
