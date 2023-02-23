@@ -52,7 +52,7 @@ export default function Contact() {
             </div>
 
             {/* Main Section */}
-            <Div100vh className="w-full md:w-[75%] lg:w-[80%] pt-[55px] md:pt-[65px] xl:pt-[70px] min-h-screen flex flex-wrap fixed top-0 right-0 bottom-0">
+            <Div100vh className="w-full md:w-[75%] lg:w-[80%] pt-[55px] md:pt-[65px] xl:pt-[70px] h-screen flex flex-wrap fixed top-0 right-0 bottom-0">
               <div className="w-full px-5 pb-[45px] md:pb-[56px] xl:pb-[63px]">
 
                 {/* Desktop H1 */}
@@ -105,7 +105,7 @@ export default function Contact() {
                 </m.h1>
               </div>
 
-              <div className="pb-[60px] md:pb-[63px] xl:pb-[70px] mt-auto w-full px-5">
+              <div className="mb-[60px] md:mb-[63px] xl:mb-[70px] mt-auto w-full px-5">
                 <div className="w-full">
                   <div className="w-full py-5">
                     <a href="mailto:hello@shiftwalk.studio" className="group block mb-3 md:mb-4">
