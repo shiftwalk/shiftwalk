@@ -104,7 +104,7 @@ export default function Journal(initialData) {
                     <Teaser
                       projectCode={`SW.0${i + 2}`}
                       title={e.title}
-                      slug={e.slug.current}
+                      slug={`/journal/${e.slug.current}`}
                       images={e.images}
                       hoverImages={null}
                     />
