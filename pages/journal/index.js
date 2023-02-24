@@ -141,7 +141,7 @@ export default function Journal(initialData) {
                         <div className="flex flex-wrap justify-center">
                           <div className="mx-auto text-center">
                             <div className="overflow-hidden relative">
-                              <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto">
+                              <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none  mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto flex flex-wrap justify-center">
                                 <SplitText
                                   initial={{ y: '100%' }}
                                   animate="enter"
@@ -191,7 +191,7 @@ export default function Journal(initialData) {
                               )}
                               </div>
                               
-                              <h2 className="text-lg md:text-lg xl:text-xl uppercase leading-none md:leading-none xl:leading-none block mb-2 md:mb-3 xl:mb-4 w-[80%]">
+                              <h2 className="text-lg md:text-lg xl:text-xl uppercase leading-none md:leading-none xl:leading-none mb-2 md:mb-3 xl:mb-4 w-[80%] flex flex-wrap">
                                 <SplitText
                                   initial={{ y: '100%' }}
                                   animate="enter"

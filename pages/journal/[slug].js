@@ -158,9 +158,9 @@ export default function JournalSlug(initialData) {
                     </a>
                   </Link>
                   
-                  <div className="border-b border-black relative pb-1 md:pb-0 overflow-hidden">
+                  <div className="border-b border-black relative pb-1 md:pb-1 overflow-hidden">
                     <div className="">
-                      <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-[0.95] md:leading-[0.95] xl:leading-[0.95] max-w-[95%] md:max-w-[80%] mb-2 md:mb-0 pb-0 w-full">
+                      <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-[0.95] md:leading-[0.95] xl:leading-[0.95] max-w-[95%] md:max-w-[80%] mb-2 md:mb-0 pb-0 w-full flex flex-wrap">
                         <SplitText
                           display
                           initial={{ y: '100%' }}
@@ -180,16 +180,16 @@ export default function JournalSlug(initialData) {
                         </SplitText>
                       </h1>
                     </div>
-                    <div className="overflow-hidden md:absolute md:bottom-0 md:right-0 md:mb-1">
+                    <div className="overflow-hidden md:absolute md:bottom-0 md:right-0 mb-1 md:mb-2">
                       <m.span variants={reveal} className="font-serif block text-base md:text-lg">( {journal.journalCode } )</m.span>
                     </div>
                   </div>
                 
                 </div>
 
-                <div className="content w-full text-base md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] mt-auto">
+                <div className="content w-full text-base md:text-xl 2xl:text-[23px] leading-[1.175] md:leading-[1.175] 2xl:leading-[1.175] mt-auto">
                   <div className="content w-[90%] md:w-[70%] max-w-[700px]">
-                    <p>
+                    <p className="flex flex-wrap">
                       <SplitText
                         text
                         initial={{ y: '100%' }}

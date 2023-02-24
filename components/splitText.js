@@ -6,14 +6,13 @@ export function SplitText({ children, display, text, ...rest }) {
   return words.map((word, i) => {
     return (
       <span
-      className="leading-none"
         key={children + i}
-        style={{ display: 'inline-block', overflow: 'hidden' }}
+        className="block overflow-hidden"
       >
         <m.span
           {...rest}
-          style={{ display: 'inline-block', willChange: 'transform' }}
-          className={display ? 'translate-y-[-10vw]' : '' }
+          style={{ display: 'block', willChange: 'transform' }}
+          className={`${display ? 'translate-y-[-10vw]' : '' } block overflow-hidden`}
           custom={i}
         >
           <span className={`block mb-0 pb-0 pr-[1px] ${display ? 'translate-y-[-1vw] md:translate-y-[-0.55vw] xl:translate-y-[-0.55vw]' : '' } ${text ? 'translate-y-[-2px] md:translate-y-[-3px] xl:translate-y-[-3px]' : '' }`}>
