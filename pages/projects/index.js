@@ -63,6 +63,15 @@ export default function Projects(initialData) {
   const { data: { projects } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
+  const [shouldTransition, setShouldTransition] = useState(false);
+
+  function handleHover() {
+    setShouldTransition(true);
+  }
+
+  function handleHoverOut() {
+    setShouldTransition(false);
+  }
 
   useEffect(() => {
     setIntroContext(true)
@@ -84,42 +93,45 @@ export default function Projects(initialData) {
           <m.article variants={fade}>
             {/* Main Section */}
             <Grid>
-              <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
-                <div className="px-5 w-full pb-3 md:pb-5">
-                  <Teaser
-                    projectCode={projects[0].projectCode}
-                    title={projects[0].title}
-                    slug={`/projects/${projects[0].slug.current}`}
-                    images={projects[0].teaserImages}
-                    hoverImages={projects[0].teaserImagesHover}
-                    noCaption
-                  />
-                </div>
-              </div>
-
-              <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center hidden md:flex border-l border-black relative">
-                <div className="w-full">
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</m.span>
-                  </div>
-                  
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</m.span>
+              <Link href={`/projects/${projects[0].slug.current}`}>
+                <a className="w-full group col-span-12 grid grid-cols-10" onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
+                  <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
+                    <div className="px-5 w-full pb-3 md:pb-5">
+                      <Teaser
+                        projectCode={projects[0].projectCode}
+                        title={projects[0].title}
+                        slug={`/projects/${projects[0].slug.current}`}
+                        images={projects[0].teaserImages}
+                        hoverImages={projects[0].teaserImagesHover}
+                        noCaption
+                      />
+                    </div>
                   </div>
 
-                  <Link href={`/projects/${projects[0].slug.current}`}>
-                    <a className="absolute bottom-0 left-0 right-0 m-5 group">
-                      <Pill label="Explore Project" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
+                  <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center hidden md:flex border-l border-black relative">
+                    <div className="w-full">
+                      <div className="relative overflow-hidden">
+                        <m.span variants={reveal} className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</m.span>
+                      </div>
+                      
+                      <div className="relative overflow-hidden">
+                        <m.span variants={reveal} className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</m.span>
+                      </div>
 
-              <div className="px-6 col-span-10 order-3 hidden md:block">
-                <div className="h-[1px] bg-black"></div>
-              </div>
+                      
+                      <div className="absolute bottom-0 left-0 right-0 m-5">
+                        <Pill label="Explore Project" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="px-6 col-span-10 order-3 hidden md:block">
+                    <div className="h-[1px] bg-black"></div>
+                  </div>
+                </a>
+              </Link>
             </Grid>
-            
+
             <Grid>
               <div className="col-span-10 md:col-span-5 md:mt-[20vw] mb-0 lg:mb-0">
                 <div className="px-5">
