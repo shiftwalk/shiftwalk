@@ -214,37 +214,42 @@ export default function JournalSlug(initialData) {
             </div>
 
             <div className="w-full md:w-[70%] overflow-hidden">
-              
-              <div className="px-5 pb-6">
-                <div className="border-b border-black">
-                  <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] w-full ">Related</h1>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap px-5 -mx-3">
-                {journal.journals.map((e, i) => {
-                  return (
-                    <div className={`w-full md:w-1/2 flex px-3 mb-6 md:mb-0 group `} key={i}>
-                      <Teaser
-                        projectCode={e.journalCode}
-                        title={e.title}
-                        slug={`/journal/${e.slug.current}`}
-                        images={e.images}
-                        left
-                        matchHeight
-                        leftAlign
-                        hoverImages={null}
-                      />
+              {journal.journals.length > 0 && (
+                <>
+                  <div className="px-5 pb-6">
+                    <div className="border-b border-black">
+                      <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">More Updates</h1>
                     </div>
-                  )
-                })}
-              </div>
+                  </div>
+                
 
-              <div className="col-span-10 md:col-span-7">
-                <div className="mb-[14vw] md:mb-[8.5vw] mt-[15vw] px-5">
-                  <div className="w-full h-[1px] bg-black -skew-y-12"></div>
-                </div>
-              </div>
+                  <div className="flex flex-wrap px-5 -mx-3">
+                    {journal.journals.map((e, i) => {
+                      return (
+                        <div className={`w-full md:w-1/2 flex px-3 mb-6 md:mb-0 group `} key={i}>
+                          <Teaser
+                            pillText="Read More"
+                            projectCode={e.journalCode}
+                            title={e.title}
+                            slug={`/journal/${e.slug.current}`}
+                            images={e.images}
+                            left
+                            matchHeight
+                            leftAlign
+                            hoverImages={null}
+                          />
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="col-span-10 md:col-span-7">
+                    <div className="mb-[14vw] md:mb-[8.5vw] mt-[15vw] px-5">
+                      <div className="w-full h-[1px] bg-black -skew-y-12"></div>
+                    </div>
+                  </div>
+                </>
+              )}
 
               <Footer noRightPad />
             </div>

@@ -106,6 +106,7 @@ export default function Journal(initialData) {
                     <Teaser
                       padded
                       projectCode={e.journalCode}
+                      pillText="Read More"
                       title={e.title}
                       slug={`/journal/${e.slug.current}`}
                       images={e.images}

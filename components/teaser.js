@@ -8,7 +8,7 @@ import { useState } from "react";
 import { SplitText } from "./splitText";
 // import PixelatedImage from "./pixelated-image";
 
-export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded }) {
+export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded, pillText, image }) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
   function handleHover() {
@@ -19,7 +19,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
     setShouldTransition(false);
   }
 
-  return images.length == 1 ? (
+  return (
     <Link href={`${slug}`}>
       <a className={`flex flex-wrap w-full group relative group ${padded ? 'p-5 md:pb-16' : '' } ${noCaption ? '' : 'pb-6 md:pb-10'}`} onMouseEnter={handleHover} 
       onMouseLeave={handleHoverOut}>
@@ -37,8 +37,8 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
 
         <div className="w-full">
           <Image
-            image={images[0]}
-            focalPoint={images[0].asset.hotspot}
+            image={image ? image : images[0]}
+            focalPoint={image ? image.asset.hotspot : images[0].asset.hotspot}
             layout="responsive"
             sizes="(min-width: 768px) 80vw, 100vw"
             className="w-full"
@@ -52,7 +52,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
           height={images[0].asset.metadata.dimensions.height/4}
         /> */}
 
-        <div className={`${noCaption ? 'block md:hidden' : 'h-full flex flex-wrap' } ${leftAlign ? 'text-left' : 'md:text-center'} w-full`}>
+        <div className={`${noCaption ? 'block md:hidden' : 'flex flex-wrap' } ${matchHeight ? 'h-full' : '' } ${leftAlign ? 'text-left' : 'md:text-center'} w-full`}>
           <div className="py-4 md:py-5 w-full">
             <div className={`overflow-hidden relative text-lg md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display mb-1 md:mb-2 flex flex-wrap ${leftAlign ? 'max-w-[85%] md:max-w-[90%]' : 'w-full md:px-6 justify-center' }`}>
               <SplitText
@@ -78,20 +78,9 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
           </div>
 
           <div className={`mb-2 md:mb-0 w-full absolute bottom-0 left-0 right-0 hidden md:block ${ padded ? 'p-5' : '' }`}>
-            <Pill label="Explore Project" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
+            <Pill label={pillText ? pillText : 'Explore Project'} mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
           </div>
         </div>
-      </a>
-    </Link>
-  ) : (
-    <Link href={`${slug}`}>
-      <a className="block">
-        <Gif images={images} />
-        
-        <div className="relative overflow-hidden">
-          <m.span variants={reveal} className="mt-[6px] block text-base md:text-lg xl:text-2xl leading-none md:leading-none xl:leading-none">{title}</m.span>
-        </div>
-        <span className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</span>
       </a>
     </Link>
   )

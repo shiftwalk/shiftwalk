@@ -3,7 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { fade, reveal } from '@/helpers/transitions'
-import { NextSeo } from 'next-seo'
+import { JobPostingJsonLd, NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
@@ -14,6 +14,7 @@ import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
 import ListLink from '@/components/list-link'
 import { SplitText } from '@/components/splitText'
+import Teaser from '@/components/teaser'
 
 const query = `{
   "project": *[_type == "projects" && slug.current == $slug][0]{
@@ -70,21 +71,40 @@ const query = `{
     "projects": *[_type == "projects" && slug.current != $slug && orderRank > ^.orderRank][0..2] | order(orderRank) {
       title,
       projectCode,
-      images[] {
-        asset-> {
-          ...
-        },
-        videoOverride {
+      imageBlocks[] {
+        ...,
+        image {
           asset-> {
             ...
-          }
+          },
+          videoOverride {
+            asset-> {
+              ...
+            }
+          },
+          caption,
+          alt,
+          hotspot {
+            x,
+            y
+          },
         },
-        caption,
-        alt,
-        hotspot {
-          x,
-          y
-        },
+        images[] {
+          asset-> {
+            ...
+          },
+          videoOverride {
+            asset-> {
+              ...
+            }
+          },
+          caption,
+          alt,
+          hotspot {
+            x,
+            y
+          },
+        }
       },
       slug {
         current
@@ -133,7 +153,7 @@ export default function ProjectSlug(initialData) {
                 <div className={`px-5 ${isInfoOpen ? '' : 'hidden' }`}>
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
-                      <span className="font-serif leading-none text-xs block mr-[6px]">( A )</span>
+                      <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
                       <span className="block leading-none">Overview</span>
                     </m.span>
                   </div>
@@ -162,7 +182,7 @@ export default function ProjectSlug(initialData) {
 
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
-                      <span className="font-serif leading-none text-xs block mr-[6px]">( B )</span>
+                      <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( B )</span>
                       <span className="block leading-none">Services</span>
                     </m.span>
                   </div>
@@ -184,7 +204,7 @@ export default function ProjectSlug(initialData) {
                     <>
                       <div className="overflow-hidden relative  mb-6">
                         <m.span variants={reveal} className="flex items-center text-sm">
-                          <span className="font-serif leading-none text-xs block mr-[6px]">( B )</span>
+                          <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( C )</span>
                           <span className="block leading-none">Links</span>
                         </m.span>
                       </div>
@@ -259,26 +279,35 @@ export default function ProjectSlug(initialData) {
                 <div className="p-5 pb-0">
                   <BodyRenderer body={project.imageBlocks} />
                 </div>
-                
-                {project.projects.length > 0 && (
+                  
+                {project.projects[0] && (
                   <>
-                    <div className="px-5 pb-6 mt-[10vw]">
-                      <div className="border-b border-black mb-[2.5vw]">
-                        <h2 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">More Work</h2>
-                      </div>
+                  <div className="px-5 pb-6 pt-[12vw]">
+                    <div className="border-b border-black">
+                      <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">Next Project</h1>
                     </div>
-                    
-                    <div className="flex flex-wrap px-5 mb-[20vw] md:mb-[13vw] lg:mb-[10vw]">
-                      {project.projects.map((e, i) => {
-                        return (
-                          <ListLink key={i} slug={`/projects/${e.slug.current}`} title={e.title} projectCode={e.projectCode} />
-                        )
-                      })}
+                  </div>
+                
+
+                  <div className="flex flex-wrap px-5 -mx-3 mb-6">
+                    <div className={`w-full md:w-[40%] flex px-3 mb-6 md:mb-0 group `}>
+                      <Teaser
+                        projectCode={project.projects[0].projectCode}
+                        title={project.projects[0].title}
+                        slug={`/projects/${project.projects[0].slug.current}`}
+                        image={project.projects[0].imageBlocks[0].image }
+                        left
+                        leftAlign
+                        hoverImages={null}
+                      />
                     </div>
+                  </div>
                   </>
                 )}
                 
-                <Footer />
+                <div className="bg-red-500 w-full">
+                  <Footer />
+                </div>
               </div>
             </div>
           </m.article>
