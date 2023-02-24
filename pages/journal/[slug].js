@@ -166,7 +166,7 @@ export default function JournalSlug(initialData) {
                           initial={{ y: '100%' }}
                           animate="enter"
                           exit="exit"
-                          transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                          transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
                           variants={{
                             enter: i => ({
                               y: 0,
@@ -195,7 +195,7 @@ export default function JournalSlug(initialData) {
                         initial={{ y: '100%' }}
                         animate="enter"
                         exit="exit"
-                        transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                        transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
                         variants={{
                           enter: i => ({
                             y: 0,

@@ -102,8 +102,9 @@ export default function Journal(initialData) {
 
               {journals.slice(1).map((e, i) => {
                 return (
-                  <div className={`p-5 border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`}>
+                  <div className={`border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`}>
                     <Teaser
+                      padded
                       projectCode={e.journalCode}
                       title={e.title}
                       slug={`/journal/${e.slug.current}`}
@@ -146,7 +147,7 @@ export default function Journal(initialData) {
                                   initial={{ y: '100%' }}
                                   animate="enter"
                                   exit="exit"
-                                  transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                                  transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
                                   variants={{
                                     enter: i => ({
                                       y: 0,
@@ -196,7 +197,7 @@ export default function Journal(initialData) {
                                   initial={{ y: '100%' }}
                                   animate="enter"
                                   exit="exit"
-                                  transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                                  transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
                                   variants={{
                                     enter: i => ({
                                       y: 0,

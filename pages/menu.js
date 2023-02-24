@@ -34,16 +34,16 @@ export default function Menu() {
   const item = {
     hidden: { 
       y: '100%',
-      transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] }
+      transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] }
       
     },
     enter: {
       y: 0,
-      transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] }
+      transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] }
     },
     exit: {
       y: '100%',
-      transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] }
+      transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] }
     }
   }
 

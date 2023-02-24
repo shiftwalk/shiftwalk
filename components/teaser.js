@@ -8,7 +8,7 @@ import { useState } from "react";
 import { SplitText } from "./splitText";
 // import PixelatedImage from "./pixelated-image";
 
-export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign }) {
+export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded }) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
   function handleHover() {
@@ -21,7 +21,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
 
   return images.length == 1 ? (
     <Link href={`${slug}`}>
-      <a className={`flex flex-wrap w-full group relative group ${noCaption ? '' : 'pb-6 md:pb-10'}`} onMouseEnter={handleHover} 
+      <a className={`flex flex-wrap w-full group relative group ${padded ? 'p-5 md:pb-16' : '' } ${noCaption ? '' : 'pb-6 md:pb-10'}`} onMouseEnter={handleHover} 
       onMouseLeave={handleHoverOut}>
         {hoverImages && (
           <div className={`absolute inset-0 z-10 opacity-0 md:group-hover:opacity-100`}>
@@ -59,7 +59,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
                 initial={{ y: '100%' }}
                 animate="enter"
                 exit="exit"
-                transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
                 variants={{
                   enter: i => ({
                     y: 0,
@@ -77,7 +77,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
             </div>
           </div>
 
-          <div className="mb-2 md:mb-0 w-full absolute bottom-0 left-0 right-0 hidden md:block">
+          <div className={`mb-2 md:mb-0 w-full absolute bottom-0 left-0 right-0 hidden md:block ${ padded ? 'p-5' : '' }`}>
             <Pill label="Explore Project" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
           </div>
         </div>
