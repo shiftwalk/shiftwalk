@@ -14,6 +14,7 @@ import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
 import Teaser from '@/components/teaser'
+import { SplitText } from '@/components/splitText'
 
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
@@ -157,11 +158,29 @@ export default function JournalSlug(initialData) {
                     </a>
                   </Link>
                   
-                  <div className="border-b border-black relative pb-1 md:pb-4 overflow-hidden">
+                  <div className="border-b border-black relative pb-1 md:pb-0 overflow-hidden">
                     <div className="">
-                      <m.h1 variants={reveal} className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] max-w-[95%] md:max-w-[80%] mb-2 md:mb-0 pb-0 w-full">{journal.title}</m.h1>
+                      <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-[0.95] md:leading-[0.95] xl:leading-[0.95] max-w-[95%] md:max-w-[80%] mb-2 md:mb-0 pb-0 w-full">
+                        <SplitText
+                          display
+                          initial={{ y: '100%' }}
+                          animate="enter"
+                          exit="exit"
+                          transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                          variants={{
+                            enter: i => ({
+                              y: 0,
+                            }),
+                            exit: i => ({
+                              y: '100%',
+                            })
+                          }}
+                        >
+                          {journal.title}
+                        </SplitText>
+                      </h1>
                     </div>
-                    <div className="overflow-hidden md:absolute md:bottom-0 md:right-0">
+                    <div className="overflow-hidden md:absolute md:bottom-0 md:right-0 md:mb-1">
                       <m.span variants={reveal} className="font-serif block text-base md:text-lg">( {journal.journalCode } )</m.span>
                     </div>
                   </div>
@@ -170,7 +189,25 @@ export default function JournalSlug(initialData) {
 
                 <div className="content w-full text-base md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] mt-auto">
                   <div className="content w-[90%] md:w-[70%] max-w-[700px]">
-                    <p>{journal.content}</p>
+                    <p>
+                      <SplitText
+                        text
+                        initial={{ y: '100%' }}
+                        animate="enter"
+                        exit="exit"
+                        transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                        variants={{
+                          enter: i => ({
+                            y: 0,
+                          }),
+                          exit: i => ({
+                            y: '100%',
+                          })
+                        }}
+                      >
+                        {journal.content}
+                      </SplitText>
+                    </p>
                   </div>
                 </div>
               </div>

@@ -5,6 +5,7 @@ import Pill from "./pill";
 import { m } from "framer-motion"
 import { reveal } from "@/helpers/transitions";
 import { useState } from "react";
+import { SplitText } from "./splitText";
 // import PixelatedImage from "./pixelated-image";
 
 export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign }) {
@@ -53,8 +54,23 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
 
         <div className={`${noCaption ? 'block md:hidden' : 'h-full flex flex-wrap' } ${leftAlign ? 'text-left' : 'md:text-center'} w-full`}>
           <div className="py-4 md:py-5 w-full">
-            <div className="overflow-hidden relative">
-              <m.span variants={reveal} className={`block text-lg md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display mb-1 md:mb-2 ${leftAlign ? 'max-w-[85%] md:max-w-[90%]' : 'md:px-6' }`}>{title}</m.span>
+            <div className={`overflow-hidden relative block text-lg md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display mb-1 md:mb-2 ${leftAlign ? 'max-w-[85%] md:max-w-[90%]' : 'md:px-6' }`}>
+              <SplitText
+                initial={{ y: '100%' }}
+                animate="enter"
+                exit="exit"
+                transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                variants={{
+                  enter: i => ({
+                    y: 0,
+                  }),
+                  exit: i => ({
+                    y: '100%',
+                  })
+                }}
+              >
+                {title}
+              </SplitText>
             </div>
             <div className="overflow-hidden relative">
               <m.span variants={reveal} className="font-serif text-lg leading-none block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</m.span>

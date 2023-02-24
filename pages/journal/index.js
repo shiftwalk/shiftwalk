@@ -14,6 +14,7 @@ import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
 import Teaser from '@/components/teaser'
+import { SplitText } from '@/components/splitText'
 
 const query = `{
   "journals": *[_type == "journal"] | order(orderRank) {
@@ -140,7 +141,24 @@ export default function Journal(initialData) {
                         <div className="flex flex-wrap justify-center">
                           <div className="mx-auto text-center">
                             <div className="overflow-hidden relative">
-                              <m.h2 variants={reveal} className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto">{journals[0].title}</m.h2>
+                              <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none block mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto">
+                                <SplitText
+                                  initial={{ y: '100%' }}
+                                  animate="enter"
+                                  exit="exit"
+                                  transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                                  variants={{
+                                    enter: i => ({
+                                      y: 0,
+                                    }),
+                                    exit: i => ({
+                                      y: '100%',
+                                    })
+                                  }}
+                                >
+                                  {journals[0].title}
+                                </SplitText>
+                              </h2>
                             </div>
                             <div className="overflow-hidden relative pb-1">
                               <m.span variants={reveal} className="font-serif mb-2 block text-lg leading-none text-center">(&nbsp;&nbsp;{journals[0].journalCode}&nbsp;&nbsp;)</m.span>
@@ -172,9 +190,29 @@ export default function Journal(initialData) {
                                 <Gif images={e.images} />
                               )}
                               </div>
-                              <h2 className="text-lg md:text-lg xl:text-xl uppercase leading-none md:leading-none xl:leading-none block mb-2 md:mb-3 xl:mb-4 w-[80%]">{e.title}</h2>
+                              
+                              <h2 className="text-lg md:text-lg xl:text-xl uppercase leading-none md:leading-none xl:leading-none block mb-2 md:mb-3 xl:mb-4 w-[80%]">
+                                <SplitText
+                                  initial={{ y: '100%' }}
+                                  animate="enter"
+                                  exit="exit"
+                                  transition={{ delay: 0, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                                  variants={{
+                                    enter: i => ({
+                                      y: 0,
+                                    }),
+                                    exit: i => ({
+                                      y: '100%',
+                                    })
+                                  }}
+                                >
+                                  {e.title}
+                                </SplitText>
+                              </h2>
                               <div className="flex pb-1">
-                                <span className="font-serif mb-2 block text-lg leading-none">( SW.0{i + 1} )</span>
+                                <div className="w-full relative overflow-hidden">
+                                  <m.span variants={reveal} className="font-serif mb-2 block text-lg leading-none">( SW.0{i + 1} )</m.span>
+                                </div>
                               </div>
                             </a>
                           </Link>
