@@ -1,12 +1,20 @@
 export default {
-  defaultTitle: 'ShiftWalk© — Design + Build Studio',
-  description: 'The mini-studio of Isaac Powell + Sam Goddard, designing and building highly-crafted brands and websites for partners around the world. We have a particular focus on the hospitality, architectural, and creative arts sectors, but we always keep an open mind.',
-  titleTemplate: '%s | ShiftWalk©',
+  defaultTitle: 'ShiftWalk© — Design & Development Studio',
+  description: 'We are a multidisciplinary creative studio who believe that great design is rooted in concept, and honed by understanding. To that end, we see ourselves as curious collaborators for foward-thinking and brave brands, always looking to find novel ways to meet each brief and challenge the expected.',
+  titleTemplate: '%s — ShiftWalk© Studio',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     url: 'https://shiftwalk.studio',
-    site_name: 'ShiftWalk© — Design + Build Studio',
+    site_name: 'ShiftWalk© — Design & Development  Studio',
+    images: [
+      {
+        url: '/images/social.jpg',
+        width: 1200,
+        height: 630,
+        alt: `ShiftWalk Logo`,
+      },
+    ],
   },
   twitter: {
     handle: '@samuelgoddard',
