@@ -73,7 +73,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
               </SplitText>
             </div>
             <div className="overflow-hidden relative">
-              <m.span variants={reveal} className="font-serif text-lg leading-none block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</m.span>
+              <m.span variants={reveal} className="font-serif md:text-lg leading-none block">(&nbsp;&nbsp;{projectCode}&nbsp;&nbsp;)</m.span>
             </div>
           </div>
 

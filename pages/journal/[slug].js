@@ -181,7 +181,7 @@ export default function JournalSlug(initialData) {
                       </h1>
                     </div>
                     <div className="overflow-hidden md:absolute md:bottom-0 md:right-0 mb-1 md:mb-2">
-                      <m.span variants={reveal} className="font-serif block text-base md:text-lg">( {journal.journalCode } )</m.span>
+                      <m.span variants={reveal} className="font-serif block text-base md:text-xl">( {journal.journalCode } )</m.span>
                     </div>
                   </div>
                 

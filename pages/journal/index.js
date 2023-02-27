@@ -143,7 +143,7 @@ export default function Journal(initialData) {
                         <div className="flex flex-wrap justify-center">
                           <div className="mx-auto text-center">
                             <div className="overflow-hidden relative">
-                              <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none  mb-2 md:mb-3 xl:mb-4 text-center w-[90%] mx-auto flex flex-wrap justify-center">
+                              <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none  mb-2 md:mb-3 xl:mb-3 text-center w-[90%] mx-auto flex flex-wrap justify-center">
                                 <SplitText
                                   initial={{ y: '100%' }}
                                   animate="enter"
@@ -163,7 +163,7 @@ export default function Journal(initialData) {
                               </h2>
                             </div>
                             <div className="overflow-hidden relative pb-1">
-                              <m.span variants={reveal} className="font-serif mb-2 block text-lg leading-none text-center">(&nbsp;&nbsp;{journals[0].journalCode}&nbsp;&nbsp;)</m.span>
+                              <m.span variants={reveal} className="font-serif mb-2 block text-xl leading-none text-center">(&nbsp;&nbsp;{journals[0].journalCode}&nbsp;&nbsp;)</m.span>
                             </div>
                           </div>
                         </div>
@@ -213,7 +213,7 @@ export default function Journal(initialData) {
                               </h2>
                               <div className="flex pb-1">
                                 <div className="w-full relative overflow-hidden">
-                                  <m.span variants={reveal} className="font-serif mb-2 block text-lg leading-none">( SW.0{i + 1} )</m.span>
+                                  <m.span variants={reveal} className="font-serif mb-2 block md:text-lg leading-none">( SW.0{i + 1} )</m.span>
                                 </div>
                               </div>
                             </a>

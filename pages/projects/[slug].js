@@ -278,7 +278,7 @@ export default function ProjectSlug(initialData) {
                       </h1>
                     </div>
                     <div className="overflow-hidden mb-2 md:absolute md:bottom-0 md:right-0">
-                      <m.span variants={reveal} className="font-serif block text-base md:text-lg">( {project.projectCode } )</m.span>
+                      <m.span variants={reveal} className="font-serif block text-base md:text-xl">( {project.projectCode } )</m.span>
                     </div>
                   </div>
                 </div>
