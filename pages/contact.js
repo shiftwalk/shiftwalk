@@ -107,7 +107,7 @@ export default function Contact() {
                   </div>
                 </m.h1>
 
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.8vw] block md:hidden">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.6vw] md:text-[4.8vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.8vw] block md:hidden">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.8vw]">We're always</span></m.span>
                   </div>

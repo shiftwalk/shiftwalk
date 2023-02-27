@@ -65,9 +65,9 @@ export default function Menu() {
             <Div100vh className="flex flex-wrap h-screen items-center">
               
               <m.div variants={container}  initial="hidden" animate="enter" exit="exit" className="w-full px-5 mt-[-40vw] md:mt-0">
-                <span className="font-display text-[38px] md:text-[55px] xl:text-[65px] leading-[1.15] block">
+                <span className="font-display text-[38px] md:text-[55px] xl:text-[65px] leading-[1.175] block">
                   <Link href="/">
-                    <a className="block pt-[6px] pb-[9px] border-t border-black">
+                    <a className="block pt-[5px] pb-[8px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
                           <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;A&nbsp;&nbsp;)</span>
@@ -77,7 +77,7 @@ export default function Menu() {
                     </a>
                   </Link>
                   <Link href="/projects">
-                    <a className="block pt-[6px] pb-[9px] border-t border-black">
+                    <a className="block pt-[5px] pb-[8px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
                           <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;B&nbsp;&nbsp;)</span>
@@ -87,7 +87,7 @@ export default function Menu() {
                     </a>
                   </Link>
                   <Link href="/journal">
-                    <a className="block pt-[6px] pb-[9px] border-t border-black">
+                    <a className="block pt-[5px] pb-[8px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
                           <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;C&nbsp;&nbsp;)</span>
@@ -97,7 +97,7 @@ export default function Menu() {
                     </a>
                   </Link>
                   <Link href="/contact">
-                    <a className="block pt-[6px] pb-[9px] border-t border-b border-black">
+                    <a className="block pt-[5px] pb-[8px] border-t border-b border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
                           <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;D&nbsp;&nbsp;)</span>
