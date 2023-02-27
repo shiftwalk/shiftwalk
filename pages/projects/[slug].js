@@ -277,64 +277,10 @@ export default function ProjectSlug(initialData) {
 
               <div className={`md:hidden`}>
                 <div className="w-full pt-8 relative">
-                  <div className={`px-5 `}>
-                    <div className="overflow-hidden relative mb-6">
-                      <m.span variants={reveal} className="flex items-center text-sm">
-                        <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
-                        <span className="block leading-none">Overview</span>
-                      </m.span>
-                    </div>
-
-                    <div className="text-sm leading-snug w-[90%] mb-6 lg:mb-12 content tracking-tight">
-                      <p className="flex flex-wrap overflow-hidden">
-                        <SplitText
-                          text
-                          initial={{ y: '100%' }}
-                          animate="enter"
-                          exit="exit"
-                          transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-                          variants={{
-                            enter: i => ({
-                              y: 0,
-                            }),
-                            exit: i => ({
-                              y: '100%',
-                            })
-                          }}
-                        >
-                          {project.overview}
-                        </SplitText>
-                      </p>
-                    </div>
-
-                    <div className="overflow-hidden relative  mb-6">
-                      <m.span variants={reveal} className="flex items-center text-sm">
-                        <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( B )</span>
-                        <span className="block leading-none">Services</span>
-                      </m.span>
-                    </div>
-
-                    <div className={`text-sm leading-snug w-[85%] content tracking-tight ${(project.additionalLinks?.length > 0 || project.liveUrl) ? ' mb-6 lg:mb-12' : '' }`}>
-                      <ul>
-                        {project.services.map((e, i) => {
-                          return (
-                            <li className="block relative overflow-hidden" key={i}>
-                              <m.span variants={reveal} className="block">{e}</m.span>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    </div>
-                    
+                  <div className={`px-5 `}>                    
                       
                     {(project.additionalLinks?.length > 0 || project.liveUrl) && (
                       <>
-                        <div className="overflow-hidden relative  mb-6">
-                          <m.span variants={reveal} className="flex items-center text-sm">
-                            <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( C )</span>
-                            <span className="block leading-none">Links</span>
-                          </m.span>
-                        </div>
 
                         <div className="text-sm leading-snug w-full content tracking-tight">
                           {project.liveUrl && (<div>
@@ -366,6 +312,62 @@ export default function ProjectSlug(initialData) {
               <div className={`overflow-hidden ${ isInfoOpen ? 'w-full lg:w-[70%] 2xl:w-[calc(100%-500px)]' : 'w-full lg:w-[calc(100%-95px)] xl:w-[calc(100%-105px)]' }`}>
                 <div className="p-5 pb-0">
                   <BodyRenderer body={project.imageBlocks} />
+                </div>
+
+                <div className={`md:hidden`}>
+                  <div className="w-full pt-1 relative">
+                    <div className={`px-5 `}>
+                      <div className="overflow-hidden relative mb-6 border-t border-black pt-8">
+                        <m.span variants={reveal} className="flex items-center text-sm">
+                          <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
+                          <span className="block leading-none">Overview</span>
+                        </m.span>
+                      </div>
+
+                      <div className="text-sm leading-snug w-[90%] mb-6 lg:mb-12 content tracking-tight">
+                        <p className="flex flex-wrap overflow-hidden">
+                          <SplitText
+                            text
+                            initial={{ y: '100%' }}
+                            animate="enter"
+                            exit="exit"
+                            transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
+                            variants={{
+                              enter: i => ({
+                                y: 0,
+                              }),
+                              exit: i => ({
+                                y: '100%',
+                              })
+                            }}
+                          >
+                            {project.overview}
+                          </SplitText>
+                        </p>
+                      </div>
+
+                      <div className="overflow-hidden relative  mb-6">
+                        <m.span variants={reveal} className="flex items-center text-sm">
+                          <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( B )</span>
+                          <span className="block leading-none">Services</span>
+                        </m.span>
+                      </div>
+
+                      <div className={`text-sm leading-snug w-[85%] content tracking-tight ${(project.additionalLinks?.length > 0 || project.liveUrl) ? ' mb-6 lg:mb-12' : '' }`}>
+                        <ul>
+                          {project.services.map((e, i) => {
+                            return (
+                              <li className="block relative overflow-hidden" key={i}>
+                                <m.span variants={reveal} className="block">{e}</m.span>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      </div>
+                      
+                        
+                    </div>
+                  </div>
                 </div>
                   
                 {project.projects[0] && (
