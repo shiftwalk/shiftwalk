@@ -29,7 +29,7 @@ export default function Pill( {label, className, hiddenLabel, shouldTransitionOv
           </m.span>
         )}
       </div>
-      <div className="absolute bottom-0 left-0 right-0 w-full h-0 bg-black group-hover:h-full group-focus-visible:h-full"></div>
+      <div className="absolute bottom-0 left-0 right-0 w-full h-0 bg-black group-hover:md:h-full group-focus-visible:md:h-full"></div>
     </div>
   )
 }

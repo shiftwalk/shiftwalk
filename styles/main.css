@@ -105,77 +105,79 @@ circle {
   90% {transform: translate(-1%,7%);}
 } */
 
-.group {
+@screen md {
+  .group {
+    .pill-text-hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .group:hover {
+    .pill-text-hover {
+      animation-play-state: running;
+    }
+  }
+
   .pill-text-hover {
+      animation: pillText 0.35s steps(1);
+      animation-fill-mode: forwards;
+      animation-play-state: paused;
+  }
+
+  .nav-item-hover {
+    animation: navText 0.35s steps(1);
+    animation-fill-mode: forwards;
     animation-play-state: paused;
+
+    &:hover {
+      animation-play-state: running;
+    }
   }
-}
 
-.group:hover {
-  .pill-text-hover {
-    animation-play-state: running;
+  .group {
+    .teaser-hover {
+      animation-play-state: paused;
+    }
   }
-}
 
-.pill-text-hover {
-  animation: pillText 0.35s steps(1);
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
-}
+  .group:hover {
+    .teaser-hover {
+      animation-play-state: running;
+    }
 
-.nav-item-hover {
-  animation: navText 0.35s steps(1);
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
+    .dot-hover {
+      animation-play-state: running;
+    }
 
-  &:hover {
-    animation-play-state: running;
+    .dot-hover-reverse {
+      animation-play-state: running;
+    }
   }
-}
 
-.group {
   .teaser-hover {
+    animation: opacityDouble 0.35s steps(1);
+    animation-fill-mode: forwards;
     animation-play-state: paused;
-  }
-}
-
-.group:hover {
-  .teaser-hover {
-    animation-play-state: running;
   }
 
   .dot-hover {
-    animation-play-state: running;
+    animation: dotHover 0.425s steps(1);
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+
+    &.active {
+      @apply bg-black !important;
+    }
   }
 
   .dot-hover-reverse {
-    animation-play-state: running;
-  }
-}
+    animation: dotHoverReverse 0.425s steps(1);
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
 
-.teaser-hover {
-  animation: opacityDouble 0.35s steps(1);
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
-}
-
-.dot-hover {
-  animation: dotHover 0.425s steps(1);
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
-
-  &.active {
-    @apply bg-black !important;
-  }
-}
-
-.dot-hover-reverse {
-  animation: dotHoverReverse 0.425s steps(1);
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
-
-  &.active {
-    @apply bg-white !important;
+    &.active {
+      @apply bg-white !important;
+    }
   }
 }
 
