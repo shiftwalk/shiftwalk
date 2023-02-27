@@ -275,40 +275,6 @@ export default function ProjectSlug(initialData) {
                 </div>
               </div>
 
-              <div className={`md:hidden`}>
-                <div className="w-full pt-8 relative">
-                  <div className={`px-5 `}>                    
-                      
-                    {(project.additionalLinks?.length > 0 || project.liveUrl) && (
-                      <>
-
-                        <div className="text-sm leading-snug w-full content tracking-tight">
-                          {project.liveUrl && (<div>
-                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
-                              <Pill label="Visit Live Site" />
-                            </a>
-                          </div>)}
-                          
-                          {project.additionalLinks && (
-                            <>
-                              {project.additionalLinks.map((e, i) => {
-                                return (
-                                  <div key={i}>
-                                    <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
-                                      <Pill label={e.linkText} />
-                                    </a>
-                                  </div>
-                                )
-                              })}
-                            </>
-                          )}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-
               <div className={`overflow-hidden ${ isInfoOpen ? 'w-full lg:w-[70%] 2xl:w-[calc(100%-500px)]' : 'w-full lg:w-[calc(100%-95px)] xl:w-[calc(100%-105px)]' }`}>
                 <div className="p-5 pb-0">
                   <BodyRenderer body={project.imageBlocks} />
@@ -364,7 +330,39 @@ export default function ProjectSlug(initialData) {
                           })}
                         </ul>
                       </div>
-                      
+
+                      {(project.additionalLinks?.length > 0 || project.liveUrl) && (
+                        <>
+                          <div className="overflow-hidden relative  mb-6">
+                            <m.span variants={reveal} className="flex items-center text-sm">
+                              <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( C )</span>
+                              <span className="block leading-none">Links</span>
+                            </m.span>
+                          </div>
+                          
+                          <div className="text-sm leading-snug w-full content tracking-tight">
+                            {project.liveUrl && (<div>
+                              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
+                                <Pill label="Visit Live Site" />
+                              </a>
+                            </div>)}
+                            
+                            {project.additionalLinks && (
+                              <>
+                                {project.additionalLinks.map((e, i) => {
+                                  return (
+                                    <div key={i}>
+                                      <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
+                                        <Pill label={e.linkText} />
+                                      </a>
+                                    </div>
+                                  )
+                                })}
+                              </>
+                            )}
+                          </div>
+                        </>
+                      )}
                         
                     </div>
                   </div>
