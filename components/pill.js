@@ -14,7 +14,7 @@ export default function Pill( {label, className, hiddenLabel, shouldTransitionOv
 
   return (
     <div
-      className={`px-6 py-2 uppercase text-xs leading-none border border-black rounded-full relative overflow-hidden block w-full transition ease-in-out duration-300 text-center ${className}`} 
+      className={`px-6 py-2 uppercase text-xs leading-none border border-black rounded-full relative overflow-hidden block w-full text-center ${className} group-focus-visible:text-white`} 
       onMouseEnter={mouseOverride ? null : handleHover } 
       onMouseLeave={mouseOverride ? null : handleHoverOut } 
     >
@@ -29,7 +29,7 @@ export default function Pill( {label, className, hiddenLabel, shouldTransitionOv
           </m.span>
         )}
       </div>
-      <div className="absolute bottom-0 left-0 right-0 w-full h-0 bg-black group-hover:h-full"></div>
+      <div className="absolute bottom-0 left-0 right-0 w-full h-0 bg-black group-hover:h-full group-focus-visible:h-full"></div>
     </div>
   )
 }

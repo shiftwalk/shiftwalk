@@ -144,13 +144,13 @@ export default function ProjectSlug(initialData) {
         >
           <m.article variants={fade}>
             {/* Fixed Sidebar */}
-            <div className={`fixed top-0 right-0 bottom-0 h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-[30%] 2xl:w-[500px]' : 'w-[95px] xl:w-[105px]' }`}>
+            <div className={`md:fixed md:top-0 right-0 md:bottom-0 md:h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black  hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-full md:w-[30%] 2xl:w-[500px]' : 'w-full md:w-[95px] xl:w-[105px]' }`}>
               <div className="w-full py-5 pt-8 relative">
-                <button className={`text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 pt-5 px-5 right-0 border-t border-black w-full text-right text-black text-opacity-30 hover:text-opacity-100`} onClick={()=> updateIsInfoOpen() }>
+                <button className={`text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 hidden lg:block pt-5 px-5 right-0 border-t border-black w-full text-right text-black text-opacity-30 hover:text-opacity-100`} onClick={()=> updateIsInfoOpen() }>
                   + {isInfoOpen ? 'Hide Info' : 'Info' }
                 </button>
 
-                <div className={`px-5 ${isInfoOpen ? '' : 'hidden' }`}>
+                <div className={`px-5 ${isInfoOpen ? '' : 'md:hidden' }`}>
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
                       <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
@@ -275,7 +275,95 @@ export default function ProjectSlug(initialData) {
                 </div>
               </div>
 
-              <div className={`${ isInfoOpen ? 'w-full lg:w-[70%] 2xl:w-[calc(100%-500px)]' : 'w-full lg:w-[calc(100%-95px)] xl:w-[calc(100%-105px)]' }`}>
+              <div className={`md:hidden`}>
+                <div className="w-full pt-8 relative">
+                  <div className={`px-5 `}>
+                    <div className="overflow-hidden relative mb-6">
+                      <m.span variants={reveal} className="flex items-center text-sm">
+                        <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
+                        <span className="block leading-none">Overview</span>
+                      </m.span>
+                    </div>
+
+                    <div className="text-sm leading-snug w-[90%] mb-6 lg:mb-12 content tracking-tight">
+                      <p className="flex flex-wrap overflow-hidden">
+                        <SplitText
+                          text
+                          initial={{ y: '100%' }}
+                          animate="enter"
+                          exit="exit"
+                          transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
+                          variants={{
+                            enter: i => ({
+                              y: 0,
+                            }),
+                            exit: i => ({
+                              y: '100%',
+                            })
+                          }}
+                        >
+                          {project.overview}
+                        </SplitText>
+                      </p>
+                    </div>
+
+                    <div className="overflow-hidden relative  mb-6">
+                      <m.span variants={reveal} className="flex items-center text-sm">
+                        <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( B )</span>
+                        <span className="block leading-none">Services</span>
+                      </m.span>
+                    </div>
+
+                    <div className={`text-sm leading-snug w-[85%] content tracking-tight ${(project.additionalLinks?.length > 0 || project.liveUrl) ? ' mb-6 lg:mb-12' : '' }`}>
+                      <ul>
+                        {project.services.map((e, i) => {
+                          return (
+                            <li className="block relative overflow-hidden" key={i}>
+                              <m.span variants={reveal} className="block">{e}</m.span>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                    
+                      
+                    {(project.additionalLinks?.length > 0 || project.liveUrl) && (
+                      <>
+                        <div className="overflow-hidden relative  mb-6">
+                          <m.span variants={reveal} className="flex items-center text-sm">
+                            <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( C )</span>
+                            <span className="block leading-none">Links</span>
+                          </m.span>
+                        </div>
+
+                        <div className="text-sm leading-snug w-full content tracking-tight">
+                          {project.liveUrl && (<div>
+                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
+                              <Pill label="Visit Live Site" />
+                            </a>
+                          </div>)}
+                          
+                          {project.additionalLinks && (
+                            <>
+                              {project.additionalLinks.map((e, i) => {
+                                return (
+                                  <div key={i}>
+                                    <a href={e.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full group mb-2">
+                                      <Pill label={e.linkText} />
+                                    </a>
+                                  </div>
+                                )
+                              })}
+                            </>
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className={`overflow-hidden ${ isInfoOpen ? 'w-full lg:w-[70%] 2xl:w-[calc(100%-500px)]' : 'w-full lg:w-[calc(100%-95px)] xl:w-[calc(100%-105px)]' }`}>
                 <div className="p-5 pb-0">
                   <BodyRenderer body={project.imageBlocks} />
                 </div>
@@ -304,8 +392,8 @@ export default function ProjectSlug(initialData) {
                   </div>
                   </>
                 )}
-                
-                <div className="bg-red-500 w-full">
+
+                <div className="w-full pr-5 md:pr-0">
                   <Footer />
                 </div>
               </div>

@@ -355,7 +355,7 @@ export default function Home(initialData) {
                         </a>
                       </li>
                       <li className="w-full">
-                        <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block">
+                        <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block" target="_blank" rel="noopener noreferrer">
                           <Pill label="Instagram" />
                         </a>
                       </li>

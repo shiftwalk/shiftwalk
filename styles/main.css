@@ -34,7 +34,7 @@ body {
 }
 
 .a11y-focus {
-  @apply focus:outline-none focus-visible:ring focus-visible:ring-offset-4 focus-visible:ring-black;
+  @apply focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-4 focus-visible:ring-black;
 }
 
 .bg-blue {
@@ -173,4 +173,10 @@ circle {
   50% {@apply opacity-100;}
   75% {@apply opacity-0;}
   100% {@apply opacity-100;}
+}
+
+button {
+  &:focus {
+    @apply border-none outline-none !important;
+  }
 }

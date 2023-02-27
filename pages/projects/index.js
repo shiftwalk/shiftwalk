@@ -94,7 +94,7 @@ export default function Projects(initialData) {
             {/* Main Section */}
             <Grid>
               <Link href={`/projects/${projects[0].slug.current}`}>
-                <a className="w-full group col-span-12 grid grid-cols-10" onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
+                <div className="w-full group col-span-12 grid grid-cols-10 cursor-pointer" onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
                   <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
                     <div className="px-5 w-full pb-3 md:pb-5">
                       <Teaser
@@ -128,7 +128,7 @@ export default function Projects(initialData) {
                   <div className="px-6 col-span-10 order-3 hidden md:block">
                     <div className="h-[1px] bg-black"></div>
                   </div>
-                </a>
+                </div>
               </Link>
             </Grid>
 

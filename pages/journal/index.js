@@ -102,7 +102,7 @@ export default function Journal(initialData) {
 
               {journals.slice(1).map((e, i) => {
                 return (
-                  <div className={`border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`}>
+                  <div className={`border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`} key={i}>
                     <Teaser
                       padded
                       projectCode={e.journalCode}
