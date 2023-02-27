@@ -153,7 +153,7 @@ export default function JournalSlug(initialData) {
               <div className="w-full md:w-[70%] pt-32 md:pt-[20vh] xl:pt-[20vh] relative h-screen flex flex-wrap p-5 mb-[15vw]">
                 <div className="w-full mb-auto">
                   <Link href="/journal">
-                    <a>
+                    <a aria-label="Navigate back to all journal entries">
                       <svg className="mx-5 w-8 absolute top-0 left-0 mb-3 pt-[60px] md:pt-[74px] xl:pt-[80px]" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4.64C1.893 3.733 3.653 2.293 5.28.32h1.4c-.4.853-.8 1.6-1.2 2.24a10.37 10.37 0 0 1-1.12 1.6h23.32v1.68H4.36c.373.453.747 1 1.12 1.64.4.64.8 1.373 1.2 2.2h-1.4C3.653 7.733 1.893 6.293 0 5.36v-.72Z" fill="#242B2D"/></svg>
                     </a>
                   </Link>
