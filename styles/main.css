@@ -147,6 +147,10 @@ circle {
   .dot-hover {
     animation-play-state: running;
   }
+
+  .dot-hover-reverse {
+    animation-play-state: running;
+  }
 }
 
 .teaser-hover {
@@ -162,6 +166,16 @@ circle {
 
   &.active {
     @apply bg-black !important;
+  }
+}
+
+.dot-hover-reverse {
+  animation: dotHoverReverse 0.425s steps(1);
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+
+  &.active {
+    @apply bg-white !important;
   }
 }
 
@@ -196,4 +210,13 @@ circle {
   60% {@apply bg-black}
   80% {@apply bg-white}
   100% {@apply bg-black}
+}
+
+@keyframes dotHoverReverse {
+  0% {@apply bg-black}
+  20% {@apply bg-white}
+  40% {@apply bg-black}
+  60% {@apply bg-white}
+  80% {@apply bg-black}
+  100% {@apply bg-white}
 }
