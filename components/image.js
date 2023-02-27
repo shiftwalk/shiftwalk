@@ -40,7 +40,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
         <Img src={image.asset.metadata.lqip} alt="" layout="fill" role="presentation" className="w-full h-full object-cover absolute inset-0" />
       </div>
 
-      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full scale-[1.01] h-full absolute inset-0 z-[10] transition ease-[cubic-bezier(0.65,0,0.35,1)] duration-[500ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
+      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0 z-[10] transition ease-[cubic-bezier(0.65,0,0.35,1)] duration-[500ms] ${imageIsLoaded ? 'opacity-100' : 'opacity-0' }`}>
         <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.videoOverride.asset.url } type="video/mp4" />
 
         Sorry. Your browser does not support the video tag.
