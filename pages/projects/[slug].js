@@ -120,6 +120,15 @@ export default function ProjectSlug(initialData) {
   const [isInfoOpen, setIsInfoOpen] = useState(true);
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
+  const [shouldTransition, setShouldTransition] = useState(false);
+
+  function handleHover() {
+    setShouldTransition(true);
+  }
+
+  function handleHoverOut() {
+    setShouldTransition(false);
+  }
 
   useEffect(() => {
     setIntroContext(true)
@@ -146,8 +155,8 @@ export default function ProjectSlug(initialData) {
             {/* Fixed Sidebar */}
             <div className={`md:fixed md:top-0 right-0 md:bottom-0 md:h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black  hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-full md:w-[30%] 2xl:w-[500px]' : 'w-full md:w-[95px] xl:w-[105px]' }`}>
               <div className="w-full py-5 pt-8 relative">
-                <button className={`text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 hidden lg:block pt-5 px-5 right-0 border-t border-black w-full text-right text-black text-opacity-30 hover:text-opacity-100`} onClick={()=> updateIsInfoOpen() }>
-                  + {isInfoOpen ? 'Hide Info' : 'Info' }
+                <button className={`text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 hidden lg:block pt-5 px-5 right-0 w-full text-right text-black border-t border-black group`} onClick={()=> updateIsInfoOpen() } onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
+                  <span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${isInfoOpen ? 'bg-black active' : '' }`}></span>{isInfoOpen ? 'Info' : 'Info' }
                 </button>
 
                 <div className={`px-5 ${isInfoOpen ? '' : 'md:hidden' }`}>

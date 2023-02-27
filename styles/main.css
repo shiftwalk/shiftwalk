@@ -143,12 +143,26 @@ circle {
   .teaser-hover {
     animation-play-state: running;
   }
+
+  .dot-hover {
+    animation-play-state: running;
+  }
 }
 
 .teaser-hover {
   animation: opacityDouble 0.35s steps(1);
   animation-fill-mode: forwards;
   animation-play-state: paused;
+}
+
+.dot-hover {
+  animation: dotHover 0.425s steps(1);
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+
+  &.active {
+    @apply bg-black !important;
+  }
 }
 
 @keyframes pillText {
@@ -175,8 +189,11 @@ circle {
   100% {@apply opacity-100;}
 }
 
-button {
-  &:focus {
-    @apply border-none outline-none !important;
-  }
+@keyframes dotHover {
+  0% {@apply bg-white}
+  20% {@apply bg-black}
+  40% {@apply bg-white}
+  60% {@apply bg-black}
+  80% {@apply bg-white}
+  100% {@apply bg-black}
 }

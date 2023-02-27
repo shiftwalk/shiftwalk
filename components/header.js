@@ -37,25 +37,25 @@ export default function Header({ bgColor, textColor}) {
             <div className={`hidden md:flex space-x-[12px] xl:space-x-[13px] justify-end items-center transition-transform ease-[cubic-bezier(0.65,0,0.35,1)] duration-[500ms] ${!headerContext ? 'translate-y-full' : 'translate-y-0' }`}>
               <Link href="/">
                 <a className={`a11y-focus group w-auto  ${router.asPath == '/' ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut } >
-                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] group-hover:bg-black group-focus:bg-black ${router.asPath == '/' ? 'bg-black' : '' }`}></span>Studio</span>
+                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath == '/' ? 'bg-black active' : '' }`}></span>Studio</span>
                 </a>
               </Link>
 
               <Link href="/projects">
-                <a className={`a11y-focus group  ${router.asPath.includes('/projects') ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
-                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] group-hover:bg-black group-focus:bg-black ${router.asPath.includes('/projects') ? 'bg-black' : '' }`}></span>Projects</span>
+                <a className={`a11y-focus group ${router.asPath.includes('/projects') ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
+                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath.includes('/projects') ? 'bg-black active' : '' }`}></span>Projects</span>
                 </a>
               </Link>
 
               <Link href="/journal">
               <a className={`a11y-focus group  ${router.asPath.includes('/journal') ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
-                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] group-hover:bg-black group-focus:bg-black ${router.asPath.includes('/journal') ? 'bg-black' : '' }`}></span>Journal</span>
+                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath.includes('/journal') ? 'bg-black active' : '' }`}></span>Journal</span>
                 </a>
               </Link>
 
               <Link href="/contact">
               <a className={`a11y-focus group  ${router.asPath == '/contact' ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
-                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] group-hover:bg-black group-focus:bg-black ${router.asPath == '/contact' ? 'bg-black' : '' }`}></span>Contact</span>
+                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath == '/contact' ? 'bg-black active' : '' }`}></span>Contact</span>
                 </a>
               </Link>
             </div>
