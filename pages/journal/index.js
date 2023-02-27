@@ -213,7 +213,7 @@ export default function Journal(initialData) {
                               </h2>
                               <div className="flex pb-1">
                                 <div className="w-full relative overflow-hidden">
-                                  <m.span variants={reveal} className="font-serif mb-2 block md:text-lg leading-none">( SW.0{i + 1} )</m.span>
+                                  <m.span variants={reveal} className="font-serif mb-2 block md:text-lg leading-none">( {e.journalCode} )</m.span>
                                 </div>
                               </div>
                             </a>

@@ -32,7 +32,7 @@ export default function Header({ bgColor, textColor}) {
           </div>
         </div>
 
-        <nav className="col-span-6 col-start-6 text-right text-lg md:text-xl xl:text-2xl leading-none">
+        <nav className="col-span-7 col-start-5 text-right text-lg md:text-xl xl:text-2xl leading-none">
           <div className="overflow-hidden relative w-full">
             <div className={`hidden md:flex space-x-[12px] xl:space-x-[13px] justify-end items-center transition-transform ease-[cubic-bezier(0.65,0,0.35,1)] duration-[500ms] ${!headerContext ? 'translate-y-full' : 'translate-y-0' }`}>
               <Link href="/">
