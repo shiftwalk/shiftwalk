@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }) {
         <IntroContext.Provider value={[introContext, setIntroContext]}>
         <LazyMotion features={domAnimation}>
             { !introContext && router.asPath == '/' && (
-              <Div100vh className="fixed inset-0 z-[1000] flex flex-wrap items-end cursor-wait">
+              <Div100vh className={`fixed inset-0 z-[1000] flex flex-wrap items-end ${ introContext ? 'cursor-wait' : 'cursor-default' }`}>
                 <m.div 
                   initial="visible"
                   animate="hidden"

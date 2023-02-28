@@ -14,6 +14,7 @@ import { MouseParallax } from 'react-just-parallax'
 import Clock from 'react-live-clock'
 import Pill from '@/components/pill'
 import Image from '@/components/image'
+import BlockContent from '@sanity/block-content-to-react'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -34,6 +35,10 @@ const query = `{
         y
       },
     },
+    backgroundText,
+    peopleText,
+    expertise[],
+    partners[],
     seo {
       ...,
       shareGraphic {
@@ -54,7 +59,7 @@ export default function Home(initialData) {
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, 2700);
+    }, 2400);
 
     setTimeout(() => {
       setHeaderContext(true)
@@ -285,9 +290,7 @@ export default function Home(initialData) {
                     </span>
 
                     <div className="content w-[85%] md:w-[85%] max-w-[1000px] text-base md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2]">
-                      <p>We're a multidisciplinary creative studio who believe that great design is rooted in concept, and honed by understanding. To that end, we see ourselves as curious collaborators for foward-thinking and brave brands, always looking to find novel ways to meet each brief and challenge the expected.</p>
-                      
-                      <p>Whilst our design work is often known for its attention to detail, and interesting moments of surprise, we also pride ourselves on the build quality of our output. Our websites always aim to be fast, performant, and accessible. Our brand collateral should be meaningful, and crafted for real world use. To us these traits are non-negotiable and ingrained in our approach.</p>
+                      <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.backgroundText} />
                     </div>
 
                     <Link href="/journal">
@@ -305,7 +308,7 @@ export default function Home(initialData) {
                   </span>
 
                   <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
-                    <p>ShiftWalk is led by founders Sam Goddard + Isaac Powell, who have over a decade of experience in design + web technology. Whilst awards don’t affect our judgement during a project, we are proud to have been recognised for our work in numerous sites + publications, including Awwwards, SiteInspire, Klikkentheke, The Brand Identity, and Typewolf.</p>
+                    <p>{home.peopleText}</p>
                   </div>
 
                   <span className="flex items-center mb-6 text-sm">
@@ -315,13 +318,11 @@ export default function Home(initialData) {
 
                   <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
                     <ul>
-                      <li>Creative Direction</li>
-                      <li>Brand Identity</li>
-                      <li>Interaction Design</li>
-                      <li>Backend Architecture</li>
-                      <li>Web Development</li>
-                      <li>E-commerce</li>
-                      <li>Accessibility</li>
+                      {home.expertise.map((e, i) => {
+                        return (
+                          <li key={i}>{e}</li>
+                        )
+                      })}
                     </ul>
                   </div>
 
@@ -332,13 +333,11 @@ export default function Home(initialData) {
 
                   <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
                     <ul>
-                      <li>Ragged Edge</li>
-                      <li>Paul Smith</li>
-                      <li>Pitch</li>
-                      <li>Alpacka</li>
-                      <li>Jason Bailey Studio</li>
-                      <li>CUSP</li>
-                      <li>Ingamana</li>
+                      {home.partners.map((e, i) => {
+                        return (
+                          <li key={i}>{e}</li>
+                        )
+                      })}
                     </ul>
                   </div>
                   
