@@ -121,7 +121,7 @@ export default function Projects(initialData) {
                           images={projects[0].teaserImages}
                           hoverImages={projects[0].teaserImagesHover}
                           noCaption
-                          className="pb-0 md:pb-[0px]"
+                          className="hard-remove-bottom-pad"
                         />
                       </div>
                     </div>

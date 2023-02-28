@@ -199,7 +199,7 @@ circle {
 
 @keyframes opacityDouble {
   0% {@apply opacity-100;}
-  25% {@apply opacity-0;}
+  25% {@apply opacity-[0];}
   50% {@apply opacity-100;}
   75% {@apply opacity-0;}
   100% {@apply opacity-100;}
@@ -232,4 +232,8 @@ circle {
       fill: white;
     }
   }
+}
+
+.hard-remove-bottom-pad {
+  @apply pb-[0] md:pb-[0] lg:pb-[0] xl:pb-[0] 2xl:pb-[0] !important;
 }
