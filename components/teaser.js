@@ -53,7 +53,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
         /> */}
 
         <div className={`${noCaption ? 'block md:hidden' : 'flex flex-wrap' } ${matchHeight ? 'h-full' : '' } ${leftAlign ? 'text-left' : 'md:text-center'} w-full`}>
-          <div className="py-4 md:py-5 w-full">
+          <div className="py-3 md:py-5 w-full">
             <div className={`overflow-hidden relative text-lg md:text-lg xl:text-xl leading-[1] md:leading-[1] xl:leading-[1] font-display mb-1 md:mb-1 flex flex-wrap uppercase ${leftAlign ? 'max-w-[85%] md:max-w-[90%]' : 'w-full md:px-6 md:justify-center' }`}>
               <SplitText
                 initial={{ y: '100%' }}
