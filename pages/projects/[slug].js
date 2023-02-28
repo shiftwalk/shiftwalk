@@ -160,6 +160,7 @@ export default function ProjectSlug(initialData) {
                 </button>
 
                 <div className={`px-5 flex-1 pb-24 overflow-scroll ${isInfoOpen ? '' : 'md:hidden' }`}>
+                
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
                       <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
