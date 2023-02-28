@@ -4,7 +4,7 @@
       stroke: #242B2D;
     }
     path {
-      stroke: #242B2D;
+      fill: #242B2D;
     }
     @media (prefers-color-scheme: dark) {
       circle {
