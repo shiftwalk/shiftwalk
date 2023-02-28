@@ -23,6 +23,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap --config awesome.config.js",
     "start": "next start"
   },
   "dependencies": {
