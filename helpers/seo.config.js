@@ -1,12 +1,12 @@
 export default {
-  defaultTitle: 'ShiftWalk© — Design & Development Studio',
+  defaultTitle: 'ShiftWalk© Studio — Brand, Direction & Development',
   description: 'We are a multidisciplinary creative studio who believe that great design is rooted in concept, and honed by understanding. To that end, we see ourselves as curious collaborators for foward-thinking and brave brands, always looking to find novel ways to meet each brief and challenge the expected.',
-  titleTemplate: '%s — ShiftWalk© Studio',
+  titleTemplate: 'ShiftWalk© Studio — %s',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     url: 'https://shiftwalk.studio',
-    site_name: 'ShiftWalk© — Design & Development  Studio',
+    site_name: 'ShiftWalk© Studio — Brand, Direction & Development',
     images: [
       {
         url: '/images/social.jpg',

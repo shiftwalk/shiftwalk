@@ -78,7 +78,7 @@ export default function Home(initialData) {
 
   return (
     <Layout>
-      <NextSeo title="Design & Development" />
+      <NextSeo title="Brand, Direction & Development" />
 
       <Header />
       
