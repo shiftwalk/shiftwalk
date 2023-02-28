@@ -105,6 +105,7 @@ export default function Journal(initialData) {
                   <div className={`border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`} key={i}>
                     <Teaser
                       padded
+                      bigBottomPad
                       projectCode={e.journalCode}
                       pillText="Read More"
                       title={e.title}

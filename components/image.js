@@ -3,7 +3,7 @@ import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
 import { useEffect, useState } from 'react';
 
-export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative, introDelay, deepGrain }) {
+export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative, introDelay, deepGrain, quality }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false)
 
 
@@ -11,7 +11,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
       // .width((widthOverride ? widthOverride : options.width) || Math.min(( widthOverride ? widthOverride : options.originalImageDimensions.width), 800))
-      // .quality(90)
+      .quality(quality ? quality : 75)
       .fit('clip')
   };
   
