@@ -153,13 +153,13 @@ export default function ProjectSlug(initialData) {
         >
           <m.article variants={fade}>
             {/* Fixed Sidebar */}
-            <div className={`md:fixed md:top-0 right-0 md:bottom-0 md:h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black  hidden lg:flex flex-wrap ${ isInfoOpen ? 'w-full md:w-[30%] 2xl:w-[500px]' : 'w-full md:w-[95px] xl:w-[105px]' }`}>
+            <div className={`md:fixed md:top-0 right-0 md:bottom-0 md:h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] border-l border-black  hidden lg:flex flex-wrap overflow-scroll remove-scroll ${ isInfoOpen ? 'w-full md:w-[30%] 2xl:w-[500px]' : 'w-full md:w-[95px] xl:w-[105px]' }`}>
               <div className="w-full py-5 pt-8 relative">
-                <button className={`text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none absolute bottom-0 pb-5 hidden lg:block pt-5 px-5 right-0 w-full text-right text-black border-t border-black group`} onClick={()=> updateIsInfoOpen() } onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
+                <button className={`text-lg md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none fixed bottom-0 pb-5 hidden lg:block pt-5 px-5 right-0 w-full text-right text-black bg-white z-[11] border-t border-black group ${ isInfoOpen ? 'w-full md:w-[calc(30%-1px)] 2xl:w-[499px]' : 'w-full md:w-[94px] xl:w-[104px]'}`} onClick={()=> updateIsInfoOpen() } onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
                   <span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover-reverse' : '' } ${isInfoOpen ? '' : '' }`}></span>{isInfoOpen ? 'Hide Info' : 'Info' }
                 </button>
 
-                <div className={`px-5 ${isInfoOpen ? '' : 'md:hidden' }`}>
+                <div className={`px-5 flex-1 pb-24 overflow-scroll ${isInfoOpen ? '' : 'md:hidden' }`}>
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
                       <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
@@ -167,7 +167,7 @@ export default function ProjectSlug(initialData) {
                     </m.span>
                   </div>
 
-                  <div className="text-sm leading-snug w-[85%] mb-6 lg:mb-12 content tracking-tight">
+                  <div className="text-sm leading-snug w-[85%] md:w-[100%] 2xl:w-[85%] mb-6 lg:mb-12 content tracking-tight">
                     <p className="flex flex-wrap overflow-hidden">
                       <SplitText
                         text

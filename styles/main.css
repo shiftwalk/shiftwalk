@@ -237,3 +237,7 @@ circle {
 .hard-remove-bottom-pad {
   @apply pb-[0] md:pb-[0] lg:pb-[0] xl:pb-[0] 2xl:pb-[0] !important;
 }
+
+.remove-scroll::-webkit-scrollbar {
+  @apply hidden;
+}
