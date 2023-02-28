@@ -14,7 +14,7 @@ export default function Pill( {label, className, hiddenLabel, shouldTransitionOv
 
   return (
     <div
-      className={`px-6 py-2 uppercase text-xs leading-none border border-black rounded-full relative overflow-hidden block w-full text-center ${className} group-focus-visible:text-white`} 
+      className={`px-6 py-2 uppercase text-xs leading-none border border-black rounded-full relative overflow-hidden block w-full text-center ${className} tracking-[-0.01em] group-focus-visible:text-white`} 
       onMouseEnter={mouseOverride ? null : handleHover } 
       onMouseLeave={mouseOverride ? null : handleHoverOut } 
     >

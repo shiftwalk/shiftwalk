@@ -128,7 +128,7 @@ export default function Home(initialData) {
                         image={home.heroImage[0]}
                         focalPoint={home.heroImage[0].asset.hotspot}
                         layout="fill"
-                        className="w-full h-full object-cover object-center absolute inset-0 scale-[1.025] opacity-[0.9]"
+                        className="w-full h-full object-cover object-center absolute inset-0 scale-[1.025] opacity-[0.75]"
                         introDelay={!introContext}
                         deepGrain
                         quality="90"
@@ -255,7 +255,7 @@ export default function Home(initialData) {
                   </Link>
                 </m.div>
 
-                <div className="pb-3 md:pb-16 xl:pb-[7vw] relative mt-6 md:mt-0 h-[125vw] overflow-hidden md:hidden">
+                <div className="pb-3 md:pb-16 xl:pb-[7vw] relative mt-6 md:mt-0 h-[125vw] overflow-hidden md:hidden bg-black">
                   {/* <svg className="hidden md:block w-2 md:w-3 absolute bottom-0 left-0 mb-3 xl:mb-6" viewBox="0 0 10 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.64 28c-.907-1.893-2.347-3.653-4.32-5.28v-1.4c.853.4 1.6.8 2.24 1.2.64.373 1.173.747 1.6 1.12V.32h1.68v23.32c.453-.373 1-.747 1.64-1.12.64-.4 1.373-.8 2.2-1.2v1.4C7.733 24.347 6.293 26.107 5.36 28h-.72Z" fill="#242B2D"/></svg> */}
                   <div className="absolute w-full bottom-0 left-0 right-0 top-0 z-[20] aspect-[10/13]"></div>
                     <div className="mix-blend-exclusion z-20 inset-0 absolute">
@@ -271,7 +271,7 @@ export default function Home(initialData) {
                         image={home.heroImage[0]}
                         focalPoint={home.heroImage[0].asset.hotspot}
                         layout="fill"
-                        className="w-full h-full object-cover object-center absolute inset-0 scale-[1.04]"
+                        className="w-full h-full object-cover object-center absolute inset-0 scale-[1.04] opacity-[0.75]"
                         introDelay={!introContext}
                         deepGrain
                       />
@@ -300,7 +300,7 @@ export default function Home(initialData) {
 
                   <div className="mt-auto w-full">
                     <span className="flex items-center mb-6 text-sm">
-                      <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
+                      <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( A )</span>
                       <span className="block leading-none">Background</span>
                     </span>
 
@@ -312,7 +312,7 @@ export default function Home(initialData) {
                 
                 <div className="w-full lg:w-[30%] lg:border-l lg:border-black p-5 pt-12 lg:pt-32 xl:pt-40">
                   <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( B )</span>
+                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( B )</span>
                     <span className="block leading-none">People</span>
                   </span>
 
@@ -321,7 +321,7 @@ export default function Home(initialData) {
                   </div>
 
                   <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( C )</span>
+                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( C )</span>
                     <span className="block leading-none">Expertise</span>
                   </span>
 
@@ -336,7 +336,7 @@ export default function Home(initialData) {
                   </div>
 
                   <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( D )</span>
+                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( D )</span>
                     <span className="block leading-none">Select Partners</span>
                   </span>
 
@@ -351,7 +351,7 @@ export default function Home(initialData) {
                   </div>
                   
                   <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( E )</span>
+                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( E )</span>
                     <span className="block leading-none">Links</span>
                   </span>
 

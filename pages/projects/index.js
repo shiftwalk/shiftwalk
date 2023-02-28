@@ -121,6 +121,7 @@ export default function Projects(initialData) {
                           images={projects[0].teaserImages}
                           hoverImages={projects[0].teaserImagesHover}
                           noCaption
+                          className="pb-0 md:pb-[0px]"
                         />
                       </div>
                     </div>
@@ -128,7 +129,7 @@ export default function Projects(initialData) {
                     <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center hidden md:flex border-l border-black relative">
                       <div className="w-full">
                         <div className="relative overflow-hidden">
-                          <m.span variants={reveal} className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</m.span>
+                          <m.span variants={reveal} className="block text-base md:text-xl xl:text-2xl leading-[1.2] md:leading-[1.2] xl:leading-[1.2] font-display mb-[2px]">{projects[0].title}</m.span>
                         </div>
                         
                         <div className="relative overflow-hidden">

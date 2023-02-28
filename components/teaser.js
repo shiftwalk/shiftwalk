@@ -8,7 +8,7 @@ import { useState } from "react";
 import { SplitText } from "./splitText";
 // import PixelatedImage from "./pixelated-image";
 
-export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded, pillText, image, bigBottomPad }) {
+export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded, pillText, image, bigBottomPad, noPad, className }) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
   function handleHover() {
@@ -21,7 +21,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
 
   return (
     <Link href={`${slug}`}>
-      <a className={`flex flex-wrap w-full group relative group ${padded ? 'p-5 md:pb-16' : '' } ${noCaption ? '' : 'pb-6 '} ${bigBottomPad ? 'md:pb-10' : 'md:pb-[29px]' }`} onMouseEnter={handleHover} 
+      <a className={`${className} flex flex-wrap w-full group relative group ${padded ? 'p-5 md:pb-16' : '' } ${noCaption ? '' : 'pb-6 '} ${bigBottomPad ? 'md:pb-10' : 'md:pb-[29px]' }`} onMouseEnter={handleHover} 
       onMouseLeave={handleHoverOut}>
         {hoverImages && (
           <div className={`absolute inset-0 z-10 opacity-0 md:group-hover:opacity-100`}>
@@ -54,7 +54,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
 
         <div className={`${noCaption ? 'block md:hidden' : 'flex flex-wrap' } ${matchHeight ? 'h-full' : '' } ${leftAlign ? 'text-left' : 'md:text-center'} w-full`}>
           <div className="py-4 md:py-5 w-full">
-            <div className={`overflow-hidden relative text-lg md:text-lg xl:text-xl leading-none md:leading-none xl:leading-none uppercase font-display mb-1 md:mb-1 flex flex-wrap ${leftAlign ? 'max-w-[85%] md:max-w-[90%]' : 'w-full md:px-6 md:justify-center' }`}>
+            <div className={`overflow-hidden relative text-lg md:text-lg xl:text-xl leading-[1] md:leading-[1] xl:leading-[1] font-display mb-1 md:mb-1 flex flex-wrap uppercase ${leftAlign ? 'max-w-[85%] md:max-w-[90%]' : 'w-full md:px-6 md:justify-center' }`}>
               <SplitText
                 initial={{ y: '100%' }}
                 animate="enter"
