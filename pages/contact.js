@@ -76,58 +76,58 @@ export default function Contact() {
                 {/* Desktop H1 */}
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.45vw] hidden xl:block">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">We're always interested to hear</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform indent-[8vw]"><span className="block translate-y-[-0.45vw]">We're always interested to hear</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]">about new projects, so please feel free</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">about new projects, so please feel free</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]">to reach out on the channels below</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">to reach out on the channels below</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]">if you'd like to collaborate with us.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">if you'd like to collaborate with us.</span></m.span>
                   </div>
                 </m.h1>
 
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.5vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.55vw] hidden md:block xl:hidden">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.55vw]">We're always interested to</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform indent-[8vw]"><span className="block translate-y-[-0.55vw]">We're always interested to</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">hear about new projects, so</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">hear about new projects, so</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">please feel free to reach out on</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">please feel free to reach out on</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">the channels below if you'd like</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">the channels below if you'd like</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">to collaborate with us.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">to collaborate with us.</span></m.span>
                   </div>
                 </m.h1>
 
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.45vw] md:text-[4.8vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.8vw] block md:hidden">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.8vw]">We're always</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform indent-[8vw]"><span className="block translate-y-[-0.8vw]">We're always</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">interested to hear about</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">interested to hear about</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">new projects, so please</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">new projects, so please</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">feel free to reach out on</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">feel free to reach out on</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">the channels below if</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">the channels below if</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">you'd like to collaborate</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">you'd like to collaborate</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">with us.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">with us.</span></m.span>
                   </div>
                 </m.h1>
               </div>

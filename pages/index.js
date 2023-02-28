@@ -106,7 +106,7 @@ export default function Home(initialData) {
                     
                     <span className="block w-full relative overflow-hidden mb-[3px]">
                       <span className="block transition-translate ease-in-out duration-[350ms] translate-y-0 group-hover:translate-y-[-100%] w-full">
-                        <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/London'} /> GMT</span>
+                        <span className="block tracking-normal"><Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/London'} /> GMT</span>
                       </span>
                       <span className="block transition-translate ease-in-out duration-[350ms] translate-y-full group-hover:translate-y-0 absolute top-0 left-0 right-0">Nottingham<span className="hidden md:inline-block">&nbsp;— Worldwide</span></span>
                     </span>
@@ -168,19 +168,19 @@ export default function Home(initialData) {
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">A design-led studio building</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]">thoughtful brands + websites for</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">thoughtful brands + websites for</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]">our partners around the world. We</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">our partners around the world. We</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]">feel at home creating work in the</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">feel at home creating work in the</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]"> architectural, sustainability, and</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]"> architectural, sustainability, and</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.45vw]">creative arts spaces.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">creative arts spaces.</span></m.span>
                   </div>
                 </m.h1>
 
@@ -190,22 +190,22 @@ export default function Home(initialData) {
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.55vw]">A design-led studio</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">building thoughtful brands +</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">building thoughtful brands +</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">websites for our partners</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">websites for our partners</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">around the world. We feel at</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">around the world. We feel at</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">home creating work in the</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">home creating work in the</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">architectural, sustainability,</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">architectural, sustainability,</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.55vw]">and creative arts spaces.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">and creative arts spaces.</span></m.span>
                   </div>
                 </m.h1>
 
@@ -215,28 +215,28 @@ export default function Home(initialData) {
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.8vw]">A design-led studio</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">building thoughtful</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">building thoughtful</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">brands + websites for</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">brands + websites for</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">our partners around the</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">our partners around the</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">world. We feel at home</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">world. We feel at home</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">creating work in the</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">creating work in the</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">architectural,</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">architectural,</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">sustainability, and</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">sustainability, and</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block"><span className="block translate-y-[-0.8vw]">creative arts spaces.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">creative arts spaces.</span></m.span>
                   </div>
                 </m.h1>
 

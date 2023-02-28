@@ -45,14 +45,14 @@ export default function App({ Component, pageProps }) {
                   initial="visible"
                   animate="hidden"
                   variants={introFullEnd}
-                  transition={{ delay: 2, duration: 0.45, ease: [0.83, 0, 0.17, 1] }}
+                  transition={{ delay: 2, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
                   className="w-full h-full cursor-wait absolute inset-0"
                 >
                   <m.div 
                     initial="visible"
                     animate="hidden"
                     variants={introEnd}
-                    transition={{ delay: 1.5, duration: 0.45, ease: [0.83, 0, 0.17, 1] }}
+                    transition={{ delay: 1.5, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
                     className="bg-[#ABAEA8] absolute inset-0 z-[1000] w-full h-full cursor-wait"
                   >
                   <div className="grain absolute inset-0"></div>

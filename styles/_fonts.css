@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'Studio Pro';
-    src: local('Studio Pro Trial SemiBold'), local('StudioProTrial-SemiBold'),
-        url('../public/fonts/StudioProTrial-SemiBold.woff2') format('woff2'),
-        url('../public/fonts/StudioProTrial-SemiBold.woff') format('woff');
+    src: local('Studio Pro SemiBold'), local('StudioPro-SemiBold'),
+        url('../public/fonts/StudioPro-SemiBold.woff2') format('woff2'),
+        url('../public/fonts/StudioPro-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -10,9 +10,9 @@
 
 @font-face {
     font-family: 'Studio Pro';
-    src: local('Studio Pro Trial UltraBold'), local('StudioProTrial-UltraBold'),
-        url('../public/fonts/StudioProTrial-UltraBold.woff2') format('woff2'),
-        url('../public/fonts/StudioProTrial-UltraBold.woff') format('woff');
+    src: local('Studio Pro UltraBold'), local('StudioPro-UltraBold'),
+        url('../public/fonts/StudioPro-UltraBold.woff2') format('woff2'),
+        url('../public/fonts/StudioPro-UltraBold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
