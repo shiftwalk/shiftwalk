@@ -15,6 +15,7 @@ import Pill from '@/components/pill'
 import { HeaderContext } from '@/context/header'
 import Teaser from '@/components/teaser'
 import { SplitText } from '@/components/splitText'
+import Div100vh from 'react-div-100vh'
 
 const query = `{
   "journal": *[_type == "journal" && slug.current == $slug][0]{
@@ -150,7 +151,7 @@ export default function JournalSlug(initialData) {
 
             {/* Main Section */}
             <div className="flex flex-wrap">
-              <div className="w-full md:w-[70%] pt-32 md:pt-[20vh] xl:pt-[20vh] relative h-screen flex flex-wrap p-5 mb-[15vw]">
+              <Div100vh className="w-full md:w-[70%] pt-32 md:pt-[20vh] xl:pt-[20vh] relative h-screen flex flex-wrap p-5 mb-[15vw]">
                 <div className="w-full mb-auto">
                   <Link href="/journal">
                     <a aria-label="Navigate back to all journal entries">
@@ -210,7 +211,7 @@ export default function JournalSlug(initialData) {
                     </p>
                   </div>
                 </div>
-              </div>
+              </Div100vh>
             </div>
 
             <div className="w-full md:w-[70%] overflow-hidden">
