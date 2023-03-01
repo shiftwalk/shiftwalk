@@ -1,3 +1,7 @@
+// import { useReducedMotion } from "framer-motion"
+
+// const shouldReduceMotion = useReducedMotion()
+
 export const fade = {
 	initial: { opacity: 0 },
   enter: { 

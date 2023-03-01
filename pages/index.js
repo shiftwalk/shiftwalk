@@ -2,7 +2,7 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { fade, reveal } from '@/helpers/transitions'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import { useContext, useEffect, useRef, useState } from 'react'
@@ -51,6 +51,7 @@ const query = `{
 const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
+  const shouldReduceMotion = useReducedMotion()
   const { data: { home } } = pageService.getPreviewHook(initialData)()
   const [current, setCurrent] = useState(null);
   const [introContext, setIntroContext] = useContext(IntroContext);
@@ -59,11 +60,11 @@ export default function Home(initialData) {
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, 2400);
+    }, shouldReduceMotion ? 0 : 2400);
 
     setTimeout(() => {
       setHeaderContext(true)
-    }, 1500);
+    }, shouldReduceMotion ? 0 : 1500);
     
   },[]);
 
@@ -110,10 +111,10 @@ export default function Home(initialData) {
 
                     
                     <span className="block w-full relative overflow-hidden mb-[3px]">
-                      <span className="block transition-translate ease-in-out duration-[350ms] translate-y-0 group-hover:translate-y-[-100%] w-full">
+                      <span className="block motion-safe:transition-translate motion-safe:ease-in-out motion-safe:duration-[350ms] translate-y-0 group-hover:translate-y-[-100%] w-full">
                         <span className="block tracking-normal"><Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/London'} /> GMT</span>
                       </span>
-                      <span className="block transition-translate ease-in-out duration-[350ms] translate-y-full group-hover:translate-y-0 absolute top-0 left-0 right-0">Nottingham<span className="hidden md:inline-block">&nbsp;— Worldwide</span></span>
+                      <span className="block motion-safe:transition-translate motion-safe:ease-in-out motion-safe:duration-[350ms] translate-y-full group-hover:translate-y-0 absolute top-0 left-0 right-0">Nottingham<span className="hidden md:inline-block">&nbsp;— Worldwide</span></span>
                     </span>
                   </m.span>
                   </m.div>
