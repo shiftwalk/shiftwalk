@@ -109,6 +109,7 @@ export default function Projects(initialData) {
                       images={e.teaserImages}
                       hoverImages={e.teaserImagesHover}
                       noCaption
+                      priority={(i == 0 || i == 1) ? true : false}
                     />
                   </div>
                 )
