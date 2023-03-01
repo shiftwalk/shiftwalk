@@ -10,7 +10,7 @@ export default {
     titleTemplate: 'ShiftWalk© Studio — %s',
     images: [
       {
-        url: '/images/social.jpg',
+        url: 'https://www.shiftwalk.studio/contact/images/social.jpg',
         width: 1200,
         height: 630,
         alt: `ShiftWalk Logo`,
