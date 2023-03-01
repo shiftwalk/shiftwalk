@@ -30,7 +30,10 @@ export default function Contact() {
 
   return (
     <Layout>
-      <NextSeo title="Contact" />
+      <NextSeo
+        title="Contact"
+        description="We're always interested to hear about new projects, so please feel free to reach out on the channels below if you'd like to collaborate with us."
+      />
 
       <Header />
       

@@ -141,7 +141,10 @@ export default function ProjectSlug(initialData) {
 
   return (
     <Layout>
-      <NextSeo title={project.title} />
+      <NextSeo
+        title={project.title}
+        description={project.overview}
+      />
 
       <Header />
       

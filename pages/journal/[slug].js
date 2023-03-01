@@ -95,7 +95,10 @@ export default function JournalSlug(initialData) {
 
   return (
     <Layout>
-      <NextSeo title={journal.title} />
+      <NextSeo
+        title={journal.title}
+        description={journal.content}
+      />
 
       <Header />
       
