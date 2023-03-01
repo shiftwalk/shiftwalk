@@ -82,6 +82,7 @@ export default function Projects(initialData) {
     <Layout>
       <NextSeo
         title="Projects"
+        description="A curated selection of the studio's work that we've had the pleasure of working on."
         openGraph={{
           title: 'ShiftWalk© Studio — Projects'
         }}

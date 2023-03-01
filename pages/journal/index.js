@@ -72,6 +72,7 @@ export default function Journal(initialData) {
     <Layout>
       <NextSeo
         title="Journal"
+        description="The latest from ShiftWalk HQ — including news, updates and wider commentary on design."
         openGraph={{
           title: 'ShiftWalk© Studio — Journal'
         }}
