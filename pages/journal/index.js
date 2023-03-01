@@ -73,7 +73,7 @@ export default function Journal(initialData) {
       <NextSeo
         title="Journal"
         openGraph={{
-          title: 'Journal'
+          title: 'ShiftWalk© Studio — Journal'
         }}
       />
 

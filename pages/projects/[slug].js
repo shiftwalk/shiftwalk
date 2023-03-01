@@ -146,7 +146,7 @@ export default function ProjectSlug(initialData) {
         description={project.overview}
         openGraph={{
           type: 'article',
-          title: project.title,
+          title: `ShiftWalk© Studio — ${project.title}`,
           images: [
             {
               url: project.imageBlocks[0].image.asset.url,

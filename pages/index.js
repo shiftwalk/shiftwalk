@@ -81,7 +81,7 @@ export default function Home(initialData) {
       <NextSeo
         title="Brand, Direction & Development"
         openGraph={{
-          title: 'Brand, Direction & Development'
+          title: 'ShiftWalk© Studio — Brand, Direction & Development'
         }}
       />
 

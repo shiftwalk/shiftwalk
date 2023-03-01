@@ -100,7 +100,7 @@ export default function JournalSlug(initialData) {
         description={journal.content}
         openGraph={{
           type: 'article',
-          title: journal.title,
+          title: `ShiftWalk© Studio — ${journal.title}`,
           images: [
             {
               url: journal.images[0].asset.url,

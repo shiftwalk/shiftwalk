@@ -52,7 +52,7 @@ export default function Menu() {
       <NextSeo
         title="Menu"
         openGraph={{
-          title: 'Menu'
+          title: 'ShiftWalk© Studio — Menu'
         }}
       />
 
