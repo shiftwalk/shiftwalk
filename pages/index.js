@@ -136,7 +136,6 @@ export default function Home(initialData) {
                         className="w-full h-full object-cover object-center absolute inset-0 scale-[1.025] opacity-[0.75]"
                         introDelay={!introContext}
                         deepGrain
-                        priority
                         quality="90"
                       />
                     </MouseParallax>
