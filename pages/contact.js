@@ -33,6 +33,9 @@ export default function Contact() {
       <NextSeo
         title="Contact"
         description="We're always interested to hear about new projects, so please feel free to reach out on the channels below if you'd like to collaborate with us."
+        openGraph={{
+          title: 'Contact'
+        }}
       />
 
       <Header />

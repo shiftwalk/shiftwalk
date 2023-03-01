@@ -144,6 +144,18 @@ export default function ProjectSlug(initialData) {
       <NextSeo
         title={project.title}
         description={project.overview}
+        openGraph={{
+          type: 'article',
+          title: project.title,
+          images: [
+            {
+              url: project.imageBlocks[0].image.asset.url,
+              width: project.imageBlocks[0].image.asset.metadata.dimensions.width,
+              height: project.imageBlocks[0].image.asset.metadata.dimensions.height,
+              alt: `${project.title} Project Image`,
+            },
+          ],
+        }}
       />
 
       <Header />

@@ -49,7 +49,12 @@ export default function Menu() {
 
   return (
     <Layout>
-      <NextSeo title="Menu" />
+      <NextSeo
+        title="Menu"
+        openGraph={{
+          title: 'Menu'
+        }}
+      />
 
       <Header />
       

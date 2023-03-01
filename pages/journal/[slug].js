@@ -98,6 +98,18 @@ export default function JournalSlug(initialData) {
       <NextSeo
         title={journal.title}
         description={journal.content}
+        openGraph={{
+          type: 'article',
+          title: journal.title,
+          images: [
+            {
+              url: journal.images[0].asset.url,
+              width: journal.images[0].asset.metadata.dimensions.width,
+              height: journal.images[0].asset.metadata.dimensions.height,
+              alt: `${journal.title} Project Image`,
+            },
+          ],
+        }}
       />
 
       <Header />

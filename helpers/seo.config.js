@@ -7,6 +7,7 @@ export default {
     locale: 'en_GB',
     url: 'https://shiftwalk.studio',
     site_name: 'ShiftWalk© Studio',
+    titleTemplate: 'ShiftWalk© Studio — %s',
     images: [
       {
         url: '/images/social.jpg',

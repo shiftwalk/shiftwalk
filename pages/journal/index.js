@@ -70,7 +70,12 @@ export default function Journal(initialData) {
 
   return (
     <Layout>
-      <NextSeo title="Journal" />
+      <NextSeo
+        title="Journal"
+        openGraph={{
+          title: 'Journal'
+        }}
+      />
 
       <Header />
       

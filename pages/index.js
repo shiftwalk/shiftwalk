@@ -78,7 +78,12 @@ export default function Home(initialData) {
 
   return (
     <Layout>
-      <NextSeo title="Brand, Direction & Development" />
+      <NextSeo
+        title="Brand, Direction & Development"
+        openGraph={{
+          title: 'Brand, Direction & Development'
+        }}
+      />
 
       <Header />
       

@@ -80,7 +80,12 @@ export default function Projects(initialData) {
 
   return (
     <Layout>
-      <NextSeo title="Projects" />
+      <NextSeo
+        title="Projects"
+        openGraph={{
+          title: 'Projects'
+        }}
+      />
 
       <Header />
       
