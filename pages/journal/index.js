@@ -118,6 +118,7 @@ export default function Journal(initialData) {
                       images={e.images}
                       hoverImages={null}
                       leftAlign
+                      priority={ (i == 0 || i == 1 || i == 2) ? true : false}
                     />
                   </div>
                 )
@@ -193,6 +194,7 @@ export default function Journal(initialData) {
                                   layout="responsive"
                                   sizes="(min-width: 768px) 80vw, 100vw"
                                   className="w-full"
+                                  priority={ (i == 0 || i == 1 || i == 2) ? true : false}
                                 />
                               ) : (
                                 <Gif images={e.images} />

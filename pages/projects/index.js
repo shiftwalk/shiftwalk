@@ -126,6 +126,7 @@ export default function Projects(initialData) {
                           images={projects[0].teaserImages}
                           hoverImages={projects[0].teaserImagesHover}
                           noCaption
+                          priority
                           className="hard-remove-bottom-pad"
                         />
                       </div>
@@ -164,6 +165,7 @@ export default function Projects(initialData) {
                       slug={`/projects/${projects[2].slug.current}`}
                       images={projects[2].teaserImages}
                       hoverImages={projects[2].teaserImagesHover}
+                      priority
                     />
                   </div>
                 </div>
@@ -176,6 +178,7 @@ export default function Projects(initialData) {
                       slug={`/projects/${projects[1].slug.current}`}
                       images={projects[1].teaserImages}
                       hoverImages={projects[1].teaserImagesHover}
+                      priority
                     />
                   </div>
                 </div>
