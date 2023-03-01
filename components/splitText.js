@@ -15,7 +15,7 @@ export function SplitText({ children, display, text, ...rest }) {
           className={`${display ? 'translate-y-[-10vw]' : '' } block overflow-hidden`}
           custom={i}
         >
-          <span className={`block mb-0 pb-0 pr-[1px] ${display ? 'translate-y-[-1vw] md:translate-y-[-0.55vw] xl:translate-y-[-0.55vw]' : '' } ${text ? 'translate-y-[-2px] md:translate-y-[-3px] xl:translate-y-[-3px]' : '' }`}>
+          <span className={`block mb-0 pb-0 pr-[1px] ${display ? 'translate-y-[-0.25vw] md:translate-y-[-0.55vw] xl:translate-y-[-0.55vw]' : '' } ${text ? 'translate-y-[-1px] md:translate-y-[-2px] xl:translate-y-[-1px]' : '' }`}>
             {word + (i !== words.length - 1 ? '\u00A0' : '')}
           </span>
         </m.span>

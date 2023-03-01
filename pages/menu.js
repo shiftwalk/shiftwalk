@@ -24,7 +24,7 @@ export default function Menu() {
     initial: {  },
     enter: {
       transition: {
-        staggerChildren: 0.05
+        staggerChildren: 0.015
       }
     },
     exit: {
@@ -64,13 +64,13 @@ export default function Menu() {
             {/* Main Section */}
             <Div100vh className="flex flex-wrap h-screen items-center">
               
-              <m.div variants={container}  initial="hidden" animate="enter" exit="exit" className="w-full px-5 mt-[-40vw] md:mt-0">
+              <m.div variants={container}  initial="hidden" animate="enter" exit="exit" className="w-full px-5 mt-[-10vw] md:mt-0">
                 <span className="font-display text-[38px] md:text-[55px] xl:text-[65px] leading-[1.22] block">
                   <Link href="/">
                     <a className="block pt-[2px] pb-[5px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
-                          <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;A&nbsp;&nbsp;)</span>
+                          
                           Studio
                         </m.span>
                       </div>
@@ -80,7 +80,7 @@ export default function Menu() {
                     <a className="block pt-[2px] pb-[5px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
-                          <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;B&nbsp;&nbsp;)</span>
+                          
                           Projects
                         </m.span>
                       </div>
@@ -90,7 +90,7 @@ export default function Menu() {
                     <a className="block pt-[2px] pb-[5px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
-                          <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;C&nbsp;&nbsp;)</span>
+                          
                           Journal
                         </m.span>
                       </div>
@@ -100,7 +100,7 @@ export default function Menu() {
                     <a className="block pt-[2px] pb-[5px] border-t border-b border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
-                          <span className="font-serif font-normal leading-none text-[12px] inline-block mr-[8px] translate-y-[-2px]">(&nbsp;&nbsp;D&nbsp;&nbsp;)</span>
+                          
                           Contact
                         </m.span>
                       </div>
@@ -110,13 +110,12 @@ export default function Menu() {
               </m.div>
 
               <div className="fixed bottom-0 left-0 right-0 w-full px-5">
-                <div className="w-full h-[1px] bg-black skew-y-[-15deg] md:skew-y-[-10deg] mb-[13vw] md:mb-[10vw]"></div>
 
                 <div className="w-full py-5">
                   <a href="mailto:hello@shiftwalk.studio" className="group block mb-2 md:mb-4">
                     <Pill label="Email Us" />
                   </a>
-                  <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block">
+                  <a href="https://www.instagram.com/shiftwalk.studio/" className="group block">
                     <Pill label="Instagram" />
                   </a>
                 </div>

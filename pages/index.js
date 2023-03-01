@@ -163,7 +163,7 @@ export default function Home(initialData) {
             <div className="w-[100%] md:w-[70%] pt-[63px] md:pt-[78px] xl:pt-[80px] md:h-screen flex flex-wrap px-5 relative">
               <div className="w-full mb-8 md:mb-0">
                 {/* Desktop H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[3.95vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.45vw] hidden xl:block">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[3.95vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0vw] hidden xl:block">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">A design-led studio building</span></m.span>
                   </div>
@@ -185,7 +185,7 @@ export default function Home(initialData) {
                 </m.h1>
 
                 {/* Tablet H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.6vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.55vw] hidden md:block xl:hidden">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.6vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0vw] hidden md:block xl:hidden">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.55vw]">A design-led studio</span></m.span>
                   </div>
@@ -210,7 +210,7 @@ export default function Home(initialData) {
                 </m.h1>
 
                 {/* Mobile H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.7vw] md:text-[4.7vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.8vw] block md:hidden">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.7vw] md:text-[4.7vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0] block md:hidden">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.8vw]">A design-led studio</span></m.span>
                   </div>
@@ -295,7 +295,7 @@ export default function Home(initialData) {
               <div className="flex flex-wrap">
                 <div className="w-full lg:w-[70%] p-5 flex flex-wrap">
                   <div className="w-full">
-                    <h2 className="font-display text-[7.2vw] md:text-[4.8vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%]">Information</h2>
+                    <h2 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%] uppercase">Info</h2>
                   </div>
 
                   <div className="mt-auto w-full">
@@ -370,7 +370,7 @@ export default function Home(initialData) {
                         </a>
                       </li>
                       <li className="w-full">
-                        <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/shiftwalk.studio/" className="group block" target="_blank" rel="noopener noreferrer">
                           <Pill label="Instagram" />
                         </a>
                       </li>

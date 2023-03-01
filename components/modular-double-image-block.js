@@ -4,7 +4,7 @@ import Grid from "./grid";
 
 export default function ModularDoubleImageBlock({ images }) {
   return (
-    <Grid className="gap-3">
+    <Grid className="gap-5 md:gap-3">
       {images.map((e, i) => { 
         return (
           <div className="col-span-5" key={i}>

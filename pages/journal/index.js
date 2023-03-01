@@ -175,11 +175,11 @@ export default function Journal(initialData) {
                       </a>
                     </Link>
                     
-                    <div className="lg:hidden mb-24">
+                    <div className="lg:hidden mb-[30vw] mt-5">
                       {journals.map((e, i) => {
                         return (
                           <Link href={`/journal/${e.slug.current}`} key={i}>
-                            <a className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] block`}>
+                            <a className={`mx-5 md:pb-[0.6vw] xl:pb-[0.8vw] pb-8 mb-3 block ${i == journals.length - 1 ? '' : 'border-b' } border-black mb-3`}>
                               <div className="mb-3">
                               { e.images.length == 1 ? (
                                 <Image
@@ -226,6 +226,10 @@ export default function Journal(initialData) {
                 </div>
 
                 <div className="w-full lg:mt-auto lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
+                  <div className="mt-[10vw] mb-[22vw] lg:mb-[16vw] xl:mb-[14.5vw] 2xl:mb-[13.75vw]  md:pb-0 md:absolute bottom-0 left-0 right-0 mx-5 lg:hidden">
+                    <div className="w-full h-[1px] bg-black skew-y-[-15deg]"></div>
+                  </div>
+
                   <Footer noRightPad />
                 </div>
               </div>

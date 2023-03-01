@@ -159,7 +159,7 @@ export default function ProjectSlug(initialData) {
                   <span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover-reverse' : '' } ${isInfoOpen ? '' : '' }`}></span>{isInfoOpen ? 'Hide Info' : 'Info' }
                 </button>
 
-                <div className={`px-5 flex-1 pb-24 overflow-scroll ${isInfoOpen ? '' : 'md:hidden' }`}>
+                <div className={`px-5 flex-1 pb-24 overflow-scroll remove-scroll ${isInfoOpen ? '' : 'md:hidden' }`}>
                 
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
@@ -168,7 +168,7 @@ export default function ProjectSlug(initialData) {
                     </m.span>
                   </div>
 
-                  <div className="text-sm leading-snug w-[85%] md:w-[100%] 2xl:w-[85%] mb-6 lg:mb-12 content tracking-tight">
+                  <div className="text-sm leading-[1.25] w-[85%] md:w-[100%] 2xl:w-[85%] mb-6 lg:mb-12 content tracking-tight">
                     <p className="flex flex-wrap overflow-hidden">
                       <SplitText
                         text
@@ -256,9 +256,9 @@ export default function ProjectSlug(initialData) {
                 </Link>
 
                 <div className="px-5">
-                  <div className="w-full border-b border-black relative overflow-hidden pb-0 md:pb-1">
+                  <div className="w-full border-b border-black relative overflow-hidden mb-[60vw] md:mb-0 md:pb-1">
                     <div className="">
-                      <h1 className="font-display text-[8vw] md:text-[3.35vw] xl:text-[3vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[95%] md:max-w-[80%] mb-0 md:mb-0 pb-0 w-full flex flex-wrap">
+                      <h1 className="font-display text-[6vw] md:text-[3.35vw] xl:text-[3vw] leading-[1] md:leading-[1.1] xl:leading-[1.1] max-w-[95%] md:max-w-[80%] mb-0 md:mb-0 pb-0 w-full flex flex-wrap uppercase">
                         <SplitText
                           display
                           initial={{ y: '100%' }}
@@ -279,7 +279,7 @@ export default function ProjectSlug(initialData) {
                       </h1>
                     </div>
                     <div className="overflow-hidden mb-2 md:absolute md:bottom-0 md:right-0">
-                      <m.span variants={reveal} className="font-serif block text-base md:text-xl">( {project.projectCode } )</m.span>
+                      <m.span variants={reveal} className="font-serif block text-base md:text-xl leading-[1.25]">( {project.projectCode } )</m.span>
                     </div>
                   </div>
                 </div>
@@ -300,7 +300,7 @@ export default function ProjectSlug(initialData) {
                         </m.span>
                       </div>
 
-                      <div className="text-sm leading-snug w-[90%] mb-6 lg:mb-12 content tracking-tight">
+                      <div className="text-sm leading-[1.25] w-[90%] mb-6 lg:mb-12 content tracking-tight">
                         <p className="flex flex-wrap overflow-hidden">
                           <SplitText
                             text
@@ -380,15 +380,15 @@ export default function ProjectSlug(initialData) {
                   
                 {project.projects[0] && (
                   <>
-                  <div className="px-5 pb-6 pt-[12vw]">
+                  <div className="px-5 pb-5 md:pb-6 pt-[30vw] md:pt-[12vw]">
                     <div className="border-b border-black">
-                      <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">Next Project</h1>
+                      <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full uppercase">Next</h1>
                     </div>
                   </div>
                 
 
-                  <div className="flex flex-wrap px-5 -mx-3 mb-6">
-                    <div className={`w-full md:w-[40%] flex px-3 mb-6 md:mb-0 group `}>
+                  <div className="flex flex-wrap px-5 -mx-3 md:mb-6">
+                    <div className={`w-full md:w-[40%] flex px-3 mb-0 md:mb-0 group`}>
                       <Teaser
                         projectCode={project.projects[0].projectCode}
                         title={project.projects[0].title}

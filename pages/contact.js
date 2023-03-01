@@ -138,7 +138,7 @@ export default function Contact() {
                     <a href="mailto:hello@shiftwalk.studio" className="group block mb-3 md:mb-4">
                       <Pill label="Email Us" />
                     </a>
-                    <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block">
+                    <a href="https://www.instagram.com/shiftwalk.studio/" className="group block">
                       <Pill label="Instagram" />
                     </a>
                   </div>

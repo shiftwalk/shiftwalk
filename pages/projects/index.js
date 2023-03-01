@@ -92,10 +92,10 @@ export default function Projects(initialData) {
         >
           <m.article variants={fade}>
             {/* Main Section */}
-            <div className="md:hidden mb-24 px-5 pt-[67px]">
+            <div className="md:hidden px-5 pt-[67px] mb-[30vw]">
               {projects.map((e, i) => {
                 return (
-                  <div className="pb-3" key={i}>
+                  <div className={`pb-8 ${i == projects.length - 1 ? '' : 'border-b' } border-black mb-3`} key={i}>
                     <Teaser
                       projectCode={e.projectCode}
                       title={e.title}
@@ -268,6 +268,10 @@ export default function Projects(initialData) {
               </Grid>
             </div>
             <div className="md:hidden">
+              <div className="mt-[10vw] mb-[22vw] lg:mb-[16vw] xl:mb-[14.5vw] 2xl:mb-[13.75vw]  md:pb-0 md:absolute bottom-0 left-0 right-0 mx-5 md:hidden">
+                <div className="w-full h-[1px] bg-black skew-y-[-15deg]"></div>
+              </div>
+
               <Footer noRightPad />
             </div>
           </m.article>

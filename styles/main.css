@@ -239,5 +239,5 @@ circle {
 }
 
 .remove-scroll::-webkit-scrollbar {
-  @apply hidden;
+  @apply hidden !important;
 }
