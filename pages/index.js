@@ -316,7 +316,7 @@ export default function Home(initialData) {
                     <span className="block leading-none">People</span>
                   </span>
 
-                  <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
                     <p>{home.peopleText}</p>
                   </div>
 
@@ -325,7 +325,7 @@ export default function Home(initialData) {
                     <span className="block leading-none">Expertise</span>
                   </span>
 
-                  <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
                     <ul>
                       {home.expertise.map((e, i) => {
                         return (
@@ -340,7 +340,7 @@ export default function Home(initialData) {
                     <span className="block leading-none">Select Partners</span>
                   </span>
 
-                  <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
                     <ul>
                       {home.partners.map((e, i) => {
                         return (
