@@ -16,6 +16,7 @@ import Pill from '@/components/pill'
 import Image from '@/components/image'
 import BlockContent from '@sanity/block-content-to-react'
 import { isMobile } from 'react-device-detect';
+import { useRouter } from 'next/router'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -54,6 +55,7 @@ const pageService = new SanityPageService(query)
 export default function Home(initialData) {
   const shouldReduceMotion = useReducedMotion()
   const { data: { home } } = pageService.getPreviewHook(initialData)()
+  const router = useRouter();
   const [current, setCurrent] = useState(null);
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
@@ -67,7 +69,12 @@ export default function Home(initialData) {
       setHeaderContext(true)
     }, (shouldReduceMotion || isMobile ) ? 0 : 1500);
     
-  },[]);
+    if (router.isReady) {
+      router.push(
+        { undefined }, undefined, { shallow: true }
+      );
+    }
+  },[router.isReady]);
 
   const childStaggerContainer = {
     enter: {

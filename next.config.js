@@ -10,7 +10,7 @@ module.exports = {
         source: '/works',
         destination: '/projects',
         permanent: true,
-      },
+      }
     ]
   },
 };
