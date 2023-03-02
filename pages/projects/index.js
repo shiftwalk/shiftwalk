@@ -80,7 +80,13 @@ export default function Projects(initialData) {
 
   return (
     <Layout>
-      <NextSeo title="Projects" />
+      <NextSeo
+        title="Projects"
+        description="A curated selection of the studio's work that we've had the pleasure of working on."
+        openGraph={{
+          title: 'ShiftWalk© Studio — Projects'
+        }}
+      />
 
       <Header />
       
@@ -92,10 +98,10 @@ export default function Projects(initialData) {
         >
           <m.article variants={fade}>
             {/* Main Section */}
-            <div className="md:hidden mb-24 px-5 pt-[67px]">
+            <div className="md:hidden px-5 pt-[67px] mb-[30vw]">
               {projects.map((e, i) => {
                 return (
-                  <div className="pb-3" key={i}>
+                  <div className={`pb-8 ${i == projects.length - 1 ? '' : 'border-b' } border-black mb-3`} key={i}>
                     <Teaser
                       projectCode={e.projectCode}
                       title={e.title}
@@ -103,6 +109,7 @@ export default function Projects(initialData) {
                       images={e.teaserImages}
                       hoverImages={e.teaserImagesHover}
                       noCaption
+                      priority={(i == 0 || i == 1) ? true : false}
                     />
                   </div>
                 )
@@ -121,6 +128,7 @@ export default function Projects(initialData) {
                           images={projects[0].teaserImages}
                           hoverImages={projects[0].teaserImagesHover}
                           noCaption
+                          priority
                           className="hard-remove-bottom-pad"
                         />
                       </div>
@@ -159,6 +167,7 @@ export default function Projects(initialData) {
                       slug={`/projects/${projects[2].slug.current}`}
                       images={projects[2].teaserImages}
                       hoverImages={projects[2].teaserImagesHover}
+                      priority
                     />
                   </div>
                 </div>
@@ -171,6 +180,7 @@ export default function Projects(initialData) {
                       slug={`/projects/${projects[1].slug.current}`}
                       images={projects[1].teaserImages}
                       hoverImages={projects[1].teaserImagesHover}
+                      priority
                     />
                   </div>
                 </div>
@@ -268,6 +278,10 @@ export default function Projects(initialData) {
               </Grid>
             </div>
             <div className="md:hidden">
+              <div className="mt-[10vw] mb-[22vw] lg:mb-[16vw] xl:mb-[14.5vw] 2xl:mb-[13.75vw]  md:pb-0 md:absolute bottom-0 left-0 right-0 mx-5 md:hidden">
+                <div className="w-full h-[1px] bg-black skew-y-[-15deg]"></div>
+              </div>
+
               <Footer noRightPad />
             </div>
           </m.article>

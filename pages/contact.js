@@ -30,7 +30,13 @@ export default function Contact() {
 
   return (
     <Layout>
-      <NextSeo title="Contact" />
+      <NextSeo
+        title="Contact"
+        description="We're always interested to hear about new projects, so please feel free to reach out on the channels below if you'd like to collaborate with us."
+        openGraph={{
+          title: 'ShiftWalk© Studio — Contact'
+        }}
+      />
 
       <Header />
       
@@ -138,7 +144,7 @@ export default function Contact() {
                     <a href="mailto:hello@shiftwalk.studio" className="group block mb-3 md:mb-4">
                       <Pill label="Email Us" />
                     </a>
-                    <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block">
+                    <a href="https://www.instagram.com/shiftwalk.studio/" className="group block" target="_blank" rel="noreferrer noopener">
                       <Pill label="Instagram" />
                     </a>
                   </div>

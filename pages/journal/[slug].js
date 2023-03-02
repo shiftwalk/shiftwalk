@@ -95,7 +95,22 @@ export default function JournalSlug(initialData) {
 
   return (
     <Layout>
-      <NextSeo title={journal.title} />
+      <NextSeo
+        title={journal.title}
+        description={journal.content}
+        openGraph={{
+          type: 'article',
+          title: `ShiftWalk© Studio — ${journal.title}`,
+          images: [
+            {
+              url: journal.images[0].asset.url,
+              width: journal.images[0].asset.metadata.dimensions.width,
+              height: journal.images[0].asset.metadata.dimensions.height,
+              alt: `${journal.title} Project Image`,
+            },
+          ],
+        }}
+      />
 
       <Header />
       
@@ -161,7 +176,7 @@ export default function JournalSlug(initialData) {
                   
                   <div className="border-b border-black relative pb-1 md:pb-1 overflow-hidden">
                     <div className="">
-                      <h1 className="font-display text-[8vw] md:text-[4.5vw] xl:text-[4vw] leading-[0.95] md:leading-[0.95] xl:leading-[0.95] max-w-[95%] md:max-w-[80%] mb-2 md:mb-0 pb-0 w-full flex flex-wrap">
+                      <h1 className="font-display text-[6vw] md:text-[4.5vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] max-w-[95%] md:max-w-[80%] mb-2 md:mb-0 pb-0 w-full flex flex-wrap uppercase">
                         <SplitText
                           display
                           initial={{ y: '100%' }}
@@ -219,7 +234,7 @@ export default function JournalSlug(initialData) {
                 <>
                   <div className="px-5 pb-6">
                     <div className="border-b border-black">
-                      <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full ">More Updates</h1>
+                      <h1 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] w-full uppercase">More</h1>
                     </div>
                   </div>
                 

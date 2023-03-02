@@ -1,5 +1,5 @@
 import '@/styles/main.css'
-import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
+import { AnimatePresence, domAnimation, LazyMotion, m, MotionConfig, useReducedMotion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import SEO from '@/helpers/seo.config';
@@ -11,11 +11,12 @@ import { MouseParallax } from 'react-just-parallax'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
+  const shouldReduceMotion = useReducedMotion()
   const [headerContext, setHeaderContext] = useState(false);
   const [introContext, setIntroContext] = useState(false);
 
   const introEnd = {
-    visible: { opacity: 1 },
+    visible: { opacity: shouldReduceMotion ? 0 : 1 },
     hidden: { opacity: 0 }
   }
   const introFullEnd = {
@@ -23,12 +24,12 @@ export default function App({ Component, pageProps }) {
     hidden: { visibility: 'hidden' }
   }
   const introLogoReveal = {
-    visible: { y: '100%' },
+    visible: { y: shouldReduceMotion ? '0%' : '100%' },
     hidden: { y: '0%' }
   }
 
   const draw = {
-    hidden: { pathLength: 0 },
+    hidden: { pathLength: shouldReduceMotion ? 1 : 0 },
     visible: { pathLength: 1 }
   };
 
@@ -99,10 +100,11 @@ export default function App({ Component, pageProps }) {
               </Div100vh>
             )}
           </LazyMotion>
-          
-          <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} key={router.asPath} />
-          </AnimatePresence>
+          <MotionConfig reducedMotion="user">
+            <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} key={router.asPath} />
+            </AnimatePresence>
+          </MotionConfig>
         </IntroContext.Provider>
       </HeaderContext.Provider>
     </>

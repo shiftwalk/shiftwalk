@@ -2,7 +2,7 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { fade, reveal } from '@/helpers/transitions'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import Grid from '@/components/grid'
 import { useContext, useEffect, useRef, useState } from 'react'
@@ -51,6 +51,7 @@ const query = `{
 const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
+  const shouldReduceMotion = useReducedMotion()
   const { data: { home } } = pageService.getPreviewHook(initialData)()
   const [current, setCurrent] = useState(null);
   const [introContext, setIntroContext] = useContext(IntroContext);
@@ -59,11 +60,11 @@ export default function Home(initialData) {
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, 2400);
+    }, shouldReduceMotion ? 0 : 2400);
 
     setTimeout(() => {
       setHeaderContext(true)
-    }, 1500);
+    }, shouldReduceMotion ? 0 : 1500);
     
   },[]);
 
@@ -78,7 +79,12 @@ export default function Home(initialData) {
 
   return (
     <Layout>
-      <NextSeo title="Brand, Direction & Development" />
+      <NextSeo
+        title="Brand, Direction & Development"
+        openGraph={{
+          title: 'ShiftWalk© Studio — Brand, Direction & Development'
+        }}
+      />
 
       <Header />
       
@@ -105,7 +111,7 @@ export default function Home(initialData) {
 
                     
                     <span className="block w-full relative overflow-hidden mb-[3px]">
-                      <span className="block transition-translate ease-in-out duration-[350ms] translate-y-0 group-hover:translate-y-[-100%] w-full">
+                      <span className="block motion-safe:transition-translate motion-safe:ease-in-out motion-safe:duration-[350ms] translate-y-0 group-hover:translate-y-[-100%] w-full">
                         <span className="block tracking-normal"><Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/London'} /> GMT</span>
                       </span>
                       <span className="block motion-safe:transition-translate motion-safe:ease-in-out motion-safe:duration-[350ms] translate-y-full group-hover:translate-y-0 absolute top-0 left-0 right-0">Nottingham<span className="hidden md:inline-block">&nbsp;— Worldwide</span></span>
@@ -163,7 +169,7 @@ export default function Home(initialData) {
             <div className="w-[100%] md:w-[70%] pt-[63px] md:pt-[78px] xl:pt-[80px] md:h-screen flex flex-wrap px-5 relative">
               <div className="w-full mb-8 md:mb-0">
                 {/* Desktop H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[3.95vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.45vw] hidden xl:block">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[3.95vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0vw] hidden xl:block">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">A design-led studio building</span></m.span>
                   </div>
@@ -185,7 +191,7 @@ export default function Home(initialData) {
                 </m.h1>
 
                 {/* Tablet H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.6vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.55vw] hidden md:block xl:hidden">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.6vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0vw] hidden md:block xl:hidden">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.55vw]">A design-led studio</span></m.span>
                   </div>
@@ -210,7 +216,7 @@ export default function Home(initialData) {
                 </m.h1>
 
                 {/* Mobile H1 */}
-                <m.h1 variants={childStaggerContainer} className="font-display text-[7.7vw] md:text-[4.7vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0.8vw] block md:hidden">
+                <m.h1 variants={childStaggerContainer} className="font-display text-[7.7vw] md:text-[4.7vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0] block md:hidden">
                   <div className="relative overflow-hidden">
                     <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.8vw]">A design-led studio</span></m.span>
                   </div>
@@ -295,7 +301,7 @@ export default function Home(initialData) {
               <div className="flex flex-wrap">
                 <div className="w-full lg:w-[70%] p-5 flex flex-wrap">
                   <div className="w-full">
-                    <h2 className="font-display text-[7.2vw] md:text-[4.8vw] xl:text-[4vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%]">Information</h2>
+                    <h2 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%] uppercase">Info</h2>
                   </div>
 
                   <div className="mt-auto w-full">
@@ -316,7 +322,7 @@ export default function Home(initialData) {
                     <span className="block leading-none">People</span>
                   </span>
 
-                  <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
                     <p>{home.peopleText}</p>
                   </div>
 
@@ -325,7 +331,7 @@ export default function Home(initialData) {
                     <span className="block leading-none">Expertise</span>
                   </span>
 
-                  <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
                     <ul>
                       {home.expertise.map((e, i) => {
                         return (
@@ -340,7 +346,7 @@ export default function Home(initialData) {
                     <span className="block leading-none">Select Partners</span>
                   </span>
 
-                  <div className="text-sm leading-snug w-[85%] mb-8 lg:mb-12">
+                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
                     <ul>
                       {home.partners.map((e, i) => {
                         return (
@@ -370,7 +376,7 @@ export default function Home(initialData) {
                         </a>
                       </li>
                       <li className="w-full">
-                        <a href="https://www.instagram.com/_shiftwalk.studio/" className="group block" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/shiftwalk.studio/" className="group block" target="_blank" rel="noopener noreferrer">
                           <Pill label="Instagram" />
                         </a>
                       </li>
