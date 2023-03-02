@@ -39,9 +39,9 @@ export default function App({ Component, pageProps }) {
 
       <HeaderContext.Provider value={[headerContext, setHeaderContext]}>
         <IntroContext.Provider value={[introContext, setIntroContext]}>
-        <LazyMotion features={domAnimation}>
+          <LazyMotion features={domAnimation}>
             { !introContext && router.asPath == '/' && (
-              <Div100vh className={`fixed inset-0 z-[1000] hidden md:flex flex-wrap items-end ${ introContext ? 'cursor-wait' : 'cursor-default' }`}>
+              <Div100vh className={`fixed inset-0 z-[1000] flex flex-wrap items-end ${ introContext ? 'cursor-wait' : 'cursor-default' }`}>
                 <m.div 
                   initial="visible"
                   animate="hidden"

@@ -15,7 +15,6 @@ import Clock from 'react-live-clock'
 import Pill from '@/components/pill'
 import Image from '@/components/image'
 import BlockContent from '@sanity/block-content-to-react'
-import { isMobile } from 'react-device-detect';
 import { useRouter } from 'next/router'
 
 const query = `{
@@ -63,11 +62,11 @@ export default function Home(initialData) {
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, (shouldReduceMotion || isMobile) ? 0 : 2400);
+    }, shouldReduceMotion ? 0 : 2400);
 
     setTimeout(() => {
       setHeaderContext(true)
-    }, (shouldReduceMotion || isMobile ) ? 0 : 1500);
+    }, shouldReduceMotion ? 0 : 1500);
     
     if (router.isReady) {
       router.push(
@@ -79,7 +78,7 @@ export default function Home(initialData) {
   const childStaggerContainer = {
     enter: {
       transition: {
-        delayChildren: (!introContext && !isMobile) ? 1.55 : 0,
+        delayChildren: !introContext ? 1.55 : 0,
         staggerChildren: 0.015
       }
     }
