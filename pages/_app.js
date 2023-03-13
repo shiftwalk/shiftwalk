@@ -33,13 +33,6 @@ export default function App({ Component, pageProps }) {
     visible: { pathLength: 1 }
   };
 
-  router.onRouteChangeComplete = () => {
-    window.scroll({
-      top: 0,
-      left: 0,
-    });
-  };
-
   return (
     <>
       <DefaultSeo {...SEO} />

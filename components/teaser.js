@@ -11,6 +11,13 @@ import { SplitText } from "./splitText";
 export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded, pillText, image, bigBottomPad, noPad, className }) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
+  function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function handleHover() {
     setShouldTransition(true);
   }
@@ -21,8 +28,12 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
 
   return (
     <Link href={`${slug}`}>
-      <a className={`${className} flex flex-wrap w-full group relative group ${padded ? 'p-5 md:pb-16' : '' } ${noCaption ? '' : 'pb-6 '} ${bigBottomPad ? 'md:pb-10' : 'md:pb-[29px]' }`} onMouseEnter={handleHover} 
-      onMouseLeave={handleHoverOut}>
+      <a
+        className={`${className} flex flex-wrap w-full group relative group ${padded ? 'p-5 md:pb-16' : '' } ${noCaption ? '' : 'pb-6 '} ${bigBottomPad ? 'md:pb-10' : 'md:pb-[29px]' }`}
+        onMouseEnter={handleHover} 
+        onMouseLeave={handleHoverOut}
+        onClick={scrollToTop}
+      >
         {hoverImages && (
           <div className={`absolute inset-0 z-10 opacity-0 md:group-hover:opacity-100`}>
             <Image
