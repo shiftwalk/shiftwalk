@@ -143,6 +143,7 @@ export default function Home(initialData) {
                         layout="fill"
                         className="w-full h-full object-cover object-center absolute inset-0 scale-[1.025] opacity-[0.75]"
                         introDelay={!introContext}
+                        sizes="(min-width: 1024px) 40vw, 100vw"
                         deepGrain
                         quality="90"
                       />

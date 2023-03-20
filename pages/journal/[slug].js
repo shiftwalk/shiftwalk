@@ -153,7 +153,7 @@ export default function JournalSlug(initialData) {
                         image={journal.images[0]}
                         focalPoint={journal.images[0].asset.hotspot}
                         layout="responsive"
-                        sizes="(min-width: 768px) 80vw, 100vw"
+                        sizes="(min-width: 1024px) 40vw, 100vw"
                         className="w-full"
                       />
                     ) : (

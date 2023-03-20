@@ -166,6 +166,7 @@ export default function Projects(initialData) {
                       title={projects[2].title}
                       slug={`/projects/${projects[2].slug.current}`}
                       images={projects[2].teaserImages}
+                      imageSizes="(min-width: 1024px) 65vw, 100vw"
                       hoverImages={projects[2].teaserImagesHover}
                       priority
                     />
@@ -177,6 +178,7 @@ export default function Projects(initialData) {
                     <Teaser
                       projectCode={projects[1].projectCode}
                       title={projects[1].title}
+                      imageSizes="(min-width: 1024px) 50vw, 100vw"
                       slug={`/projects/${projects[1].slug.current}`}
                       images={projects[1].teaserImages}
                       hoverImages={projects[1].teaserImagesHover}
@@ -194,6 +196,7 @@ export default function Projects(initialData) {
                       title={projects[3].title}
                       slug={`/projects/${projects[3].slug.current}`}
                       images={projects[3].teaserImages}
+                      imageSizes="(min-width: 1024px) 70vw, 100vw"
                       hoverImages={projects[3].teaserImagesHover}
                     />
                   </div>
@@ -206,6 +209,7 @@ export default function Projects(initialData) {
                     <Teaser
                       projectCode={projects[5].projectCode}
                       title={projects[5].title}
+                      imageSizes="(min-width: 1024px) 50vw, 100vw"
                       slug={`/projects/${projects[5].slug.current}`}
                       images={projects[5].teaserImages}
                       hoverImages={projects[5].teaserImagesHover}
@@ -218,6 +222,7 @@ export default function Projects(initialData) {
                     <Teaser
                       projectCode={projects[4].projectCode}
                       title={projects[4].title}
+                      imageSizes="(min-width: 1024px) 70vw, 100vw"
                       slug={`/projects/${projects[4].slug.current}`}
                       images={projects[4].teaserImages}
                       hoverImages={projects[4].teaserImagesHover}
@@ -246,6 +251,7 @@ export default function Projects(initialData) {
                     <Teaser
                       projectCode={projects[8].projectCode}
                       title={projects[8].title}
+                      imageSizes="(min-width: 1024px) 65vw, 100vw"
                       slug={`/projects/${projects[8].slug.current}`}
                       images={projects[8].teaserImages}
                       hoverImages={projects[8].teaserImagesHover}
@@ -258,6 +264,7 @@ export default function Projects(initialData) {
                     <Teaser
                       projectCode={projects[7].projectCode}
                       title={projects[7].title}
+                      imageSizes="(min-width: 1024px) 55vw, 100vw"
                       slug={`/projects/${projects[7].slug.current}`}
                       images={projects[7].teaserImages}
                       hoverImages={projects[7].teaserImagesHover}

@@ -117,6 +117,7 @@ export default function Journal(initialData) {
                       title={e.title}
                       slug={`/journal/${e.slug.current}`}
                       images={e.images}
+                      imageSizes="(min-width: 1024px) 25vw, 100vw"
                       hoverImages={null}
                       leftAlign
                       priority={ (i == 0 || i == 1 || i == 2) ? true : false}

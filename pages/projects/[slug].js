@@ -410,6 +410,7 @@ export default function ProjectSlug(initialData) {
                         slug={`/projects/${project.projects[0].slug.current}`}
                         image={project.projects[0].imageBlocks[0].image }
                         left
+                        imageSizes="(min-width: 1024px) 50vw, 100vw"
                         leftAlign
                         hoverImages={null}
                       />

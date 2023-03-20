@@ -8,14 +8,14 @@ import { useState } from "react";
 import { SplitText } from "./splitText";
 // import PixelatedImage from "./pixelated-image";
 
-export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded, pillText, image, bigBottomPad, noPad, className }) {
+export default function Teaser({ images, hoverImages, slug, title, projectCode, noCaption, matchHeight, leftAlign, padded, pillText, image, bigBottomPad, noPad, className, imageSizes }) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
   const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
 
   function scrollToTop() {
     if (!isBrowser()) return;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
   }
 
   function handleHover() {
@@ -40,7 +40,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
               image={hoverImages[0]}
               focalPoint={hoverImages[0].asset.hotspot}
               layout="responsive"
-              sizes="(min-width: 768px) 80vw, 100vw"
+              sizes={`${ imageSizes ? imageSizes : '(min-width: 768px) 80vw, 100vw'}`}
               className="w-full"
             />
           </div>
@@ -51,7 +51,7 @@ export default function Teaser({ images, hoverImages, slug, title, projectCode, 
             image={image ? image : images[0]}
             focalPoint={image ? image.asset.hotspot : images[0].asset.hotspot}
             layout="responsive"
-            sizes="(min-width: 768px) 80vw, 100vw"
+            sizes={`${ imageSizes ? imageSizes : '(min-width: 768px) 80vw, 100vw'}`}
             className="w-full"
           />
         </div>
