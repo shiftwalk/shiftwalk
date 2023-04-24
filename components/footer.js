@@ -28,7 +28,11 @@ export default function Footer({ noRightPad, bgColor, noTop }) {
         </div>
 
         {!noTop && (
-          <div className="w-auto ml-auto">
+          <div className="w-auto ml-auto flex space-x-2 md:space-x-3 lg:space-x-5">
+            <a href="mailto:hello@shiftwalk.studio" target="_blank" rel="noopener noreferrer" className={`text-sm leading-none a11y-focus ${ shouldTransition && 'nav-item-hover' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>Email</a>
+
+            <a href="https://www.instagram.com/shiftwalk.studio/" target="_blank" rel="noopener noreferrer" className={`text-sm leading-none a11y-focus ${ shouldTransition && 'nav-item-hover' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>Instagram</a>
+
             <a href="#" className={`text-sm leading-none a11y-focus ${ shouldTransition && 'nav-item-hover' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>Top</a>
           </div>
         )}

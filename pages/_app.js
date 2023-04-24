@@ -2,18 +2,31 @@ import '@/styles/main.css'
 import { AnimatePresence, domAnimation, LazyMotion, m, MotionConfig, useReducedMotion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
+import { reveal } from '@/helpers/transitions'
 import SEO from '@/helpers/seo.config';
 import { IntroContext } from '@/context/intro'
 import { HeaderContext } from '@/context/header'
 import { useState } from 'react'
 import Div100vh from 'react-div-100vh'
 import { MouseParallax } from 'react-just-parallax'
+import Clock from 'react-live-clock'
+import Pill from '@/components/pill'
+import Link from 'next/link'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const shouldReduceMotion = useReducedMotion()
   const [headerContext, setHeaderContext] = useState(false);
   const [introContext, setIntroContext] = useState(false);
+  const [shouldTransition, setShouldTransition] = useState(false);
+
+  function handleHover() {
+    setShouldTransition(true);
+  }
+
+  function handleHoverOut() {
+    setShouldTransition(false);
+  }
 
   const introEnd = {
     visible: { opacity: shouldReduceMotion ? 0 : 1 },
@@ -32,6 +45,15 @@ export default function App({ Component, pageProps }) {
     hidden: { pathLength: shouldReduceMotion ? 1 : 0 },
     visible: { pathLength: 1 }
   };
+
+  const childStaggerContainer = {
+    enter: {
+      transition: {
+        delayChildren: !introContext ? 1.55 : 0,
+        staggerChildren: 0.015
+      }
+    }
+  }
 
   return (
     <>
@@ -99,6 +121,65 @@ export default function App({ Component, pageProps }) {
                 </m.div>
               </Div100vh>
             )}
+            
+            <AnimatePresence>
+            {(router.asPath == '/' || router.asPath == '/info') && (
+              <m.div
+                className="fixed top-0 right-0 bottom-0 w-[30%] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 px-5 hidden md:flex flex-wrap"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: !introContext ? 0 : 0.5, duration: 0.5, ease: [0.65, 0, 0.35, 1] } }}
+                exit={{ opacity: 0, transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] } }}
+              >
+                <div
+                  initial={{ height: '0' }}
+                  animate={{ height: '100%' }}
+                  exit={{ height: '0' }}
+                  className="absolute top-0 left-0 bottom-0 w-[1px] bg-black"
+                ></div>
+                <div className="w-full mt-auto py-5">
+                  <m.div variants={childStaggerContainer} className="relative overflow-hidden mb-2">
+                    <m.span
+                      initial={{ y: '100%' }}
+                      animate={{ y: 0, transition: { delay: !introContext ? 0 : 0.5, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}}
+                      exit={{ y: '100%', transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] }}}
+                      className="block lg:flex items-center text-lg md:text-xl xl:text-2xl leading-[1.2] md:leading-[1.2] xl:leading-[1.2] group">
+                      <svg className="w-[28px] mb-1 lg:mb-[2px] lg:mr-2 block" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M22.72 14.428c2.273-1.495 3.5-3.436 3.5-5.428s-1.227-3.933-3.5-5.428c-2.263-1.49-5.456-2.447-9.04-2.447-3.584 0-6.777.958-9.04 2.447C2.366 5.067 1.14 7.008 1.14 9s1.227 3.933 3.5 5.428c2.263 1.49 5.456 2.447 9.04 2.447 3.584 0 6.777-.958 9.04-2.447ZM13.68 18c7.555 0 13.68-4.03 13.68-9s-6.125-9-13.68-9S0 4.03 0 9s6.125 9 13.68 9Z" fill="#202020"/><path fillRule="evenodd" clipRule="evenodd" d="M13.68 16.875c3.161 0 6.093-3.296 6.093-7.875 0-4.579-2.932-7.875-6.092-7.875-3.161 0-6.093 3.296-6.093 7.875 0 4.579 2.932 7.875 6.093 7.875Zm0 1.125c3.977 0 7.2-4.03 7.2-9s-3.223-9-7.2-9c-3.976 0-7.2 4.03-7.2 9s3.224 9 7.2 9Z" fill="#202020"/><path fillRule="evenodd" clipRule="evenodd" d="M26.64 9.362H.72v-1.44h25.92v1.44Z" fill="#242B2D"/><path fillRule="evenodd" clipRule="evenodd" d="M12.96 17.999V.719h1.44v17.28h-1.44Z" fill="#242B2D"/></svg>
+
+                      
+                      <span className="block w-full relative overflow-hidden mb-[3px]">
+                        <span className="block motion-safe:transition-translate motion-safe:ease-in-out motion-safe:duration-[350ms] translate-y-0 group-hover:translate-y-[-100%] w-full">
+                          <span className="block tracking-normal"><Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/London'} /> GMT</span>
+                        </span>
+                        <span className="block motion-safe:transition-translate motion-safe:ease-in-out motion-safe:duration-[350ms] translate-y-full group-hover:translate-y-0 absolute top-0 left-0 right-0">Nottingham<span className="hidden md:inline-block">&nbsp;— Worldwide</span></span>
+                      </span>
+                    </m.span>
+                    </m.div>
+
+                    <Link href="/projects">
+                      <a className="w-full h-[41vw] max-h-[65vh] relative overflow-hidden bg-black block group" onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
+                        <div className="grain--home absolute w-full bottom-0 left-0 right-0 top-0 z-[20]"></div>
+                        <div className="z-20 inset-0 absolute opacity-0 group-hover:opacity-100">
+                          <div className="absolute w-full h-auto z-[20] p-5 text-center justify-end items-end bottom-0 left-0">
+
+                            <div className="block w-full">
+                              <Pill label="Explore Projects" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} white />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent z-[2] opacity-0 group-hover:opacity-90 h-32"></div>
+
+                        <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0`}>
+                          <source src={ '/images/home-reel2.mp4' } type="video/mp4" />
+
+                          Sorry. Your browser does not support the video tag.
+                        </video>
+                      </a>
+                    </Link>
+                </div>
+              </m.div>
+            )}
+            </AnimatePresence>
           </LazyMotion>
           <MotionConfig reducedMotion="user">
             <AnimatePresence exitBeforeEnter>

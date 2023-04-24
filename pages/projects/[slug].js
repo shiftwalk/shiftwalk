@@ -178,8 +178,7 @@ export default function ProjectSlug(initialData) {
                 
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
-                      <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( A )</span>
-                      <span className="block leading-none">Overview</span>
+                      <span className="block leading-none font-bold">Overview</span>
                     </m.span>
                   </div>
 
@@ -207,8 +206,7 @@ export default function ProjectSlug(initialData) {
 
                   <div className="overflow-hidden relative  mb-6">
                     <m.span variants={reveal} className="flex items-center text-sm">
-                      <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( B )</span>
-                      <span className="block leading-none">Services</span>
+                      <span className="block leading-none font-bold">Services</span>
                     </m.span>
                   </div>
 
@@ -229,8 +227,7 @@ export default function ProjectSlug(initialData) {
                     <>
                       <div className="overflow-hidden relative  mb-6">
                         <m.span variants={reveal} className="flex items-center text-sm">
-                          <span className="font-serif leading-none text-xs block mr-[6px] md:translate-y-[1px]">( C )</span>
-                          <span className="block leading-none">Links</span>
+                          <span className="block leading-none font-bold">Links</span>
                         </m.span>
                       </div>
 

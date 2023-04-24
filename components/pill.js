@@ -1,7 +1,7 @@
 import { reveal } from '@/helpers/transitions'
 import { m } from 'framer-motion'
 import { useState } from 'react';
-export default function Pill( {label, className, hiddenLabel, shouldTransitionOverride, mouseOverride, parentHover} ) {
+export default function Pill( {label, className, hiddenLabel, shouldTransitionOverride, mouseOverride, parentHover, white} ) {
   const [shouldTransition, setShouldTransition] = useState(false);
 
   function handleHover() {
@@ -14,7 +14,7 @@ export default function Pill( {label, className, hiddenLabel, shouldTransitionOv
 
   return (
     <div
-      className={`px-6 py-2 uppercase text-xs leading-none border border-black rounded-full relative overflow-hidden block w-full text-center ${className} tracking-[-0.01em] group-focus-visible:text-white`} 
+      className={`px-6 py-2 uppercase text-xs leading-none border rounded-full relative overflow-hidden block w-full text-center ${className} tracking-[-0.01em] group-focus-visible:text-white ${white ? 'border-white' : 'border-black'}`} 
       onMouseEnter={mouseOverride ? null : handleHover } 
       onMouseLeave={mouseOverride ? null : handleHoverOut } 
     >
@@ -29,7 +29,9 @@ export default function Pill( {label, className, hiddenLabel, shouldTransitionOv
           </m.span>
         )}
       </div>
-      <div className="absolute bottom-0 left-0 right-0 w-full h-0 bg-black group-hover:md:h-full group-focus-visible:md:h-full"></div>
+      {!white && (
+        <div className="absolute bottom-0 left-0 right-0 w-full h-0 bg-black group-hover:md:h-full group-focus-visible:md:h-full"></div>
+      )}
     </div>
   )
 }

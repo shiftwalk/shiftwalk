@@ -34,10 +34,16 @@ export default function Header({ bgColor, textColor}) {
 
         <nav className="col-span-7 col-start-5 text-right text-lg md:text-xl xl:text-2xl leading-none">
           <div className="overflow-hidden relative w-full">
-            <div className={`hidden md:flex space-x-[12px] xl:space-x-[13px] justify-end items-center motion-safe:transition-transform motion-safe:ease-[cubic-bezier(0.65,0,0.35,1)] motion-safe:duration-[500ms] ${!headerContext ? 'translate-y-full' : 'translate-y-0' }`}>
+            <div className={`hidden md:flex space-x-[12px] xl:space-x-[14px] justify-end items-center motion-safe:transition-transform motion-safe:ease-[cubic-bezier(0.65,0,0.35,1)] motion-safe:duration-[500ms] ${!headerContext ? 'translate-y-full' : 'translate-y-0' }`}>
               <Link href="/">
                 <a className={`a11y-focus group w-auto  ${router.asPath == '/' ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut } >
-                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath == '/' ? 'bg-black active' : '' }`}></span>Studio</span>
+                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath == '/' ? 'bg-black active' : '' }`}></span>Home</span>
+                </a>
+              </Link>
+
+              <Link href="/info">
+                <a className={`a11y-focus group w-auto  ${router.asPath == '/info' ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut } >
+                  <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath == '/info' ? 'bg-black active' : '' }`}></span>Info</span>
                 </a>
               </Link>
 

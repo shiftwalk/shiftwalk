@@ -4,8 +4,7 @@ import Footer from '@/components/footer'
 import { fade, reveal } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
-import Grid from '@/components/grid'
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
 import SanityPageService from '@/services/sanityPageService'
 import { IntroContext } from '@/context/intro'
@@ -58,6 +57,15 @@ export default function Home(initialData) {
   const [current, setCurrent] = useState(null);
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
+  const [shouldTransition, setShouldTransition] = useState(false);
+
+  function handleHover() {
+    setShouldTransition(true);
+  }
+
+  function handleHoverOut() {
+    setShouldTransition(false);
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -68,12 +76,12 @@ export default function Home(initialData) {
       setHeaderContext(true)
     }, shouldReduceMotion ? 0 : 1500);
     
-    if (router.isReady) {
-      router.push(
-        { undefined }, undefined, { shallow: true }
-      );
-    }
-  },[router.isReady]);
+    // if (router.isReady) {
+    //   router.push(
+    //     { undefined }, undefined, { shallow: true }
+    //   );
+    // }
+  });
 
   const childStaggerContainer = {
     enter: {
@@ -103,7 +111,7 @@ export default function Home(initialData) {
         >
           <m.article variants={fade}>
             {/* Fixed Sidebar */}
-            <div className="fixed top-0 right-0 bottom-0 w-[30%] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 px-5 hidden md:flex flex-wrap">
+            {/* <div className="fixed top-0 right-0 bottom-0 w-[30%] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 px-5 hidden md:flex flex-wrap">
               <div
                 initial={{ height: '0' }}
                 animate={{ height: '100%' }}
@@ -126,55 +134,32 @@ export default function Home(initialData) {
                   </m.span>
                   </m.div>
 
-                  <div className="w-full h-[42vw] max-h-[65vh] relative overflow-hidden bg-black">
-                    <div className="grain--home absolute w-full bottom-0 left-0 right-0 top-0 z-[20]"></div>
-                    <div className="mix-blend-exclusion z-20 inset-0 absolute">
-                      <MouseParallax enableOnTouchDevice={false} isAbsolutelyPositioned lerpEase={0.1} strength={0.004} zIndex={20}>
-                        <div className="absolute inset-0 w-full h-full flex items-center justify-center z-[20]">
-                          <svg className="w-[32%] mb-8 hidden md:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 126 126"><circle cx="63" cy="63" r="62.5" stroke="#FFF"/><path fill="#FFF" d="M34.406 45.43c-7.178 0-11.883 3.945-11.883 9.696 0 7.082 5.323 8.65 11.74 10.267 5.181 1.283 7.653 2.044 7.653 5.466 0 3.184-2.472 5.133-6.702 5.133-4.706 0-7.368-2.329-7.368-7.177H22c0 7.748 4.99 11.883 13.166 11.883 7.605 0 12.644-4.088 12.644-10.362 0-7.13-5.324-8.793-11.693-10.362-5.419-1.33-7.748-2.281-7.748-5.37 0-2.758 2.282-4.516 5.942-4.516 4.373 0 6.797 2.186 6.797 6.464h5.75c0-7.272-4.23-11.122-12.452-11.122ZM92.087 46.143h-5.609l-2.804 13.023c-1.046 5.038-2.092 10.22-2.947 15.258h-.095a467.846 467.846 0 0 0-3.423-15.305l-3.137-12.976h-7.51l-3.137 12.976a468.106 468.106 0 0 0-3.422 15.305h-.095c-.855-5.039-1.901-10.22-2.994-15.258l-2.757-13.023h-5.609l7.462 33.842h7.653l3.375-14.07c1.188-4.943 2.281-9.886 3.232-14.877h.095c.95 4.991 2.044 9.934 3.232 14.878l3.375 14.069h7.652l7.463-33.842ZM97.236 65.268c-4.398 0-7.343 3.027-7.343 7.547s2.945 7.548 7.343 7.548c4.418 0 7.343-3.027 7.343-7.548 0-4.52-2.925-7.547-7.343-7.547Zm0 1.043c3.804 0 6.341 2.597 6.341 6.504 0 3.907-2.537 6.505-6.341 6.505-3.805 0-6.32-2.598-6.32-6.505 0-3.906 2.515-6.504 6.32-6.504Zm.04 1.657c-2.597 0-4.192 1.84-4.192 4.868 0 2.986 1.575 4.827 4.152 4.827 2.27 0 3.784-1.35 3.968-3.518h-1.76c-.142 1.227-.96 2.045-2.208 2.045-1.473 0-2.393-1.288-2.393-3.354 0-2.107.92-3.396 2.434-3.396 1.247 0 2.025.798 2.127 1.984h1.739c-.103-2.045-1.534-3.456-3.866-3.456Z"/></svg>
+                  <Link href="/projects">
+                    <a className="w-full h-[41vw] max-h-[65vh] relative overflow-hidden bg-black block group" onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
+                      <div className="grain--home absolute w-full bottom-0 left-0 right-0 top-0 z-[20]"></div>
+                      <div className="z-20 inset-0 absolute opacity-0 group-hover:opacity-100">
+                        <div className="absolute w-full h-auto z-[20] p-5 text-center justify-end items-end bottom-0 left-0">
+
+                          <div className="block w-full">
+                            <Pill label="Explore Projects" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} white />
+                          </div>
                         </div>
-                      </MouseParallax>
-                    </div>
-                    
-                    <MouseParallax enableOnTouchDevice={false} lerpEase={0.1} strength={-0.004}>
-                      <Image
-                        image={home.heroImage[0]}
-                        focalPoint={home.heroImage[0].asset.hotspot}
-                        layout="fill"
-                        className="w-full h-full object-cover object-center absolute inset-0 scale-[1.025] opacity-[0.75]"
-                        introDelay={!introContext}
-                        sizes="(min-width: 1024px) 40vw, 100vw"
-                        deepGrain
-                        quality="90"
-                      />
-                    </MouseParallax>
-                    
-                    {/* <MouseParallax enableOnTouchDevice={false} lerpEase={0.1} strength={-0.004} isAbsolutelyPositioned zIndex={10}>
-                      <Image
-                        image={home.heroImage[0]}
-                        focalPoint={home.heroImage[0].asset.hotspot}
-                        layout="fill"
-                        className="w-full h-full object-cover object-center absolute inset-0 scale-[0.8] -rotate-3"
-                        introDelay={!introContext}
-                        deepGrain
-                      />
-                    </MouseParallax>
-                    <MouseParallax enableOnTouchDevice={false} lerpEase={0.1} strength={0.004} isAbsolutelyPositioned zIndex={10}>
-                      <Image
-                        image={home.heroImage[0]}
-                        focalPoint={home.heroImage[0].asset.hotspot}
-                        layout="fill"
-                        className="w-full h-full object-cover object-center absolute inset-0 scale-[0.6] rotate-3 "
-                        introDelay={!introContext}
-                        deepGrain
-                      />
-                    </MouseParallax> */}
-                  </div>
+                      </div>
+                      
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent z-[2] opacity-0 group-hover:opacity-90 h-32"></div>
+
+                      <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0`}>
+                        <source src={ '/images/home-reel2.mp4' } type="video/mp4" />
+
+                        Sorry. Your browser does not support the video tag.
+                      </video>
+                    </a>
+                  </Link>
               </div>
-            </div>
+            </div> */}
 
             {/* Main Section */}
-            <div className="w-[100%] md:w-[70%] pt-[63px] md:pt-[78px] xl:pt-[80px] md:h-screen flex flex-wrap px-5 relative">
+            <div className="w-[100%] md:w-[70%] pt-[55px] md:pt-[78px] xl:pt-[80px] md:h-screen flex flex-wrap px-5 relative">
               <div className="w-full mb-8 md:mb-0">
                 {/* Desktop H1 */}
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[3.95vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0vw] hidden xl:block">
@@ -253,7 +238,6 @@ export default function Home(initialData) {
                     <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">creative arts spaces.</span></m.span>
                   </div>
                 </m.h1>
-
               </div>
 
               <div className="w-full mt-auto pb-5">
@@ -261,139 +245,46 @@ export default function Home(initialData) {
                   <div className="w-full h-[1px] bg-black skew-y-[-15deg]"></div>
                 </div>
                 
-                <m.div variants={childStaggerContainer} className="md:absolute bottom-0 left-0 right-0 mb-5 md:mx-5 z-20">
+                {/* <m.div variants={childStaggerContainer} className="md:absolute bottom-0 left-0 right-0 mb-5 md:mx-5 z-20">
                   <Link href="/projects">
                     <a className="group block">
                       <Pill label="Selected Projects" />
                     </a>
                   </Link>
-                </m.div>
+                </m.div> */}
 
-                <div className="pb-3 md:pb-16 xl:pb-[7vw] relative mt-6 md:mt-0 h-[125vw] overflow-hidden md:hidden bg-black">
+                <div className="md:pb-16 xl:pb-[7vw] relative mt-6 md:mt-0 h-[140vw] overflow-hidden md:hidden bg-black">
                   {/* <svg className="hidden md:block w-2 md:w-3 absolute bottom-0 left-0 mb-3 xl:mb-6" viewBox="0 0 10 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.64 28c-.907-1.893-2.347-3.653-4.32-5.28v-1.4c.853.4 1.6.8 2.24 1.2.64.373 1.173.747 1.6 1.12V.32h1.68v23.32c.453-.373 1-.747 1.64-1.12.64-.4 1.373-.8 2.2-1.2v1.4C7.733 24.347 6.293 26.107 5.36 28h-.72Z" fill="#242B2D"/></svg> */}
                   <div className="absolute w-full bottom-0 left-0 right-0 top-0 z-[20] aspect-[10/13]"></div>
-                    <div className="mix-blend-exclusion z-20 inset-0 absolute">
-                      <MouseParallax enableOnTouchDevice={false} isAbsolutelyPositioned lerpEase={0.1} strength={0.004} zIndex={20}>
-                        <div className="absolute inset-0 w-full h-full flex items-center justify-center z-[20]">
-                          <svg className="w-[32%] mb-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 126 126"><circle cx="63" cy="63" r="62.5" stroke="#FFF"/><path fill="#FFF" d="M34.406 45.43c-7.178 0-11.883 3.945-11.883 9.696 0 7.082 5.323 8.65 11.74 10.267 5.181 1.283 7.653 2.044 7.653 5.466 0 3.184-2.472 5.133-6.702 5.133-4.706 0-7.368-2.329-7.368-7.177H22c0 7.748 4.99 11.883 13.166 11.883 7.605 0 12.644-4.088 12.644-10.362 0-7.13-5.324-8.793-11.693-10.362-5.419-1.33-7.748-2.281-7.748-5.37 0-2.758 2.282-4.516 5.942-4.516 4.373 0 6.797 2.186 6.797 6.464h5.75c0-7.272-4.23-11.122-12.452-11.122ZM92.087 46.143h-5.609l-2.804 13.023c-1.046 5.038-2.092 10.22-2.947 15.258h-.095a467.846 467.846 0 0 0-3.423-15.305l-3.137-12.976h-7.51l-3.137 12.976a468.106 468.106 0 0 0-3.422 15.305h-.095c-.855-5.039-1.901-10.22-2.994-15.258l-2.757-13.023h-5.609l7.462 33.842h7.653l3.375-14.07c1.188-4.943 2.281-9.886 3.232-14.877h.095c.95 4.991 2.044 9.934 3.232 14.878l3.375 14.069h7.652l7.463-33.842ZM97.236 65.268c-4.398 0-7.343 3.027-7.343 7.547s2.945 7.548 7.343 7.548c4.418 0 7.343-3.027 7.343-7.548 0-4.52-2.925-7.547-7.343-7.547Zm0 1.043c3.804 0 6.341 2.597 6.341 6.504 0 3.907-2.537 6.505-6.341 6.505-3.805 0-6.32-2.598-6.32-6.505 0-3.906 2.515-6.504 6.32-6.504Zm.04 1.657c-2.597 0-4.192 1.84-4.192 4.868 0 2.986 1.575 4.827 4.152 4.827 2.27 0 3.784-1.35 3.968-3.518h-1.76c-.142 1.227-.96 2.045-2.208 2.045-1.473 0-2.393-1.288-2.393-3.354 0-2.107.92-3.396 2.434-3.396 1.247 0 2.025.798 2.127 1.984h1.739c-.103-2.045-1.534-3.456-3.866-3.456Z"/></svg>
+                    
+                    
+                    <Link href="/projects">
+                      <a className="w-full h-full relative overflow-hidden bg-black block group">
+                      <div className="z-20 inset-0 absolute opacity-100">
+                        <div className="absolute w-full h-auto z-[20] p-5 text-center justify-end items-end bottom-0 left-0">
+
+                          <div className="block w-full relative z-">
+                            <div
+                              className={`px-6 py-2 uppercase text-xs leading-none border rounded-full relative overflow-hidden block w-full text-center tracking-[-0.01em] group-focus-visible:text-white border-white text-white`}
+                            >Explore Projects</div>
+                            </div>
                         </div>
-                      </MouseParallax>
-                    </div>
-                    
-                    <MouseParallax enableOnTouchDevice={false} lerpEase={0.1} strength={0.004}>
-                      <Image
-                        image={home.heroImage[0]}
-                        focalPoint={home.heroImage[0].asset.hotspot}
-                        layout="fill"
-                        className="w-full h-full object-cover object-center absolute inset-0 scale-[1.04] opacity-[0.75]"
-                        introDelay={!introContext}
-                        deepGrain
-                      />
-                    </MouseParallax>
-                    
-                    {/* <MouseParallax enableOnTouchDevice={false} lerpEase={0.1} strength={-0.004} isAbsolutelyPositioned zIndex={10}>
-                      <Image
-                        image={home.heroImage[0]}
-                        focalPoint={home.heroImage[0].asset.hotspot}
-                        layout="fill"
-                        className="w-full h-full object-cover object-center absolute inset-0 scale-[0.7] rotate-6"
-                        introDelay={!introContext}
-                        deepGrain
-                      />
-                    </MouseParallax> */}
+                      </div>
+                      
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent z-[2] opacity-90 h-32"></div>
+                        
+                        <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0`}>
+                          <source src={ '/images/home-reel2.mp4' } type="video/mp4" />
+
+                          Sorry. Your browser does not support the video tag.
+                        </video>
+                      </a>
+                    </Link>
                   </div>
               </div>
             </div>
-
-            <div className="w-[100%] md:w-[70%] -mt-5 md:mt-2">
-              <div className="flex flex-wrap">
-                <div className="w-full lg:w-[70%] p-5 flex flex-wrap">
-                  <div className="w-full">
-                    <h2 className="font-display text-[6.5vw] md:text-[4vw] xl:text-[3.2vw] leading-none md:leading-none xl:leading-none mb-10 lg:mb-8 max-w-[90%] md:max-w-[95%] uppercase">Info</h2>
-                  </div>
-
-                  <div className="mt-auto w-full">
-                    <span className="flex items-center mb-6 text-sm">
-                      <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( A )</span>
-                      <span className="block leading-none">Background</span>
-                    </span>
-
-                    <div className="content w-[85%] md:w-[85%] max-w-[1000px] text-base md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] pb-2">
-                      <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.backgroundText} />
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="w-full lg:w-[30%] lg:border-l lg:border-black p-5 pt-12 lg:pt-32 xl:pt-40">
-                  <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( B )</span>
-                    <span className="block leading-none">People</span>
-                  </span>
-
-                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
-                    <p>{home.peopleText}</p>
-                  </div>
-
-                  <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( C )</span>
-                    <span className="block leading-none">Expertise</span>
-                  </span>
-
-                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
-                    <ul>
-                      {home.expertise.map((e, i) => {
-                        return (
-                          <li key={i}>{e}</li>
-                        )
-                      })}
-                    </ul>
-                  </div>
-
-                  <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( D )</span>
-                    <span className="block leading-none">Select Partners</span>
-                  </span>
-
-                  <div className="text-sm leading-[1.25] w-[85%] mb-8 lg:mb-12">
-                    <ul>
-                      {home.partners.map((e, i) => {
-                        return (
-                          <li key={i}>{e}</li>
-                        )
-                      })}
-                    </ul>
-                  </div>
-                  
-                  <span className="flex items-center mb-6 text-sm">
-                    <span className="font-serif leading-none text-xs block mr-[6px] translate-y-[1.5px] md:translate-y-[1px]">( E )</span>
-                    <span className="block leading-none">Links</span>
-                  </span>
-
-                  <div className="text-sm leading-snug mb-4 md:mb-0">
-                    <ul>
-                      <li className="w-full mb-2">
-                        <Link href="/journal">
-                          <a className="group block">
-                            <Pill label="The Journal" />
-                          </a>
-                        </Link>
-                      </li>
-                      <li className="w-full mb-2">
-                        <a href="mailto:hello@shiftwalk.studio" className="group block">
-                          <Pill label="Email" />
-                        </a>
-                      </li>
-                      <li className="w-full">
-                        <a href="https://www.instagram.com/shiftwalk.studio/" className="group block" target="_blank" rel="noopener noreferrer">
-                          <Pill label="Instagram" />
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                
-              </div>
-            
+              
+            <div className="w-full mt-auto md:fixed bottom-0 left-0 right-0 md:w-[70%] bg-white z-20">
               <Footer noRightPad />
             </div>
           </m.article>

@@ -76,7 +76,17 @@ export default function Menu() {
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
                           
-                          Studio
+                          Home
+                        </m.span>
+                      </div>
+                    </a>
+                  </Link>
+                  <Link href="/info">
+                    <a className="block pt-[2px] pb-[5px] border-t border-black">
+                      <div className="relative overflow-hidden">
+                        <m.span variants={item} className="block">
+                          
+                          Info
                         </m.span>
                       </div>
                     </a>
