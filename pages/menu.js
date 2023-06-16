@@ -81,7 +81,7 @@ export default function Menu() {
                       </div>
                     </a>
                   </Link>
-                  <Link href="/info">
+                  {/* <Link href="/info">
                     <a className="block pt-[2px] pb-[5px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
@@ -90,7 +90,7 @@ export default function Menu() {
                         </m.span>
                       </div>
                     </a>
-                  </Link>
+                  </Link> */}
                   <Link href="/projects">
                     <a className="block pt-[2px] pb-[5px] border-t border-black">
                       <div className="relative overflow-hidden">
@@ -101,7 +101,7 @@ export default function Menu() {
                       </div>
                     </a>
                   </Link>
-                  <Link href="/journal">
+                  {/* <Link href="/journal">
                     <a className="block pt-[2px] pb-[5px] border-t border-black">
                       <div className="relative overflow-hidden">
                         <m.span variants={item} className="block">
@@ -110,7 +110,7 @@ export default function Menu() {
                         </m.span>
                       </div>
                     </a>
-                  </Link>
+                  </Link> */}
                   <Link href="/contact">
                     <a className="block pt-[2px] pb-[5px] border-t border-b border-black">
                       <div className="relative overflow-hidden">

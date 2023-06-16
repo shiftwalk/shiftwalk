@@ -58,6 +58,7 @@ export default function Home(initialData) {
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
   const [shouldTransition, setShouldTransition] = useState(false);
+  const [currentPerson, setCurrentPerson] = useState(null);
 
   function handleHover() {
     setShouldTransition(true);
@@ -164,78 +165,57 @@ export default function Home(initialData) {
                 {/* Desktop H1 */}
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[3.95vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0vw] hidden xl:block">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">A design-led studio building</span></m.span>
+                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">The collaborative work of</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">thoughtful brands + websites for</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">both <a href="https://ijpowell.co.uk" target="_blank" rel="noopener noreferrer" className="inline group relative"><div className="transition-all ease-in-out duration-[400ms] absolute bottom-0 left-0 right-0 w-full group-hover:w-0 h-[2px] translate-y-[-2px] bg-black"></div>Isaac Powell</a>, a designer, and</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">our partners around the world. We</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]"><a href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer" className="inline group relative"><div className="transition-all ease-in-out duration-[400ms] absolute bottom-0 left-0 right-0 w-full group-hover:w-0 h-[2px] translate-y-[-2px] bg-black"></div>Sam Goddard</a>, a developer. Based</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">feel at home creating work in the</span></m.span>
-                  </div>
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]"> architectural, sustainability, and</span></m.span>
-                  </div>
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">creative arts spaces.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">in the UK, but working worldwide.</span></m.span>
                   </div>
                 </m.h1>
 
                 {/* Tablet H1 */}
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.6vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0vw] hidden md:block xl:hidden">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.55vw]">A design-led studio</span></m.span>
+                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">The collaborative work</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">building thoughtful brands +</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">of <a href="https://ijpowell.co.uk" target="_blank" rel="noopener noreferrer" className="inline group relative"><div className="transition-all ease-in-out duration-[400ms] absolute bottom-0 left-0 right-0 w-full group-hover:w-0 h-[2px] translate-y-[-2px] bg-black"></div>Isaac Powell</a>, a designer,</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">websites for our partners</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">and <a href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer" className="inline group relative"><div className="transition-all ease-in-out duration-[400ms] absolute bottom-0 left-0 right-0 w-full group-hover:w-0 h-[2px] translate-y-[-2px] bg-black"></div>Sam Goddard</a>, a</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">around the world. We feel at</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">developer. Based in the UK,</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">home creating work in the</span></m.span>
-                  </div>
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">architectural, sustainability,</span></m.span>
-                  </div>
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">and creative arts spaces.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">but working workdwide.</span></m.span>
                   </div>
                 </m.h1>
 
                 {/* Mobile H1 */}
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.7vw] md:text-[4.7vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-6 md:mb-8 max-w-[95%] md:max-w-[95%] mt-[0] block md:hidden">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.8vw]">A design-led studio</span></m.span>
+                    <m.span variants={reveal} className="block indent-[8vw]"><span className="block translate-y-[-0.45vw]">The collaborative</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">building thoughtful</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">work of <a href="https://ijpowell.co.uk" target="_blank" rel="noopener noreferrer" className="inline group relative"><div className="transition-all ease-in-out duration-[400ms] absolute bottom-0 left-0 right-0 w-full h-[2px] translate-y-[-2px] bg-black"></div>Isaac Powell</a>, a</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">brands + websites for</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">designer, and <a href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer" className="inline group relative"><div className="transition-all ease-in-out duration-[400ms] absolute bottom-0 left-0 right-0 w-full h-[2px] translate-y-[-2px] bg-black"></div>Sam</a></span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">our partners around the</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]"><a href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer" className="inline group relative"><div className="transition-all ease-in-out duration-[400ms] absolute bottom-0 left-0 right-0 w-full h-[2px] translate-y-[-2px] bg-black"></div>Goddard</a>, a developer.</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">world. We feel at home</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">Based in the UK, but</span></m.span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">creating work in the</span></m.span>
-                  </div>
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">architectural,</span></m.span>
-                  </div>
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">sustainability, and</span></m.span>
-                  </div>
-                  <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">creative arts spaces.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">working worldwide.</span></m.span>
                   </div>
                 </m.h1>
               </div>

@@ -118,29 +118,35 @@ export default function Contact(initialData) {
                 {/* Desktop H1 */}
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.8vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] mt-[0.45vw] hidden xl:block">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">Let's chat.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.45vw]">Get in touch.</span></m.span>
                   </div>
                 </m.h1>
 
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.8vw] md:text-[4.5vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] mt-[0.55vw] hidden md:block xl:hidden">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">Let's chat.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.55vw]">Get in touch.</span></m.span>
                   </div>
                 </m.h1>
 
                 <m.h1 variants={childStaggerContainer} className="font-display text-[7.45vw] md:text-[4.8vw] xl:text-[4vw] leading-[1] md:leading-[1] xl:leading-[1] mb-2 md:mb-3 max-w-[95%] md:max-w-[95%] mt-[0.8vw] block md:hidden">
                   <div className="relative overflow-hidden">
-                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">Let's chat.</span></m.span>
+                    <m.span variants={reveal} className="block will-change-transform"><span className="block translate-y-[-0.8vw]">Get in touch.</span></m.span>
                   </div>
                 </m.h1>
                 
                 <div className="content w-[85%] md:w-[65%] max-w-[830px] text-sm md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] pb-3 hidden md:block">
-                  <p>We're always interested to hear about new projects, so please feel free to reach out on the channels below if you'd like us to bring your vision to life.</p>
+                  <p>Whether you&rsquo;d like to talk to one of us, or both of us, please reach out below and your message will find its way to the right destination.</p>
                 </div>
 
                 <div className="w-full max-w-[400px] py-5 hidden md:block">
-                  <a href="mailto:hello@shiftwalk.studio" className="group block mb-3 md:mb-4">
-                    <Pill label="Email Us" />
+                  <a href="mailto:isaac@shiftwalk.studio" className="group block mb-2 md:mb-3">
+                    <Pill label="Email Isaac" />
+                  </a>
+                  <a href="mailto:sam@shiftwalk.studio" className="group block mb-2 md:mb-3">
+                    <Pill label="Email Sam" />
+                  </a>
+                  <a href="mailto:hello@shiftwalk.studio" className="group block mb-2 md:mb-3">
+                    <Pill label="Email Us Both" />
                   </a>
                   <a href="https://www.instagram.com/shiftwalk.studio/" className="group block" target="_blank" rel="noreferrer noopener">
                     <Pill label="Instagram" />
@@ -150,20 +156,26 @@ export default function Contact(initialData) {
 
               <div className="w-[100%] md:w-[65%] max-w-[550px] text-[13px] md:text-sm leading-[1.33] md:leading-[1.33] p-5 pb-[75px] md:pb-[72px] lg:pb-[81px] absolute bottom-0 left-0">
                 <div className="content w-[85%] md:w-[65%] max-w-[830px] text-base md:text-xl 2xl:text-[23px] leading-[1.2] md:leading-[1.2] 2xl:leading-[1.2] pb-3 md:hidden">
-                  <p>We're always interested to hear about new projects, so please feel free to reach out on the channels below if you'd like us to bring your vision to life.</p>
+                  <p>Whether you&rsquo;d like to talk to one of us, or both of us, please reach out below and your message will find its way to the right destination.</p>
                 </div>
 
                 <div className="w-full max-w-[400px] pt-3 pb-0 md:py-5 md:hidden">
-                  <a href="mailto:hello@shiftwalk.studio" className="group block mb-3 md:mb-4">
-                    <Pill label="Email Us" />
+                  <a href="mailto:isaac@shiftwalk.studio" className="group block mb-2 md:mb-3">
+                    <Pill label="Email Isaac" />
+                  </a>
+                  <a href="mailto:sam@shiftwalk.studio" className="group block mb-2 md:mb-3">
+                    <Pill label="Email Sam" />
+                  </a>
+                  <a href="mailto:hello@shiftwalk.studio" className="group block mb-2 md:mb-3">
+                    <Pill label="Email Us Both" />
                   </a>
                   <a href="https://www.instagram.com/shiftwalk.studio/" className="group block" target="_blank" rel="noreferrer noopener">
                     <Pill label="Instagram" />
                   </a>
                 </div>
 
-                <h2 className="pb-0 mb-3 md:mb-4 hidden md:block">Partnering with ShiftWalk</h2>
-                <p className="hidden md:block">Whilst we're not actively hiring right now, we’re always on the look out for talented freelance photographers, motion designers, 3D designers, and creative developers to help with work in the studio. Please reach out if this describes you — we’d love to chat.</p>
+                <h2 className="pb-0 mb-3 md:mb-4 hidden md:block">how do you work together?</h2>
+                <p className="hidden md:block">We&rsquo;re two freelancers, but when a project comes along that requires both creative direction and development, we love working together on it as a unified team. It&rsquo;s like a studio, but only when we need it to be. Working with us is seamless, since we have collaborated in this way for many years to create websites and brands for clients all over the world.</p>
               </div>
 
               {/* <div className="mb-[60px] md:mb-[63px] xl:mb-[70px] mt-auto w-full px-5">

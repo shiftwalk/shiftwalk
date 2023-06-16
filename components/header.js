@@ -41,11 +41,11 @@ export default function Header({ bgColor, textColor}) {
                 </a>
               </Link>
 
-              <Link href="/info">
+              {/* <Link href="/info">
                 <a className={`a11y-focus group w-auto  ${router.asPath == '/info' ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut } >
                   <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath == '/info' ? 'bg-black active' : '' }`}></span>Info</span>
                 </a>
-              </Link>
+              </Link> */}
 
               <Link href="/projects">
                 <a className={`a11y-focus group ${router.asPath.includes('/projects') ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
@@ -53,11 +53,11 @@ export default function Header({ bgColor, textColor}) {
                 </a>
               </Link>
 
-              <Link href="/journal">
+              {/* <Link href="/journal">
               <a className={`a11y-focus group  ${router.asPath.includes('/journal') ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>
                   <span className="block"><span className={`inline-block md:translate-y-[-2px] xl:translate-y-[-3px] w-[9px] xl:w-[10px] h-[9px] xl:h-[10px] rounded-full border-black border mr-[7px] ${shouldTransition ? 'dot-hover' : '' } ${router.asPath.includes('/journal') ? 'bg-black active' : '' }`}></span>Journal</span>
                 </a>
-              </Link>
+              </Link> */}
 
               <Link href="/contact">
               <a className={`a11y-focus group  ${router.asPath == '/contact' ? 'text-black' : '' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>

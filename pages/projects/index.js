@@ -2,23 +2,25 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
-import { fade, reveal } from '@/helpers/transitions'
 import { NextSeo } from 'next-seo'
+import { fade, reveal } from '@/helpers/transitions'
 import Grid from '@/components/grid'
-import SanityPageService from '@/services/sanityPageService'
-import Teaser from '@/components/teaser'
 import { useContext, useEffect, useState } from 'react'
+import SanityPageService from '@/services/sanityPageService'
+import Image from '@/components/image'
+import Link from 'next/link'
+import Gif from '@/components/gif'
 import { IntroContext } from '@/context/intro'
 import Pill from '@/components/pill'
-import Link from 'next/link'
 import { HeaderContext } from '@/context/header'
+import Teaser from '@/components/teaser'
+import { SplitText } from '@/components/splitText'
 
 const query = `{
-  "projects": *[_type == "projects"] | order(orderRank) {
+  "journals": *[_type == "projects"] | order(orderRank) {
     title,
-    services[],
-    projectCode,
-    overview,
+    content,
+    journalCode,
     teaserImages[] {
       asset-> {
         ...
@@ -35,7 +37,11 @@ const query = `{
         y
       },
     },
-    teaserImagesHover[] {
+    additionalLinks[] {
+      linkText,
+      linkUrl,
+    },
+    images[] {
       asset-> {
         ...
       },
@@ -60,7 +66,7 @@ const query = `{
 const pageService = new SanityPageService(query)
 
 export default function Projects(initialData) {
-  const { data: { projects } } = pageService.getPreviewHook(initialData)()
+  const { data: { journals } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [headerContext, setHeaderContext] = useContext(HeaderContext);
   const [shouldTransition, setShouldTransition] = useState(false);
@@ -81,10 +87,10 @@ export default function Projects(initialData) {
   return (
     <Layout>
       <NextSeo
-        title="Projects"
-        description="A curated selection of the studio's work that we've had the pleasure of working on."
+        title="Journal"
+        description="The latest from ShiftWalk HQ — including news, updates and wider commentary on design."
         openGraph={{
-          title: 'ShiftWalk© Studio — Projects'
+          title: 'ShiftWalk© Studio — Journal'
         }}
       />
 
@@ -97,200 +103,162 @@ export default function Projects(initialData) {
           exit="exit"
         >
           <m.article variants={fade}>
-            {/* Main Section */}
-            <div className="md:hidden px-5 pt-[67px] mb-[30vw]">
-              {projects.map((e, i) => {
+            <div className="absolute top-0 right-0 bottom-0 w-[25%] h-screen pt-[45px] md:pt-[53px] xl:pt-[57px] col-span-3 col-start-8 hidden lg:flex flex-wrap">
+              {/* <div className="w-full mt-auto py-5">
+                { current !== null && (
+                  <div className="w-full relative overflow-hidden">
+                    { journals[current].images.length == 1 ? (
+                      <Image
+                        image={journals[current].images[0]}
+                        focalPoint={journals[current].images[0].asset.hotspot}
+                        layout="responsive"
+                        sizes="(min-width: 768px) 80vw, 100vw"
+                        className="w-full"
+                      />
+                    ) : (
+                      <Gif images={journals[current].images} />
+                    )}
+                  </div>
+                )}
+              </div> */}
+
+              {journals.slice(1).map((e, i) => {
                 return (
-                  <div className={`pb-8 ${i == projects.length - 1 ? '' : 'border-b' } border-black mb-3`} key={i}>
+                  <div className={`border-black w-full block group ${ (i + 2) == journals.length ? 'border-b-0' : 'border-b'}`} key={i}>
                     <Teaser
-                      projectCode={e.projectCode}
+                      padded
+                      bigBottomPad
+                      projectCode={`SW.00${i+1}`}
+                      pillText="Read More"
                       title={e.title}
                       slug={`/projects/${e.slug.current}`}
                       images={e.teaserImages}
-                      hoverImages={e.teaserImagesHover}
-                      noCaption
-                      priority={(i == 0 || i == 1) ? true : false}
+                      imageSizes="(min-width: 1024px) 25vw, 100vw"
+                      hoverImages={null}
+                      leftAlign
+                      priority={ (i == 0 || i == 1 || i == 2) ? true : false}
                     />
                   </div>
                 )
               })}
             </div>
-            <div className="hidden md:block w-full">
-              <Grid>
-                <Link href={`/projects/${projects[0].slug.current}`}>
-                  <div className="w-full group col-span-12 grid grid-cols-10 cursor-pointer" onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
-                    <div className="col-span-10 md:col-span-7 pt-[67px] md:pt-[78px] xl:pt-[80px] order-2 md:order-1 pb-3 md:pb-0">
-                      <div className="px-5 w-full pb-3 md:pb-5">
-                        <Teaser
-                          projectCode={projects[0].projectCode}
-                          title={projects[0].title}
-                          slug={`/projects/${projects[0].slug.current}`}
-                          images={projects[0].teaserImages}
-                          hoverImages={projects[0].teaserImagesHover}
-                          noCaption
-                          priority
-                          className="hard-remove-bottom-pad"
-                        />
-                      </div>
-                    </div>
 
-                    <div className="col-span-10 md:col-span-3 p-5 order-1 md:order-2 text-center items-center justify-center hidden md:flex border-l border-black relative">
-                      <div className="w-full">
-                        <div className="relative overflow-hidden">
-                          <m.span variants={reveal} className="block text-base md:text-xl xl:text-2xl leading-none md:leading-none xl:leading-none uppercase font-display mb-[2px]">{projects[0].title}</m.span>
+            <Grid>
+              <div className="col-span-12 w-full pt-12 lg:pt-0 lg:w-[75%] lg:fixed top-0 left-0 right-0 lg:h-screen flex flex-wrap lg:border-r lg:border-black relative">
+
+                <div className="lg:my-auto w-full lg:flex lg:items-center lg:justify-center">
+                  <div className="lg:w-[70vh] lg:max-w-[80%] lg:mt-[-6vh]">
+                    <Link href={`/projects/${journals[0].slug.current}`}>
+                      <a className={`p-5 pb-[0.3vw] md:pb-[0.6vw] xl:pb-[0.8vw] hidden lg:block group`} onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
+                        <div className="w-full mt-auto py-5">
+                          <div className="w-full relative overflow-hidden">
+                            { journals[0].teaserImages.length == 1 ? (
+                              <Image
+                                image={journals[0].teaserImages[0]}
+                                focalPoint={journals[0].teaserImages[0].asset.hotspot}
+                                layout="responsive"
+                                sizes="(min-width: 768px) 80vw, 100vw"
+                                className="w-full"
+                              />
+                            ) : (
+                              <Gif images={journals[0].teaserImages} />
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-wrap justify-center">
+                          <div className="mx-auto text-center">
+                            <div className="overflow-hidden relative">
+                              <h2 className="text-xl md:text-2xl 2xl:text-3xl uppercase leading-none md:leading-none 2xl:leading-none  mb-2 md:mb-3 xl:mb-3 text-center w-[100%] mx-auto flex flex-wrap justify-center">
+                                <SplitText
+                                  initial={{ y: '100%' }}
+                                  animate="enter"
+                                  exit="exit"
+                                  transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
+                                  variants={{
+                                    enter: i => ({
+                                      y: 0,
+                                    }),
+                                    exit: i => ({
+                                      y: '100%',
+                                    })
+                                  }}
+                                >
+                                  {journals[0].title}
+                                </SplitText>
+                              </h2>
+                            </div>
+                            <div className="overflow-hidden relative pb-1">
+                              <m.span variants={reveal} className="font-serif mb-2 block text-xl leading-none text-center">(&nbsp;&nbsp;SW.001&nbsp;&nbsp;)</m.span>
+                            </div>
+                          </div>
                         </div>
                         
-                        <div className="relative overflow-hidden">
-                          <m.span variants={reveal} className="font-serif text-sm md:text-base xl:text-lg leading-none hidden md:block">(&nbsp;&nbsp;{projects[0].projectCode}&nbsp;&nbsp;)</m.span>
+                        <div className="absolute bottom-0 left-0 right-0 mb-[90px] mx-5 md:block">
+                          <Pill label="Read More" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
                         </div>
-
-                        
-                        <div className="absolute bottom-0 left-0 right-0 m-5">
-                          <Pill label="Explore Project" mouseOverride={true} shouldTransitionOverride={shouldTransition} parentHover={true} />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="px-6 col-span-10 order-3 hidden md:block">
-                      <div className="h-[1px] bg-black"></div>
-                    </div>
-                  </div>
-                </Link>
-              </Grid>
-
-              <Grid>
-                <div className="col-span-10 md:col-span-5 md:mt-[20vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[2].projectCode}
-                      title={projects[2].title}
-                      slug={`/projects/${projects[2].slug.current}`}
-                      images={projects[2].teaserImages}
-                      imageSizes="(min-width: 1024px) 65vw, 100vw"
-                      hoverImages={projects[2].teaserImagesHover}
-                      priority
-                    />
-                  </div>
-                </div>
-
-                <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[8vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[1].projectCode}
-                      title={projects[1].title}
-                      imageSizes="(min-width: 1024px) 50vw, 100vw"
-                      slug={`/projects/${projects[1].slug.current}`}
-                      images={projects[1].teaserImages}
-                      hoverImages={projects[1].teaserImagesHover}
-                      priority
-                    />
-                  </div>
-                </div>
-              </Grid>
-              
-              <Grid>
-                <div className="col-span-10 md:col-span-8 md:col-start-2 md:mt-[12vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[3].projectCode}
-                      title={projects[3].title}
-                      slug={`/projects/${projects[3].slug.current}`}
-                      images={projects[3].teaserImages}
-                      imageSizes="(min-width: 1024px) 70vw, 100vw"
-                      hoverImages={projects[3].teaserImagesHover}
-                    />
-                  </div>
-                </div>
-              </Grid>
-              
-              <Grid className="">
-                <div className="col-span-10 md:col-span-4 md:mt-[35vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[5].projectCode}
-                      title={projects[5].title}
-                      imageSizes="(min-width: 1024px) 50vw, 100vw"
-                      slug={`/projects/${projects[5].slug.current}`}
-                      images={projects[5].teaserImages}
-                      hoverImages={projects[5].teaserImagesHover}
-                    />
-                  </div>
-                </div>
-
-                <div className="col-span-10 md:col-span-5 md:col-start-6 md:mt-[12vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[4].projectCode}
-                      title={projects[4].title}
-                      imageSizes="(min-width: 1024px) 70vw, 100vw"
-                      slug={`/projects/${projects[4].slug.current}`}
-                      images={projects[4].teaserImages}
-                      hoverImages={projects[4].teaserImagesHover}
-                    />
-                  </div>
-                </div>
-              </Grid>
-
-              <Grid className="">
-                <div className="col-span-10 md:col-span-7 md:col-start-4 md:mt-[15vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[6].projectCode}
-                      title={projects[6].title}
-                      slug={`/projects/${projects[6].slug.current}`}
-                      images={projects[6].teaserImages}
-                      hoverImages={projects[6].teaserImagesHover}
-                    />
-                  </div>
-                </div>
-              </Grid>
-
-              <Grid className="">
-                <div className="col-span-10 md:col-span-5 md:mt-[35vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[8].projectCode}
-                      title={projects[8].title}
-                      imageSizes="(min-width: 1024px) 65vw, 100vw"
-                      slug={`/projects/${projects[8].slug.current}`}
-                      images={projects[8].teaserImages}
-                      hoverImages={projects[8].teaserImagesHover}
-                    />
-                  </div>
-                </div>
-
-                <div className="col-span-10 md:col-span-4 md:col-start-7 md:mt-[12vw] mb-0 lg:mb-0">
-                  <div className="px-5">
-                    <Teaser
-                      projectCode={projects[7].projectCode}
-                      title={projects[7].title}
-                      imageSizes="(min-width: 1024px) 55vw, 100vw"
-                      slug={`/projects/${projects[7].slug.current}`}
-                      images={projects[7].teaserImages}
-                      hoverImages={projects[7].teaserImagesHover}
-                    />
-                  </div>
-                </div>
-              </Grid>
-              
-              <Grid>
-                <div className="col-span-10 md:col-span-10 mt-[25vw]">
-                  <div className="col-span-10 md:col-span-7">
-                    <div className="mb-[13vw] md:mb-[11.5vw] px-5">
-                      <div className="w-full h-[1px] bg-black -skew-y-12"></div>
+                      </a>
+                    </Link>
+                    
+                    <div className="lg:hidden mb-[30vw] mt-5">
+                      {journals.map((e, i) => {
+                        return (
+                          <Link href={`/projects/${e.slug.current}`} key={i}>
+                            <a className={`mx-5 md:pb-[0.6vw] xl:pb-[0.8vw] pb-8 mb-3 block ${i == journals.length - 1 ? '' : 'border-b' } border-black mb-3`}>
+                              <div className="mb-3">
+                              { e.teaserImages.length == 1 ? (
+                                <Image
+                                  image={e.teaserImages[0]}
+                                  focalPoint={e.teaserImages[0].asset.hotspot}
+                                  layout="responsive"
+                                  sizes="(min-width: 768px) 80vw, 100vw"
+                                  className="w-full"
+                                  priority={ (i == 0 || i == 1 || i == 2) ? true : false}
+                                />
+                              ) : (
+                                <Gif images={e.teaserImages} />
+                              )}
+                              </div>
+                              
+                              <h2 className="text-lg md:text-lg xl:text-xl uppercase leading-none md:leading-none xl:leading-none mb-2 md:mb-3 xl:mb-4 w-[80%] flex flex-wrap">
+                                <SplitText
+                                  initial={{ y: '100%' }}
+                                  animate="enter"
+                                  exit="exit"
+                                  transition={{ delay: 0, duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
+                                  variants={{
+                                    enter: i => ({
+                                      y: 0,
+                                    }),
+                                    exit: i => ({
+                                      y: '100%',
+                                    })
+                                  }}
+                                >
+                                  {e.title}
+                                </SplitText>
+                              </h2>
+                              <div className="flex pb-1">
+                                <div className="w-full relative overflow-hidden">
+                                  <m.span variants={reveal} className="font-serif mb-2 block md:text-lg leading-none">(SW.00{i+1} )</m.span>
+                                </div>
+                              </div>
+                            </a>
+                          </Link>
+                        )
+                      })}
                     </div>
                   </div>
+                </div>
+
+                <div className="w-full lg:mt-auto lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
+                  <div className="mt-[10vw] mb-[22vw] lg:mb-[16vw] xl:mb-[14.5vw] 2xl:mb-[13.75vw]  md:pb-0 md:absolute bottom-0 left-0 right-0 mx-5 lg:hidden">
+                    <div className="w-full h-[1px] bg-black skew-y-[-15deg]"></div>
+                  </div>
+
                   <Footer noRightPad />
                 </div>
-              </Grid>
-            </div>
-            <div className="md:hidden">
-              <div className="mt-[10vw] mb-[22vw] lg:mb-[16vw] xl:mb-[14.5vw] 2xl:mb-[13.75vw]  md:pb-0 md:absolute bottom-0 left-0 right-0 mx-5 md:hidden">
-                <div className="w-full h-[1px] bg-black skew-y-[-15deg]"></div>
               </div>
-
-              <Footer noRightPad />
-            </div>
+            </Grid>
           </m.article>
         </m.main>
       </LazyMotion>

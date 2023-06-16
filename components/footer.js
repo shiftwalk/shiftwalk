@@ -23,17 +23,15 @@ export default function Footer({ noRightPad, bgColor, noTop }) {
               </svg>
             </span>
 
-            <span className="text-sm leading-none">ShiftWalk Studio Ltd<span className="hidden md:inline">, Copyright 2023</span></span>
+            {/* <span className="text-sm leading-none">ShiftWalk Studio Ltd<span className="hidden md:inline">, Copyright 2023</span></span> */}
           </div>
         </div>
 
         {!noTop && (
-          <div className="w-auto ml-auto flex space-x-2 md:space-x-3 lg:space-x-5">
+          <div className="w-auto ml-auto flex space-x-2 md:space-x-3 lg:space-x-5 pr-1">
             <a href="mailto:hello@shiftwalk.studio" target="_blank" rel="noopener noreferrer" className={`text-sm leading-none a11y-focus ${ shouldTransition && 'nav-item-hover' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>Email</a>
 
             <a href="https://www.instagram.com/shiftwalk.studio/" target="_blank" rel="noopener noreferrer" className={`text-sm leading-none a11y-focus ${ shouldTransition && 'nav-item-hover' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>Instagram</a>
-
-            <a href="#" className={`text-sm leading-none a11y-focus ${ shouldTransition && 'nav-item-hover' }`} onMouseEnter={handleHover } onMouseLeave={handleHoverOut }>Top</a>
           </div>
         )}
       </div>
