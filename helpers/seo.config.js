@@ -1,13 +1,13 @@
 export default {
-  defaultTitle: 'ShiftWalk© Studio — Brand, Direction & Development',
-  description: 'We are a multidisciplinary creative studio who believe that great design is rooted in concept, and honed by understanding. To that end, we see ourselves as curious collaborators for foward-thinking and brave brands, always looking to find novel ways to meet each brief and challenge the expected.',
-  titleTemplate: 'ShiftWalk© Studio — %s',
+  defaultTitle: 'ShiftWalk© — Brand, Direction & Development',
+  description: 'The collaborative work of both Isaac Powell, a designer, and Sam Goddard, a developer. Based in the UK, but working worldwide.',
+  titleTemplate: 'ShiftWalk© — %s',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     url: 'https://shiftwalk.studio',
-    site_name: 'ShiftWalk© Studio',
-    titleTemplate: 'ShiftWalk© Studio — %s',
+    site_name: 'ShiftWalk©',
+    titleTemplate: 'ShiftWalk© — %s',
     images: [
       {
         url: 'https://www.shiftwalk.studio/images/social.jpg',
