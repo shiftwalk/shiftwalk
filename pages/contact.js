@@ -139,7 +139,7 @@ export default function Contact(initialData) {
                 </div>
 
                 <div className="w-full max-w-[400px] py-5 hidden md:block">
-                  <a href="mailto:isaac@40000ft.co.uk" className="group block mb-2 md:mb-3">
+                  <a href="mailto:hello@ijpowell.co.uk" className="group block mb-2 md:mb-3">
                     <Pill label="Email Isaac" />
                   </a>
                   <a href="mailto:hello@samgoddard.co.uk" className="group block mb-2 md:mb-3">
@@ -160,7 +160,7 @@ export default function Contact(initialData) {
                 </div>
 
                 <div className="w-full max-w-[400px] pt-3 pb-0 md:py-5 md:hidden">
-                  <a href="mailto:isaac@40000ft.co.uk" className="group block mb-2 md:mb-3">
+                  <a href="mailto:hello@ijpowell.co.uk" className="group block mb-2 md:mb-3">
                     <Pill label="Email Isaac" />
                   </a>
                   <a href="mailto:hello@samgoddard.co.uk" className="group block mb-2 md:mb-3">
