@@ -174,7 +174,7 @@ export default function Contact(initialData) {
                   </a>
                 </div>
 
-                <h2 className="pb-0 mb-3 md:mb-4 hidden md:block">how do you work together?</h2>
+                <h2 className="pb-0 mb-3 md:mb-4 hidden md:block">How do you work together?</h2>
                 <p className="hidden md:block">We&rsquo;re two freelancers, but when a project comes along that requires both creative direction and development, we love working together on it as a unified team. It&rsquo;s like a studio, but only when we need it to be. Working with us is seamless, since we have collaborated in this way for many years to create websites and brands for clients all over the world.</p>
               </div>
 

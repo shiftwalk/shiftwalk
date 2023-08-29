@@ -87,10 +87,10 @@ export default function Projects(initialData) {
   return (
     <Layout>
       <NextSeo
-        title="Journal"
+        title="Projects"
         description="The latest from ShiftWalk HQ — including news, updates and wider commentary on design."
         openGraph={{
-          title: 'ShiftWalk© Studio — Journal'
+          title: 'ShiftWalk© Studio — Projects'
         }}
       />
 
@@ -128,7 +128,7 @@ export default function Projects(initialData) {
                     <Teaser
                       padded
                       bigBottomPad
-                      projectCode={`SW.00${i+1}`}
+                      projectCode={`SW.00${i+2}`}
                       pillText="Read More"
                       title={e.title}
                       slug={`/projects/${e.slug.current}`}
